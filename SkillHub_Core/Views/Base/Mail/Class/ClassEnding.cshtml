@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo lớp hết hạn</title>
+    <style>
+        .ClassBody {
+            font-family: Arial, sans-serif;
+        }
+
+        .ClassTable {
+            width: 800px;
+            border-collapse: collapse;
+        }
+
+        .ClassTh,
+        .ClassTd {
+            border: 1px solid #393939;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .ClassTh {
+            width: 200px;
+            background-color: #b6f1fa;
+        }
+    </style>
+</head>
+
+<body class="ClassBody">
+    <h2>Thông Báo Lớp Học Kết Thúc</h2>
+    <p>Chúng tôi xin trân trọng thông báo rằng lớp học {ClassName} sẽ kết thúc trong ngày hôm nay.</p>
+    <table class="ClassTable">
+        <tr>
+            <th class="ClassTh">Lớp học</th>
+            <td class="ClassTd">{ClassName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Giáo viên</th>
+            <td class="ClassTd">{TeacherName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Hình thức tham gia</th>
+            <td class="ClassTd">{TypeName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Thời gian</th>
+            <td class="ClassTd"> <li style="margin-bottom: 5px;">Bắt đầu: {StartDay}</li> <li>Kết thúc: {EndDay}</li> </td>
+        </tr>
+    </table>
+    <p>Chúng tôi mong rằng Quý Phụ huynh / Học viên đã có một trải nghiệm học tập tích cực và hữu ích từ lớp học này.</p>
+    <p><strong>{Url}Xem thêm chi tiết lớp học tại đây</a></strong></p>
+    <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+</body>
+
+</html>

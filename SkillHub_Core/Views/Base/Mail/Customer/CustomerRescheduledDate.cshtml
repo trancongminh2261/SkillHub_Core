@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo</title>
+    <style>
+        .CusBody {
+            font-family: Arial, sans-serif;
+        }
+
+        .CusTable {
+            width: 800px;
+            border-collapse: collapse;
+        }
+
+        .CusTh,
+        .CusTd {
+            border: 1px solid #393939;
+            padding: 5px;
+            text-align: left;
+        }
+
+        .CusTh {
+            width: 200px;
+            background-color: #b6f1fa;
+        }
+    </style>
+</head>
+
+<body class="CusBody">
+    <h2>Thông Báo Lịch Hẹn Với Khách Hàng</h2>
+    <p>Kính gửi {SaleName},</p>
+    <p>Bạn có lịch hẹn với khách hàng vào hôm nay, ngày {today}</p>
+    <table class="CusTable">
+        <tr>
+            <th class="CusTh">Tên khách hàng</th>
+            <td class="CusTd">{CusName}</td>
+        </tr>
+        <tr>
+            <th class="CusTh">Trạng thái khách hàng</th>
+            <td class="CusTd">{Status}</td>
+        </tr>
+        <tr>
+            <th class="CusTh">Lịch hẹn</th>
+            <td class="CusTd">{RescheduledDate}</td>
+        </tr>
+    </table>
+    <p>Xin lưu ý và sẵn sàng tham gia vào buổi hẹn vào thời gian đã thông báo.</p>
+    <p><strong>{Url}Xem thêm chi tiết khách hàng tại đây</a></strong></p>
+    <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+</body>
+
+</html>

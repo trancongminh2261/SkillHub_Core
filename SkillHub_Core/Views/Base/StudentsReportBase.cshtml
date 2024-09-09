@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        :root {
+            --body-width: 793px;
+        }
+        
+        body {
+            width: var(--body-width);
+            margin: auto;
+            padding: 0px 20px;
+            min-height: 1122px;
+        }
+        #wrapper{
+            margin: 0px auto;
+        }
+        .label-container{
+            display: flex;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .form{
+            margin: 20px 0px; 
+        }
+        .label-form{
+            background-color: #c3c2c2;
+        }
+        
+        table, th, td {
+            border: 1px solid black;
+            
+        }
+        table{
+            width: 100%; 
+            border-spacing:0px; 
+        }
+        tr th{
+            width: 20%;
+            text-align: left;
+            padding-left: 10px; 
+            word-wrap: break-word; 
+        }
+        tr td{
+            width: 80%;
+            text-align: left;
+            padding:0px 5px;
+            overflow-wrap: break-word 
+        }
+        .tr2{
+            text-align: center; 
+            word-wrap: break-word; 
+        }
+        .MarkFail{
+            color: red;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .table-fix{
+            table-layout: fixed;
+        }
+        .text-bold{
+            font-weight: bold;
+        } 
+        .img-container{
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+        .img-container img{
+            width: 30%;
+        }  
+        .top-left {
+            left: 0;
+        } 
+    </style>
+    <div id="wrapper">
+        <div class="img-container">
+            <img class="corner-image top-left" src="https://monalms.monamedia.net/images/logo-2.jpg" alt="">  
+        </div>
+        <div class="label-container"><a>Báo cáo tình hình học viên</a></div>
+        <div class="form-container">
+            <div class="time-form">
+                <table>
+                    <tr>
+                        <th>Tháng</th>
+                        <td>{month}</td>
+                    </tr>
+                    <tr>
+                        <th>Năm</th>
+                        <td>{year}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class=" form student-form">
+                <table>
+                    <tr class="label-form">
+                        <th colspan="2">Thông tin học viên</th>
+                    </tr>
+                    <tr>
+                        <th>Họ tên</th>
+                        <td>{fullname}</td>
+                    </tr>
+                    <tr>
+                        <th>Lớp</th>
+                        <td>{class}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="student-form form ">
+                <table class="table-fix">
+                    <tr class="label-form">
+                        <th colspan="2">Kết quả chuyên cần trong tháng</th>
+                    </tr>
+                    <tr>
+                        <th class="tr2">Số buổi đi học/ Tổng số buổi học của lớp</th>
+                        <th class="tr2">Số buổi nghỉ không phép</th>
+                    </tr>
+                    <tr>
+                        <td class="text-center">{Attend}/{TotalLessons}</td>
+                        <td class="text-center">{Unexcused}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class=" form student-form">
+                <table class="table-fix">
+                    <tr class="label-form">
+                        <th colspan="8">Kết quả học tập trong tháng</th>
+                    </tr>
+                    <tr>
+                        <th colspan="8">Điểm thi</th>
+                    </tr>
+                    <tr>
+                        <th>Ngày</th>
+                        <th class="text-center">Tên bài kiểm tra</th>
+                        <th colspan="5" class="text-center">Điểm số</th>
+                        <th class="text-center">Đỗ trượt</th>
+                    </tr>
+                    <tr>
+                        <td class="text-center text-bold" rowspan="2">{Date}</td>
+                        <td class="text-center text-bold" rowspan="2">{TestName}</td>
+                        <th class="text-center">Đọc<br>(.../100)</th>
+                        <th class="text-center">Nghe<br>(.../100)</th>
+                        <th class="text-center">Viết<br>(.../100)</th>
+                        <th class="text-center">Ngữ pháp<br>(.../100)</th>
+                        <th class="text-center">Nói<br>(.../100)</th>
+                        <td class="text-center text-bold MarkFail" rowspan="2">{Mark}/100 - {PassOrFail}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center MarkFail"></td>
+                        <td class="text-center MarkFail"></td>
+                        <td class="text-center MarkFail"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"><a style="color: transparent;">.</a></td>
+                    </tr>
+                    {RL}
+                </table>
+            </div>
+
+            <div class=" form student-form">
+                <table>
+                    <tr class="label-form">
+                        <th colspan="2">Nhận xét của giáo viên chủ nhiệm</th>
+                    </tr>
+                    <tr>
+                        <th>Hạnh kiểm</th>
+                        <td>{Behaviour}</td>
+                    </tr>
+                    <tr>
+                        <th>Học lực</th>
+                        <td>{AcademicPerformance}</td>
+                    </tr>
+                    <tr>
+                        <th>Ghi chú và đề xuất của giáo viên (nếu có)</th>
+                        <td>{Note}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

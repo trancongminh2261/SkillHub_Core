@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Gửi Thông Tin User Mới Được Tạo</title>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .heading {
+            color: #333;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .header-cell, .data-cell {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+        }
+
+        .header-cell {
+            background-color: #c2f5f5;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .red-text {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="heading">Phản Hồi Tiêu Cực</h2>
+        <p><strong>Ngày:</strong> {today}</p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th class="header-cell">Chi Nhánh</th>
+                    <th class="header-cell">Người đánh giá</th>
+                    <th class="header-cell">Đánh giá</th>
+                    <th class="header-cell">Nội dung</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dữ liệu hóa đơn được thêm vào đây -->
+                <tr>
+                    <td class="data-cell">{BranchName}</td>
+                    <td class="data-cell">{FullName}</td>
+                    <td class="data-cell">{StartRating} sao</td>
+                    <td class="data-cell"><div> <strong>{Title}</strong> </div><div>{Content}</div></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>{Url}Xem chi tiết phản hồi tại đây</a></strong></p>
+        <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+
+        <p class="footer">Vui lòng không trả lời email này. Liên hệ với bộ phận quản lý nếu cần thêm thông tin.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo: Xác nhận tham gia lớp học</title>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .heading {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .unordered-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .list-item {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table class="container">
+        <tr>
+            <td>
+                <h2 class="heading">Xác nhận tham gia lớp học</h2>
+                <p class="paragraph">Kính gửi {item1},</p>
+                <p class="paragraph">Chúng tôi xin thông báo rằng {item2} đã tham gia vào lớp học "<strong class="strong-text">{item3}</strong>".</p>
+                <p class="paragraph">Dưới đây là thông tin chi tiết về lớp học:</p>
+                <ul class="unordered-list">
+                    <li class="list-item"><strong class="strong-text">Tên lớp học:</strong> {item3}</li>
+                    <li class="list-item"><strong class="strong-text">Ngày bắt đầu:</strong> {item4}</li>
+                    <li class="list-item"><strong class="strong-text">Hình thức tham gia:</strong> {item5}</li>
+                </ul>
+                <p class="paragraph">Xin vui lòng chắc chắn rằng {item2} sẽ tham gia đúng giờ và địa điểm quy định. Nếu bạn có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với chúng tôi.</p>
+                <p class="paragraph">Chúng tôi rất mong được gặp bạn trong lớp học. Chúc bạn có một trải nghiệm học tập thú vị và bổ ích.</p>
+                <p><strong>{Url}Xem thêm chi tiết lớp học tại đây</a></strong></p>
+                <p><strong class="strong-text">Trân trọng,</strong><br>{item6}</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

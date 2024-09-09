@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hóa Đơn</title>
+    <style>
+        .bill-body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .bill-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed; /* Các cột cách đều nhau */
+        }
+
+        .bill-th, .bill-td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            width: 33.33%; /* Số liệu các cột sẽ cách đều nhau */
+        }
+
+        .bill-th {
+            background-color: #c7f5ff;
+        }
+
+        .bill-total {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bill-body">
+    <div class="bill-container">
+        <h2 style="text-align: center;">HÓA ĐƠN</h2>
+        <p><strong>Ngày tạo: {item1},</strong></p>
+        <p><strong>Người tạo: {item2},</strong></p>
+        <p><strong>Tên khách hàng: {item3},</strong></p>
+        <table class="bill-table">
+            <thead>
+                <tr>
+                    <th class="bill-th">Loại hóa đơn</th>
+                    <th class="bill-th">Đơn giá</th>
+                    <th class="bill-th">Mã giảm giá</th>
+                    <th class="bill-th">Số tiền giảm</th>
+                    <th class="bill-th">Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bill-td">{item4}</td>
+                    <td class="bill-td">{item5}</td>
+                    <td class="bill-td">{item6}</td>
+                    <td class="bill-td">{item7}</td>
+                    <td class="bill-td">{item8}</td>
+                </tr>
+                <!-- Thêm các dòng dữ liệu khác nếu cần -->
+            </tbody>
+            <tfoot class="bill-td">
+                <tr class="bill-total">
+                    <td colspan="4">Tổng cộng:</td>
+                    <td class="bill-td">{item9}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <p><strong>{Url}Xem thêm chi tiết tại đây</a></strong></p>
+        <p><strong>Trân trọng,</strong><br>{item10}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hóa Đơn Đến Hạn Thanh Toán</title>
+    <style>
+        .custom-body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .custom-container {
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .custom-heading {
+            color: #333;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .custom-th, .custom-td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+        }
+
+        .custom-th {
+            background-color: #c2f5f5;
+        }
+
+        .custom-footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .custom-red-text {
+            color: red;
+        }
+    </style>
+</head>
+<body class="custom-body">
+    <div class="custom-container">
+        <h2 class="custom-heading">Hóa Đơn Đến Hạn Thanh Toán</h2>
+        <p>Kính gửi {TitleFullName},</p>
+        <p>{FullName} có hóa đơn đã đến hạn thanh toán. Vui lòng kiểm tra thông tin hóa đơn bên dưới.</p>
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th class="custom-th">Thông Tin Chi Nhánh</th>
+                    <th class="custom-th">Thông Tin Hóa Đơn</th>
+                    <th class="custom-th">Thông Tin Khách Hàng</th>
+                    <th class="custom-th">Thông Tin Thanh Toán</th>
+                    <th class="custom-th">Giảm Giá</th>
+                    <th class="custom-th">Kì Tiếp Theo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dữ liệu hóa đơn được thêm vào đây -->
+                <tr>
+                    <td class="custom-td">{BranchName}</td>
+                    <td class="custom-td">
+                        <div>Mã: <strong>{CodeBill}</strong></div>
+                        <div>Loại: {TypeBill}</div>
+                    </td>
+                    <td class="custom-td">
+                        <div> Mã: <strong>{UserCode}</strong></div>
+                        <div> Tên KH: {UserName} </div>
+                    </td>
+                    <td class="custom-td">
+                        <div>Tổng tiền: <strong>{TotalPrice}</strong></div>
+                        <div>Đã thanh toán: {Paid}</div>
+                        <div>Chưa thanh toán: <strong><span class="custom-red-text">{Debt}</span></strong></div>
+                    </td>
+                    <td class="custom-td">
+                        <div>Mã giảm: {DiscountCode}</div>
+                        <div>Số tiền giảm: {Reduced}</div>
+                    </td>
+                    <td class="custom-td">{PaymentAppointmentDate}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Xin vui lòng thanh toán số tiền <strong><span class="custom-red-text">{Debt}</span></strong> đúng hạn. Xin cảm ơn sự hợp tác của bạn và sự ủng hộ liên tục đối với chúng tôi.</p>
+        <p><strong>{Url}Xem thêm chi tiết hóa đơn tại đây</a></strong></p>
+        <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+
+        <p class="custom-footer">Đây là email tự động, vui lòng không trả lời. Liên hệ với bộ phận tài chính nếu cần thêm thông tin.</p>
+    </div>
+</body>
+</html>

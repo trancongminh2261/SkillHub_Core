@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Gửi Thông Tin User Mới Được Tạo</title>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .container__title {
+            color: #333;
+        }
+
+        .container__table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .container__table-cell {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+        }
+
+        .container__table-header {
+            background-color: #c2f5f5;
+        }
+
+        .container__footer {
+            margin-top: 20px;
+        }
+
+        .text--red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="container__title">Tài Khoản Mới Được Thêm Vào Hệ Thống</h2>
+        <p><strong>Ngày:</strong> {Today}</p>
+        <table class="container__table">
+            <thead>
+                <tr>
+                    <th class="container__table-cell container__table-header">Họ & Tên</th>
+                    <th class="container__table-cell container__table-header">Vai trò</th>
+                    <th class="container__table-cell container__table-header">Email</th>
+                    <th class="container__table-cell container__table-header">Tài khoản</th>
+                    <th class="container__table-cell container__table-header">Chi nhánh</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="container__table-cell">{FullName}</td>
+                    <td class="container__table-cell">{RoleName}</td>
+                    <td class="container__table-cell">{Email}</td>
+                    <td class="container__table-cell">
+                        <div><strong>Tên đăng nhập:</strong> {UserName}</div>
+                        <div><strong>Mật khẩu:</strong> {Password}</div>
+                    </td>
+                    <td class="container__table-cell">{BranchName}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>{Url}Xem chi tiết nhân viên tại đây</a></strong></p>
+        <p class="container__footer"><strong>Trân trọng,</strong><br>{ProjectName}</p>
+    </div>
+</body>
+</html>

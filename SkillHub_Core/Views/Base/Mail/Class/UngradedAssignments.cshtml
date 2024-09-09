@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách</title>
+    <style>
+        .ClassBody {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .ClassContainer {
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .ClassTable {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+            /* Các cột cách đều nhau */
+        }
+
+        .ClassTh,
+        .ClassTd {
+            padding: 12px;
+            border: 1px solid #ddd;
+            width: 33.33%;
+            /* Số liệu các cột sẽ cách đều nhau */
+        }
+
+        .ClassTh {
+            text-align: left;
+            background-color: #c2f3fe;
+        }
+
+
+        .ClassTotal {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="ClassBody">
+    <div class="ClassContainer">
+        <h2>Danh sách bài tập chưa chấm</h2>
+        <p>Kính gửi giáo viên {FullName},</p>
+        <p>Hệ thông thông báo số lượng bài tập cần chấm của bạn trong ngày hôm nay. Vui lòng kiểm tra thông tin bên dưới.</p>
+        <table class="ClassTable">
+            <thead>
+                <tr>
+                    <th class="ClassTh" style="width: 20%;">Tên lớp</th>
+                    <th class="ClassTh">Số lượng bài tập chưa chấm</th>
+                    <th class="ClassTh">Thông tin bài tập</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ClassTd">{ClassName}</td>
+                    <td class="ClassTd">
+                        {HomeWork}
+                    </td>
+                    <td class="ClassTd"><p><strong>{Url}Xem chi tiết tại đây</a></strong></p></td>
+                </tr>
+                {RL}
+            </tbody>
+        </table>
+        <p>Chúc bạn sẽ có một ngày làm việc hiệu quả.</p>
+        <p><strong class="ClassTotal">Trân trọng,</strong><br>{ProjectName}</p>
+    </div>
+</body>
+
+</html>

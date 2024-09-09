@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách khách hàng</title>
+    <style>
+        .cusBody {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .cusContainer {
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .cusTable {
+            text-align: center;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed; /* Các cột cách đều nhau */
+        }
+
+        .cusTableHeader, .cusTableData {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #929292;
+            width: 33.33%; /* Số liệu các cột sẽ cách đều nhau */
+        }
+
+        .cusTableHeader {
+            background-color: #bceeff;
+        }
+
+        .cusTotal {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="cusBody">
+    <div class="cusContainer">
+        <h2 style="text-align: center;">{item0}</h2>
+        <p><strong>Ngày: {item1},</strong></p>
+        <table class="cusTable">
+            <thead>
+                <tr>
+                    <th class="cusTableHeader">Mã khách hàng</th>
+                    <th class="cusTableHeader">Tên khách hàng</th>
+                    <th class="cusTableHeader">Địa điểm</th>
+                    <th class="cusTableHeader">Thời gian</th>
+                    <th class="cusTableHeader">Giáo viên</th>
+                    <th class="cusTableHeader">Khởi tạo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="cusTableData">{item2}</td>
+                    <td class="cusTableData">{item3}</td>
+                    <td class="cusTableData">{item4}</td>
+                    <td class="cusTableData">{item5}</td>
+                    <td class="cusTableData">{item6}</td>
+                    <td class="cusTableData">{item7}</td>
+                </tr>
+                {RL}
+            </tbody>
+        </table>
+        <p><strong>{Url}Xem thêm chi tiết tại đây</a></strong></p>
+        <p><strong>Trân trọng,</strong><br>{item8}</p>
+    </div>
+</body>
+</html>

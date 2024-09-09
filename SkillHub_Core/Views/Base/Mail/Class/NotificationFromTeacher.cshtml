@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo</title>
+    <style>
+        .ClassBody {
+            font-family: Arial, sans-serif;
+        }
+
+        .ClassTable {
+            width: 800px;
+            border-collapse: collapse;
+        }
+
+        .ClassTh,
+        .ClassTd {
+            border: 1px solid #393939;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .ClassTh {
+            width: 200px;
+            background-color: #b6f1fa;
+        }
+    </style>
+</head>
+
+<body class="ClassBody">
+    <h2>Thông Báo Từ Giáo Viên</h2>
+    <p>Kính gửi Phụ huynh / Học viên,</p>
+    <p>Bạn có thông báo mới từ giáo viên lớp {ClassName}.</p>
+    <table class="ClassTable">
+        <tr>
+            <th class="ClassTh">Lớp</th>
+            <td class="ClassTd">{ClassName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Tiêu đề</th>
+            <td class="ClassTd">{Title}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Nội dung</th>
+            <td class="ClassTd">{Content}</td>
+        </tr>
+    </table>
+    <p>Chúng tôi mong rằng Quý Phụ huynh / Học viên đã có một trải nghiệm học tập tích cực và hữu ích từ lớp học này.</p>
+    <p><strong>{Url}Xem thêm chi tiết lớp học tại đây</a></strong></p>
+    <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách khách hàng</title>
+    <style>
+        .ClassBody {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ClassContainer {
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .ClassTable {
+            text-align: center;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed; /* Các cột cách đều nhau */
+        }
+
+        .ClassTh, .ClassTd {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            width: 33.33%; /* Số liệu các cột sẽ cách đều nhau */
+        }
+
+        .ClassTh {
+            background-color: #c2f3fe;
+        }
+
+        .ClassTotal {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="ClassBody">
+    <div class="ClassContainer">
+        <h2 style="text-align: center;">Danh sách học sinh tham gia lớp học</h2>
+        <table class="ClassTable">
+            <thead>
+                <tr>
+                    <th class="ClassTh">Mã học sinh</th>
+                    <th class="ClassTh">Tên học sinh</th>
+                    <th class="ClassTh">Lớp được thêm</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ClassTd">{item1}</td>
+                    <td class="ClassTd">{item2}</td>
+                    <td class="ClassTd">{item3}</td>
+                </tr>
+                {RL}
+            </tbody>
+        </table>
+        <p><strong>{Url}Xem thêm chi tiết lớp học tại đây</a></strong></p>
+        <p><strong class="ClassTotal">Trân trọng,</strong><br>{item4}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .header {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 16px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #999999;
+            margin-top: 20px;
+        }
+
+        .class-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+            .class-info-table th,
+            .class-info-table td {
+                border: 1px solid #dddddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .class-info-table th {
+                background-color: #f2f2f2;
+                color: #333333;
+            }
+    </style>
+    <title>Email Notification</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Xin chào [ReceiverName]
+        </div>
+        <div class="content">
+            Chúng tôi xin thông báo tình trạng học tập của học viên [StudentName]
+            <table class="class-info-table">
+                <tr>
+                    <th>Tên Lớp</th>
+                    <th>Giáo Viên</th>
+                    <th>Điểm danh</th>
+                    <th>Điểm số</th>
+                    <th>Bài tập</th>
+                    <th>Nhận xét</th>
+                </tr>
+                <tr>
+                    <td>[ClassName]</td>
+                    <td>[TeacherName]</td>
+                    <td>[Attendance]</td>
+                    <td>[Score]</td>
+                    <td>[Homework]</td>
+                    <td>[Note]</td>
+                </tr>
+            </table>
+            <br><br>
+            Chúc bé có những tiết học thật bổ ích.
+        </div>
+        <div class="footer">
+            <h3>Truy cập vào hệ thống tại: [Domain]</h3>
+            Trân trọng,<br>
+            [ProjectName]
+        </div>
+    </div>
+</body>
+</html>

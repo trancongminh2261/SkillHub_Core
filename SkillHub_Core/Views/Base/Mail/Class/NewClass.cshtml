@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo lớp học mới</title>
+    <style>
+        .ClassBody {
+            font-family: Arial, sans-serif;
+        }
+
+        .ClassTable {
+            border-collapse: collapse;
+        }
+
+        .ClassTh, .ClassTd {
+            border: 1px solid #393939;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .ClassTh {
+            width: 200px;
+            background-color: #b6f1fa;
+        }
+
+        .ClassTd {
+            width: 600px;
+        }
+    </style>
+</head>
+<body class="ClassBody">
+    <h2>Thông báo bạn được chỉ định dạy lớp học mới</h2>
+    <p>Kính gửi giáo viên {FullName},</p>
+    <p>Bạn được chỉ định dạy lớp {ClassName}. Vui lòng xem thông tin lớp học bên dưới.</p>
+    <table class="ClassTable">
+        <tr>
+            <th class="ClassTh">Chi nhánh</th>
+            <td class="ClassTd">{BranchName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Tên lớp học</th>
+            <td class="ClassTd">{ClassName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Giáo viên phụ trách</th>
+            <td class="ClassTd">{FullName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Học vụ</th>
+            <td class="ClassTd">{AcademicName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Hình thức tham gia</th>
+            <td class="ClassTd">{TypeName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Chuyên môn</th>
+            <td class="ClassTd">{GradeName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Chương trình dạy</th>
+            <td class="ClassTd">{ProgramName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Giáo trình</th>
+            <td class="ClassTd">{CurriculumName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Trạng thái lớp học</th>
+            <td class="ClassTd">{StatusName}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Ngày mở lớp</th>
+            <td class="ClassTd">{Time}, {Day}, ngày {Date} Tháng {Month} năm {Year}</td>
+        </tr>
+    </table>
+    <p>Xin lưu ý và sẵn sàng tham gia vào buổi học vào thời gian đã thông báo.</p>
+    <p><strong>{Url}Xem thêm chi tiết lớp học tại đây</a></strong></p>
+    <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+</body>
+</html>

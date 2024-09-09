@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo lịch dạy</title>
+    <style>
+        .ClassBody {
+            font-family: Arial, sans-serif;
+        }
+
+        .ClassTable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .ClassTh, .ClassTd {
+            border: 1px solid #393939;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .ClassTh {
+            background-color: #b6f1fa;
+        }
+    </style>
+</head>
+<body class="ClassBody">
+    <h2>Thông báo lịch dạy</h2>
+    <table class="ClassTable">
+        <tr>
+            <th class="ClassTh">Lớp học</th>
+            <td class="ClassTd">{item1}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Giáo viên</th>
+            <td class="ClassTd">{item2}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Phòng học</th>
+            <td class="ClassTd">{room}</td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Thời gian</th>
+            <td class="ClassTd">{item3}, {item4} Tháng {item5}, {item6}<br>{item7} - {item8}</td>
+        </tr>
+    </table>
+    <p>Xin lưu ý và sẵn sàng tham gia vào buổi học vào thời gian đã thông báo.</p>
+    <p><strong>{Url}Xem thêm chi tiết lớp học tại đây</a></strong></p>
+    <p><strong>Trân trọng,</strong><br>{item9}</p>
+</body>
+</html>

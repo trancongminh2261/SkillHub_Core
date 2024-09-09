@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo: Bài tập</title>
+    <style>
+        .homeworkBody {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .homeworkParagraph {
+            margin: 10px 0;
+        }
+
+        .homeworkUnorderedList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .homeworkListItem {
+            margin-bottom: 10px;
+            margin-left: 15px;
+            text-indent: -1em;
+            padding-left: 1em;
+        }
+
+        .homeworkStrong {
+            color: #333;
+        }
+
+        .homeworkListItemIndent {
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body class="homeworkBody">
+    <div class="container">
+        <h2>Bài tập được giao</h2>
+        <p class="homeworkParagraph">Kính gửi phụ huynh và học sinh của lớp <strong class="homeworkStrong">{item1}</strong>,</p>
+        <p class="homeworkParagraph">Chúng tôi xin gửi đến quý vị thông tin về bài tập như sau:</p>
+        <ul class="homeworkUnorderedList">
+            <li class="homeworkListItem"><strong class="homeworkStrong">Tên bài tập:</strong> {item2}</li>
+            <li class="homeworkListItem"><strong class="homeworkStrong">Lớp:</strong> {item1}</li>
+            <li class="homeworkListItem"><strong class="homeworkStrong">Đề bài:</strong> {item3}</li>
+            <li class="homeworkListItem"><strong class="homeworkStrong">Giáo viên chấm bài:</strong> {item4}</li>
+            <li class="homeworkListItem"><strong class="homeworkStrong">Ngày bắt đầu:</strong> {item5}</li>
+            <li class="homeworkListItem"><strong class="homeworkStrong">Ngày kết thúc:</strong> {item6}</li>
+            <li class="homeworkListItem"><strong class="homeworkStrong">Ghi chú:</strong> {item7}</li>
+        </ul>
+        <p class="homeworkParagraph">
+            Vui lòng đảm bảo rằng học sinh thực hiện và nộp bài theo hạn chót được quy định.<br>
+            Nếu có bất kỳ câu hỏi hoặc thắc mắc nào, xin vui lòng liên hệ trực tiếp với giáo viên chủ nhiệm hoặc giáo viên phụ
+            trách bài tập.
+        </p>
+        <p class="homeworkParagraph"><strong class="homeworkStrong">Trân trọng,</strong></p>
+        <p><strong>{Url}Xem thêm chi tiết bài tập tại đây</a></strong></p>
+        <p class="homeworkParagraph">{item8}</p>
+    </div>
+</body>
+
+</html>

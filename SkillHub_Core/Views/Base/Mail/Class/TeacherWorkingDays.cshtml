@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo Kì Nghỉ</title>
+    <style>
+        .UserBody {
+            font-family: Arial, sans-serif;
+        }
+
+        .UserTable {
+            width: 800px;
+            border-collapse: collapse;
+        }
+
+        .UserTh,
+        .UserTd {
+            border: 1px solid #393939;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .UserTh {
+            width: 200px;
+            background-color: #b6f1fa;
+        }
+
+        .UserDay {
+            margin-left: 12px;
+        }
+    </style>
+</head>
+
+<body class="UserBody">
+    <h2>Thông Báo Số Ngày Đi Dạy Trong Tháng {Month} Năm {Year}</h2>
+    <p>Kính gửi giáo viên {FullName},</p>
+    <p>Chúng tôi xin gửi đến bạn thông tin về số ngày đi dạy của bạn.</p>
+    <table class="UserTable">
+        <tr>
+            <th class="UserTh">Tổng số ngày làm việc</th>
+            <td class="UserTd">
+                <div class="UserDay"> {TotalDay} ngày </div>
+            </td>
+        </tr>
+        <tr>
+            <th class="UserTh">Số ngày đi dạy</th>
+            <td class="UserTd">
+                <div class="UserDay"> {DayOn} ngày </div>
+            </td>
+        </tr>
+        <tr>
+            <th class="UserTh">Số ngày nghỉ</th>
+            <td class="UserTd">
+                <div class="UserDay"> {DayOff} ngày </div>
+            </td>
+        </tr>
+    </table>
+    <p>Xin cảm ơn sự đóng góp của bạn vào việc giáo dục và phát triển của chi nhánh chúng tôi.</p>
+    <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+</body>
+
+</html>

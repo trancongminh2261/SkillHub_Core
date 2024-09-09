@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo Kì Nghỉ</title>
+    <style>
+        .UserBody {
+            font-family: Arial, sans-serif;
+        }
+
+        .UserTable {
+            width: 800px;
+            border-collapse: collapse;
+        }
+
+        .UserTh,
+        .UserTd {
+            border: 1px solid #393939;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .UserTh {
+            width: 200px;
+            background-color: #b6f1fa;
+        }
+    </style>
+</head>
+
+<body class="UserBody">
+    <h2>Thông Báo Kì Nghỉ</h2>
+    <p>Kính gửi Phụ huynh / Học sinh,</p>
+    <p>Chúng tôi xin trân trọng thông báo rằng học sinh sẽ được nghỉ vào ngày <strong>{sDate}</strong> đến ngày <strong>{eDate}</strong> .</p>
+    <table class="UserTable">
+        <tr>
+            <th class="UserTh">Lý do nghỉ</th>
+            <td class="UserTd">{Name}</td>
+        </tr>
+        <tr>
+            <th class="UserTh">Số ngày nghỉ</th>
+            <td class="UserTd">{Count}</td>
+        </tr>
+        <tr>
+            <th class="UserTh">Thời gian nghỉ</th>
+            <td class="UserTd"> <li style="margin-bottom: 5px;">Từ ngày: {sDate}</li> <li>Đến ngày: {eDate}</li> </td>
+        </tr>
+    </table>
+    <p>Chúng tôi mong rằng Quý Phụ huynh / Học sinh sẽ có một kì nghỉ hạnh phúc bên gia đình và người thân.</p>
+    <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Gửi Thông Tin User Mới Được Tạo</title>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .heading {
+            color: #333;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .header-cell, .data-cell {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+        }
+
+        .header-cell {
+            background-color: #c2f5f5;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .red-text {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="heading">Danh Sách Khách Hàng Tiềm Năng Đã Tạo</h2>
+        <p><strong>Ngày:</strong> {Yesterday}</p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th class="header-cell">Chi Nhánh</th>
+                    <th class="header-cell">Thông Tin Khách Hàng</th>
+                    <th class="header-cell">Thông Tin Liên Hệ</th>
+                    <th class="header-cell">Trạng Thái</th>
+                    <th class="header-cell">Tư Vấn Viên</th>
+                    <th class="header-cell">Nguồn</th>
+                    <th class="header-cell">Người Tạo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dữ liệu hóa đơn được thêm vào đây -->
+                <tr>
+                    <td class="data-cell">{BranchName}</td>
+                    <td class="data-cell">
+                        <div> Mã: <strong>{UserCode}</strong></div>
+                        <div> Tên KH: {UserName} </div>
+                    </td>
+                    <td class="data-cell">
+                        <div> Số điện thoại: {Phone}</div>
+                        <div> Emaill: {Email} </div>
+                    </td>
+                    <td class="data-cell">{CustomerStatus}</td>
+                    <td class="data-cell">{SaleName}</td>
+                    <td class="data-cell">{SourceName}</td>
+                    <td class="data-cell">
+                        <div>Người tạo: {CreatedBy}</div>
+                        <div>Ngày tạo: {CreatedOn}</div>
+                    </td>
+                </tr>
+                {RL}
+            </tbody>
+        </table>
+        <p><strong>{Url}Xem chi tiết khách hàng tại đây</a></strong></p>
+        <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+
+        <p class="footer">Đây là email tự động, vui lòng không trả lời. Liên hệ với bộ phận tài chính nếu cần thêm thông tin.</p>
+    </div>
+</body>
+</html>

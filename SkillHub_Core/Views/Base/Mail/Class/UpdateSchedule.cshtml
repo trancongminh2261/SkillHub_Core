@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo Kì Nghỉ</title>
+    <style>
+        .ClassBody {
+            font-family: Arial, sans-serif;
+        }
+
+        .ClassTable {
+            width: 800px;
+            border-collapse: collapse;
+        }
+
+        .ClassTh,
+        .ClassTd {
+            border: 1px solid #393939;
+            padding: 5px;
+            text-align: left;
+        }
+
+        .ClassTh {
+            width: 150px;
+            background-color: #b6f1fa;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="ClassBody">
+    <h2>Thông Báo Lớp Học Có Sự Thay Đổi</h2>
+    <p>Kính gửi {TitleName},</p>
+    <p>Chúng tôi xin trân trọng thông báo rằng <strong> lịch học </strong>  của lớp học <strong>{ClassName}</strong> có sự thay đổi.</p>
+    <table class="ClassTable">
+        <tr>
+            <th class="ClassTh">Tên lớp</th>
+            <td class="ClassTd"><div style="margin-left: 20px;"><strong>{ClassName}</strong></div></td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Giáo viên</th>
+            <td class="ClassTd"> <li style="margin-bottom: 5px;"> <strong>Giáo viên cũ:</strong> {OldTeacher}</li> <li> <strong>Giáo viên mới:</strong> {NewTeacher}</li> </td>
+        </tr>
+        <tr>
+            <th class="ClassTh">Lịch học</th>
+            <td class="ClassTd"> <li style="margin-bottom: 5px;"> <strong>Thời gian cũ:</strong> {OldStartDate} - {OldEndDate}</li> <li><strong>Thời gian mới:</strong> {NewStartDate} - {NewEndDate}</li> </td>
+        </tr>
+    </table>
+    <p>Xin lưu ý và sẵn sàng tham gia vào buổi học vào thời gian đã thông báo.</p>
+    <p><strong>{Url}Xem thêm chi tiết lớp học tại đây</a></strong></p>
+    <p><strong>Trân trọng,</strong><br>{ProjectName}</p>
+</body>
+
+</html>
