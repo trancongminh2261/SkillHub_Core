@@ -9,123 +9,123 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LMSCore
 build_property.RootNamespace = LMSCore
-build_property.ProjectDir = C:\Users\trancongminh2261\source\repos\LMSCore\LMSCore\
+build_property.ProjectDir = C:\Users\trancongminh2261\source\repos\SkillHub_Core\SkillHub_Core\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\trancongminh2261\source\repos\LMSCore\LMSCore
+build_property.MSBuildProjectDirectory = C:\Users\trancongminh2261\source\repos\SkillHub_Core\SkillHub_Core
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/BillBuyServices.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/BillBuyServices.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxCaWxsQnV5U2VydmljZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/BillClassChangeFee.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/BillClassChangeFee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxCaWxsQ2xhc3NDaGFuZ2VGZWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/BillCreateManually.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/BillCreateManually.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxCaWxsQ3JlYXRlTWFudWFsbHkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/BillMonthlyTuition.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/BillMonthlyTuition.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxCaWxsTW9udGhseVR1aXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/BillRegisterToStudy.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/BillRegisterToStudy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxCaWxsUmVnaXN0ZXJUb1N0dWR5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Bill/ListDebt.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Bill/ListDebt.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXEJpbGxcTGlzdERlYnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Bill/MailBill.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Bill/MailBill.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXEJpbGxcTWFpbEJpbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Bill/PaymentApprove.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Bill/PaymentApprove.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXEJpbGxcUGF5bWVudEFwcHJvdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Bill/PaymentReminder.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Bill/PaymentReminder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXEJpbGxcUGF5bWVudFJlbWluZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/AppendStudent.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/AppendStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXEFwcGVuZFN0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/AppendStudentForTeacher.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/AppendStudentForTeacher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXEFwcGVuZFN0dWRlbnRGb3JUZWFjaGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/ClassComming.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/ClassComming.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXENsYXNzQ29tbWluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/ClassEnding.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/ClassEnding.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXENsYXNzRW5kaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/Feedback.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/Feedback.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXEZlZWRiYWNrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/Homework.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/Homework.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXEhvbWV3b3JrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/NewClass.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/NewClass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXE5ld0NsYXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/NotificationFromTeacher.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/NotificationFromTeacher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXE5vdGlmaWNhdGlvbkZyb21UZWFjaGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/TeacherWorkingDays.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/TeacherWorkingDays.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXFRlYWNoZXJXb3JraW5nRGF5cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/UngradedAssignments.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/UngradedAssignments.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXFVuZ3JhZGVkQXNzaWdubWVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Class/UpdateSchedule.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Class/UpdateSchedule.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXENsYXNzXFVwZGF0ZVNjaGVkdWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Customer/CustomerRescheduledDate.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Customer/CustomerRescheduledDate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXEN1c3RvbWVyXEN1c3RvbWVyUmVzY2hlZHVsZWREYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Customer/CustomerVisitor.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Customer/CustomerVisitor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXEN1c3RvbWVyXEN1c3RvbWVyVmlzaXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Customer/NewLeads.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Customer/NewLeads.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXEN1c3RvbWVyXE5ld0xlYWRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/Customer/NoneCustomerVisitor.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/Customer/NoneCustomerVisitor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXEN1c3RvbWVyXE5vbmVDdXN0b21lclZpc2l0b3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/UserInformation/DayOff.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/UserInformation/DayOff.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXFVzZXJJbmZvcm1hdGlvblxEYXlPZmYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/UserInformation/HappyBirthday.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/UserInformation/HappyBirthday.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXFVzZXJJbmZvcm1hdGlvblxIYXBweUJpcnRoZGF5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/Mail/UserInformation/NewUser.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/Mail/UserInformation/NewUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxNYWlsXFVzZXJJbmZvcm1hdGlvblxOZXdVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trancongminh2261/source/repos/LMSCore/LMSCore/Views/Base/StudentsReportBase.cshtml]
+[C:/Users/trancongminh2261/source/repos/SkillHub_Core/SkillHub_Core/Views/Base/StudentsReportBase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVxTdHVkZW50c1JlcG9ydEJhc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

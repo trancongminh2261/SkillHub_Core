@@ -206,7 +206,7 @@ namespace LMSCore
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("../swagger/v1/swagger.json", "Demo");
+                c.SwaggerEndpoint("../swagger/v1/swagger.json", "SkillHub Demo");
                 c.InjectStylesheet("/swagger-ui/custom.css");
                 c.InjectJavascript("/swagger-ui/custom.js");
                 c.RoutePrefix = "docs";

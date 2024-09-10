@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\skillhub_core.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:skillhub_core.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LMSCore",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\SkillHub_Core.csproj",
+              "RelativeDocumentMoniker": "SkillHub_Core.csproj",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\SkillHub_Core.csproj",
+              "RelativeToolTip": "SkillHub_Core.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-09T15:37:09.467Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LMSCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16b5e8ec8f3140be1fb433630e81164eb17654d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df4b6d6c59c08dc0b7cf6fa38bf218e5de1e20e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("LMSCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LMSCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

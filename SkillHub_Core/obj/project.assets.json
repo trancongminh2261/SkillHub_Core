@@ -8158,11 +8158,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\trancongminh2261\\source\\repos\\LMSCore\\LMSCore\\LMSCore.csproj",
-      "projectName": "LMSCore",
-      "projectPath": "C:\\Users\\trancongminh2261\\source\\repos\\LMSCore\\LMSCore\\LMSCore.csproj",
+      "projectUniqueName": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\SkillHub_Core.csproj",
+      "projectName": "SkillHub_Core",
+      "projectPath": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\SkillHub_Core.csproj",
       "packagesPath": "C:\\Users\\trancongminh2261\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\trancongminh2261\\source\\repos\\LMSCore\\LMSCore\\obj\\",
+      "outputPath": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\trancongminh2261\\AppData\\Roaming\\NuGet\\NuGet.Config",
