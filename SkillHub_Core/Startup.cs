@@ -12,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using LMSCore.Users;
 using Hangfire;
 using Hangfire.SqlServer;
-using LMSCore.Services;
 using LMSCore.Utilities;
 using Microsoft.Extensions.FileProviders;
 using System.IO;

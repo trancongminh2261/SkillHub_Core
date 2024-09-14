@@ -1,5 +1,4 @@
-﻿using LMSCore.DTO.BranchDTO;
-using LMSCore.Models;
+﻿using LMSCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,35 +7,17 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UAParser;
-using static LMSCore.DTO.StudentDeviceDTO.StudentDeviceDTO;
 
 namespace LMSCore.Utilities
 {
     public class GetDataConfig
     {
-        public static async Task<List<GetBranchesDTO>> GetBranches(string branchIds)
-        {
-            using (var db = new lmsDbContext())
-            {
-                var result = new List<GetBranchesDTO>();
-                if (string.IsNullOrEmpty(branchIds))
-                    return result;
-                var listBranchId = branchIds.Split(',').ToList();
-                result = await db.tbl_Branch.Where(x => listBranchId.Contains(x.Id.ToString())).
-                    Select(x => new GetBranchesDTO
-                    {
-                        Id = x.Id,
-                        Name = x.Name
-                    }).ToListAsync();
-                return result;
-            }
-        }
-        public static async Task<double> GetFileSizeInMBAsync(string fileUrl)
+        /*public static async Task<double> GetFileSizeInMBAsync(string fileUrl)
         {
             using (HttpClient client = new HttpClient())
             {
                 // Gửi yêu cầu GET để tải xuống tệp từ URL
-                HttpResponseMessage response = await client.GetAsync(fileUrl);
+                IActionResult response = await client.GetAsync(fileUrl);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -54,9 +35,9 @@ namespace LMSCore.Utilities
                     return 0.0;
                 }
             }
-        }
+        }*/
 
-        public static async Task<DeviceModel> GetDeviceName(HttpContext context)
+        /*public static async Task<DeviceModel> GetDeviceName(HttpContext context)
         {
             // Lấy User-Agent từ request headers
             var userAgent = context.Request.Headers["User-Agent"].ToString();
@@ -83,7 +64,7 @@ namespace LMSCore.Utilities
                 Browser = browser
             };
             return result;
-        }
+        }*/
 
         public static string GetFileName(string linkFile)
         {

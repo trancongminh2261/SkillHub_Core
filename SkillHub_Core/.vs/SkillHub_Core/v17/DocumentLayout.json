@@ -1,7 +1,548 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\users\\jwtmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:users\\jwtmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\userinformationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\userinformationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\lessonvideocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\lessonvideocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\certificatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\certificatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\users\\claimsauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:users\\claimsauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\zoomroomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\zoomroomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\zoomconfigservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\zoomconfigservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\writelogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\writelogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\ward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\ward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\videocoursestudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\videocoursestudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\videocourseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\videocourseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\videocourseallowservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\videocourseallowservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\videoconfigservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\videoconfigservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\userinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\userinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\dto\\videoconfigdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:dto\\videoconfigdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\topicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\topicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\studyrouteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\studyrouteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\studyroutedetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\studyroutedetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\standardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\standardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\seminarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\seminarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\seminarrecordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\seminarrecordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\sectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\sectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\questioninvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\questioninvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\pushauto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\pushauto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\permissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\permissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\lms\\assetcrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:lms\\assetcrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\notificationinvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\notificationinvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\lessonvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\lessonvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\fileinvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\fileinvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\exercisegroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\exercisegroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\request\\basecreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\request\\basecreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\models\\searchoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\models\\searchoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\request\\baseupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\request\\baseupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\examservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\examservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\examsectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\examsectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\examresultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\examresultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\lms\\lmsenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:lms\\lmsenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\certificateconfigservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\certificateconfigservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\changeinfoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\changeinfoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\certificateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\certificateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\area.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\area.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\answerinvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\answerinvideoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_zoomroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_zoomroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_zoomconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_zoomconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_writelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_writelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_ward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_ward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_videocoursestudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_videocoursestudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_videocourseallow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_videocourseallow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_videoconfigquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_videoconfigquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_videoconfigoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_videoconfigoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_videoconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_videoconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_userinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_userinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_timewatchingvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_timewatchingvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_studyroutedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_studyroutedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_studyroute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_studyroute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_standard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_standard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_seminarrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_seminarrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_seminar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_seminar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_sectioncompleted.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_sectioncompleted.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_questioninvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_questioninvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_notificationinvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_notificationinvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_lessonvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_lessonvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_lessoncompleted.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_lessoncompleted.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_gradingessay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_gradingessay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_fileinvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_fileinvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_exerciseresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_exerciseresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_exercisegroupresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_exercisegroupresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_exercisegroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_exercisegroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_examsectionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_examsectionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_examsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_examsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_examresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_examresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_exam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_exam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_changeinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_changeinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_certificateconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_certificateconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_certificate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_certificate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_area.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_area.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_antidownvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_antidownvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_answerresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_answerresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_answerinvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_answerinvideo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\tbl_answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\tbl_answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\dto\\videocourseallowdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:dto\\videocourseallowdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\zoomroomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\zoomroomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\zoomconfigcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\zoomconfigcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\writelogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\writelogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\wardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\wardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\videocoursestudentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\videocoursestudentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\videocoursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\videocoursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\videocourseallowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\videocourseallowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\lmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\lmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\videoconfigcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\videoconfigcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\tagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\tagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\studyroutedetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\studyroutedetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\studyroutecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\studyroutecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\standardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\standardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\seminarrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\seminarrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\seminarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\seminarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\sectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\sectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\questioninvideocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\questioninvideocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\notificationinvideocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\notificationinvideocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\exercisegroupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\exercisegroupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\examsectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\examsectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\examresultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\examresultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\examcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\examcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\documentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\documentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\documentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\documentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\districtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\districtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\services\\domainservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:services\\domainservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\changeinfocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\changeinfocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\certificateconfigcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\certificateconfigcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\areacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\areacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\controllerapis\\answerinvideocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\controllerapis\\answerinvideocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\models\\domainentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:models\\domainentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\notificationconfig\\notificationcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:notificationconfig\\notificationcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\areas\\request\\baseparam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:areas\\request\\baseparam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|c:\\users\\trancongminh2261\\source\\repos\\skillhub_core\\skillhub_core\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8BE01264-2EB3-4DB2-B1EF-FDF94CF8E867}|SkillHub_Core.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +550,1766 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JWTManager.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Users\\JWTManager.cs",
+              "RelativeDocumentMoniker": "Users\\JWTManager.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Users\\JWTManager.cs",
+              "RelativeToolTip": "Users\\JWTManager.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAnwFAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:16:17.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClaimsAuthorizeAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Users\\ClaimsAuthorizeAttribute.cs",
+              "RelativeDocumentMoniker": "Users\\ClaimsAuthorizeAttribute.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Users\\ClaimsAuthorizeAttribute.cs",
+              "RelativeToolTip": "Users\\ClaimsAuthorizeAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:16:13.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Startup.cs",
+              "RelativeDocumentMoniker": "Startup.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Startup.cs",
+              "RelativeToolTip": "Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:16:08.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ZoomRoomService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ZoomRoomService.cs",
+              "RelativeDocumentMoniker": "Services\\ZoomRoomService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ZoomRoomService.cs",
+              "RelativeToolTip": "Services\\ZoomRoomService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwCQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:15:50.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ZoomConfigService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ZoomConfigService.cs",
+              "RelativeDocumentMoniker": "Services\\ZoomConfigService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ZoomConfigService.cs",
+              "RelativeToolTip": "Services\\ZoomConfigService.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAIwEMAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:15:38.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WriteLogService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\WriteLogService.cs",
+              "RelativeDocumentMoniker": "Services\\WriteLogService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\WriteLogService.cs",
+              "RelativeToolTip": "Services\\WriteLogService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAACUAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:15:29.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CertificateController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\CertificateController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\CertificateController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\CertificateController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\CertificateController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAhwGsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:15:50.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LessonVideoController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\LessonVideoController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\LessonVideoController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\LessonVideoController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\LessonVideoController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAIAwwCkAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:27:24.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserInformationController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\UserInformationController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\UserInformationController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\UserInformationController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\UserInformationController.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAMwK0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:46:49.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Ward.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\Ward.cs",
+              "RelativeDocumentMoniker": "Services\\Ward.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\Ward.cs",
+              "RelativeToolTip": "Services\\Ward.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:15:19.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "VideoCourseStudentService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\VideoCourseStudentService.cs",
+              "RelativeDocumentMoniker": "Services\\VideoCourseStudentService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\VideoCourseStudentService.cs",
+              "RelativeToolTip": "Services\\VideoCourseStudentService.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAwwBkAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:15:00.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "VideoCourseService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\VideoCourseService.cs",
+              "RelativeDocumentMoniker": "Services\\VideoCourseService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\VideoCourseService.cs",
+              "RelativeToolTip": "Services\\VideoCourseService.cs",
+              "ViewState": "AgIAAL0BAAAAAAAAAAAAANIBAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:13:58.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "VideoConfigDTO.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\DTO\\VideoConfigDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\VideoConfigDTO.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\DTO\\VideoConfigDTO.cs",
+              "RelativeToolTip": "DTO\\VideoConfigDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:13:38.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserInformation.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\UserInformation.cs",
+              "RelativeDocumentMoniker": "Services\\UserInformation.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\UserInformation.cs",
+              "RelativeToolTip": "Services\\UserInformation.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAmwDsAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:12:55.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TagService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\TagService.cs",
+              "RelativeDocumentMoniker": "Services\\TagService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\TagService.cs",
+              "RelativeToolTip": "Services\\TagService.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAowCcAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:12:33.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SeminarService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\SeminarService.cs",
+              "RelativeDocumentMoniker": "Services\\SeminarService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\SeminarService.cs",
+              "RelativeToolTip": "Services\\SeminarService.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAIwBgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:11:25.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SeminarRecordService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\SeminarRecordService.cs",
+              "RelativeDocumentMoniker": "Services\\SeminarRecordService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\SeminarRecordService.cs",
+              "RelativeToolTip": "Services\\SeminarRecordService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAwwBgAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:07:32.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "StandardService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\StandardService.cs",
+              "RelativeDocumentMoniker": "Services\\StandardService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\StandardService.cs",
+              "RelativeToolTip": "Services\\StandardService.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAD4vw0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:43:35.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "StudyRouteDetailService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\StudyRouteDetailService.cs",
+              "RelativeDocumentMoniker": "Services\\StudyRouteDetailService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\StudyRouteDetailService.cs",
+              "RelativeToolTip": "Services\\StudyRouteDetailService.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAuwAQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:44:53.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "VideoConfigService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\VideoConfigService.cs",
+              "RelativeDocumentMoniker": "Services\\VideoConfigService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\VideoConfigService.cs",
+              "RelativeToolTip": "Services\\VideoConfigService.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAAAPUAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:48:19.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "VideoCourseAllowService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\VideoCourseAllowService.cs",
+              "RelativeDocumentMoniker": "Services\\VideoCourseAllowService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\VideoCourseAllowService.cs",
+              "RelativeToolTip": "Services\\VideoCourseAllowService.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAIwKoAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:49:40.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "SectionService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\SectionService.cs",
+              "RelativeDocumentMoniker": "Services\\SectionService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\SectionService.cs",
+              "RelativeToolTip": "Services\\SectionService.cs",
+              "ViewState": "AgIAADUBAAAAAAAAAAAowOsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:10:55.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "QuestionInVideoService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\QuestionInVideoService.cs",
+              "RelativeDocumentMoniker": "Services\\QuestionInVideoService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\QuestionInVideoService.cs",
+              "RelativeToolTip": "Services\\QuestionInVideoService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAwwD0AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:10:39.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "PushAuto.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\PushAuto.cs",
+              "RelativeDocumentMoniker": "Services\\PushAuto.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\PushAuto.cs",
+              "RelativeToolTip": "Services\\PushAuto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:10:02.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TopicService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\TopicService.cs",
+              "RelativeDocumentMoniker": "Services\\TopicService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\TopicService.cs",
+              "RelativeToolTip": "Services\\TopicService.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAcwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:46:09.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PermissionService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\PermissionService.cs",
+              "RelativeDocumentMoniker": "Services\\PermissionService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\PermissionService.cs",
+              "RelativeToolTip": "Services\\PermissionService.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAgwLwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:09:33.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "StudyRouteService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\StudyRouteService.cs",
+              "RelativeDocumentMoniker": "Services\\StudyRouteService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\StudyRouteService.cs",
+              "RelativeToolTip": "Services\\StudyRouteService.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwCMAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:44:19.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\NotificationService.cs",
+              "RelativeDocumentMoniker": "Services\\NotificationService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\NotificationService.cs",
+              "RelativeToolTip": "Services\\NotificationService.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAADwvyIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:06:28.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AssetCRM.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\LMS\\AssetCRM.cs",
+              "RelativeDocumentMoniker": "LMS\\AssetCRM.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\LMS\\AssetCRM.cs",
+              "RelativeToolTip": "LMS\\AssetCRM.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAmwL0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:08:55.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "NotificationInVideoService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\NotificationInVideoService.cs",
+              "RelativeDocumentMoniker": "Services\\NotificationInVideoService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\NotificationInVideoService.cs",
+              "RelativeToolTip": "Services\\NotificationInVideoService.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAwwBYAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:07:58.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "FileInVideoService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\FileInVideoService.cs",
+              "RelativeDocumentMoniker": "Services\\FileInVideoService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\FileInVideoService.cs",
+              "RelativeToolTip": "Services\\FileInVideoService.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAowFQAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:06:18.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "BaseCreate.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\Request\\BaseCreate.cs",
+              "RelativeDocumentMoniker": "Areas\\Request\\BaseCreate.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\Request\\BaseCreate.cs",
+              "RelativeToolTip": "Areas\\Request\\BaseCreate.cs",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAuwAUBAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:06:06.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "SearchOptions.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\Models\\SearchOptions.cs",
+              "RelativeDocumentMoniker": "Areas\\Models\\SearchOptions.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\Models\\SearchOptions.cs",
+              "RelativeToolTip": "Areas\\Models\\SearchOptions.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAA9wDsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:05:02.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "BaseUpdate.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\Request\\BaseUpdate.cs",
+              "RelativeDocumentMoniker": "Areas\\Request\\BaseUpdate.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\Request\\BaseUpdate.cs",
+              "RelativeToolTip": "Areas\\Request\\BaseUpdate.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAA4wFsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:04:46.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "ExamService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ExamService.cs",
+              "RelativeDocumentMoniker": "Services\\ExamService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ExamService.cs",
+              "RelativeToolTip": "Services\\ExamService.cs",
+              "ViewState": "AgIAALYAAAAAAAAAAAAmwIgAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:03:55.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ExerciseGroupService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ExerciseGroupService.cs",
+              "RelativeDocumentMoniker": "Services\\ExerciseGroupService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ExerciseGroupService.cs",
+              "RelativeToolTip": "Services\\ExerciseGroupService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:03:30.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "LessonVideoService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\LessonVideoService.cs",
+              "RelativeDocumentMoniker": "Services\\LessonVideoService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\LessonVideoService.cs",
+              "RelativeToolTip": "Services\\LessonVideoService.cs",
+              "ViewState": "AgIAAKkCAAAAAAAAAAAAAGEAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:27:58.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ExamSectionService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ExamSectionService.cs",
+              "RelativeDocumentMoniker": "Services\\ExamSectionService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ExamSectionService.cs",
+              "RelativeToolTip": "Services\\ExamSectionService.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAwwGUAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:03:14.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ExamResultService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ExamResultService.cs",
+              "RelativeDocumentMoniker": "Services\\ExamResultService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ExamResultService.cs",
+              "RelativeToolTip": "Services\\ExamResultService.cs",
+              "ViewState": "AgIAAAMCAAAAAAAAAAAqwNoBAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:00:24.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "lmsEnum.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\LMS\\lmsEnum.cs",
+              "RelativeDocumentMoniker": "LMS\\lmsEnum.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\LMS\\lmsEnum.cs",
+              "RelativeToolTip": "LMS\\lmsEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:01:00.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "CertificateConfigService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\CertificateConfigService.cs",
+              "RelativeDocumentMoniker": "Services\\CertificateConfigService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\CertificateConfigService.cs",
+              "RelativeToolTip": "Services\\CertificateConfigService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:56:17.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Area.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\Area.cs",
+              "RelativeDocumentMoniker": "Services\\Area.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\Area.cs",
+              "RelativeToolTip": "Services\\Area.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:56:06.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "AnswerInVideoService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\AnswerInVideoService.cs",
+              "RelativeDocumentMoniker": "Services\\AnswerInVideoService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\AnswerInVideoService.cs",
+              "RelativeToolTip": "Services\\AnswerInVideoService.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAwwDkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:47.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "tbl_ZoomConfig.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ZoomConfig.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ZoomConfig.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ZoomConfig.cs",
+              "RelativeToolTip": "Models\\tbl_ZoomConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:17.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "tbl_WriteLog.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_WriteLog.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_WriteLog.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_WriteLog.cs",
+              "RelativeToolTip": "Models\\tbl_WriteLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:15.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "tbl_Ward.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Ward.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Ward.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Ward.cs",
+              "RelativeToolTip": "Models\\tbl_Ward.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:14.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "CertificateService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\CertificateService.cs",
+              "RelativeDocumentMoniker": "Services\\CertificateService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\CertificateService.cs",
+              "RelativeToolTip": "Services\\CertificateService.cs",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAawLMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:16:19.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ChangeInfoService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ChangeInfoService.cs",
+              "RelativeDocumentMoniker": "Services\\ChangeInfoService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\ChangeInfoService.cs",
+              "RelativeToolTip": "Services\\ChangeInfoService.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAIwA0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:20:12.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "DashboardService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\DashboardService.cs",
+              "RelativeDocumentMoniker": "Services\\DashboardService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\DashboardService.cs",
+              "RelativeToolTip": "Services\\DashboardService.cs",
+              "ViewState": "AgIAAN0DAAAAAAAAAAAAAL4BAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:53:09.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "DepartmentService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\DepartmentService.cs",
+              "RelativeDocumentMoniker": "Services\\DepartmentService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\DepartmentService.cs",
+              "RelativeToolTip": "Services\\DepartmentService.cs",
+              "ViewState": "AgIAANEAAAAAAAAAAAA6wEkAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:23:02.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "tbl_VideoCourseStudent.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoCourseStudent.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_VideoCourseStudent.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoCourseStudent.cs",
+              "RelativeToolTip": "Models\\tbl_VideoCourseStudent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:13.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "tbl_VideoConfigQuestion.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoConfigQuestion.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_VideoConfigQuestion.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoConfigQuestion.cs",
+              "RelativeToolTip": "Models\\tbl_VideoConfigQuestion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:06.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "tbl_VideoConfigOption.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoConfigOption.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_VideoConfigOption.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoConfigOption.cs",
+              "RelativeToolTip": "Models\\tbl_VideoConfigOption.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:05.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "tbl_VideoConfig.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoConfig.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_VideoConfig.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoConfig.cs",
+              "RelativeToolTip": "Models\\tbl_VideoConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:04.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "tbl_ZoomRoom.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ZoomRoom.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ZoomRoom.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ZoomRoom.cs",
+              "RelativeToolTip": "Models\\tbl_ZoomRoom.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:52:57.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\Account.cs",
+              "RelativeDocumentMoniker": "Services\\Account.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\Account.cs",
+              "RelativeToolTip": "Services\\Account.cs",
+              "ViewState": "AgIAAG4BAAAAAAAAAAAkwFMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:01:47.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "tbl_UserInformation.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_UserInformation.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_UserInformation.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_UserInformation.cs",
+              "RelativeToolTip": "Models\\tbl_UserInformation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:03.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "tbl_Topic.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Topic.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Topic.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Topic.cs",
+              "RelativeToolTip": "Models\\tbl_Topic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:01.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "tbl_TimeWatchingVideo.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_TimeWatchingVideo.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_TimeWatchingVideo.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_TimeWatchingVideo.cs",
+              "RelativeToolTip": "Models\\tbl_TimeWatchingVideo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:55:00.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "tbl_Tag.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Tag.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Tag.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Tag.cs",
+              "RelativeToolTip": "Models\\tbl_Tag.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:59.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "tbl_Standard.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Standard.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Standard.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Standard.cs",
+              "RelativeToolTip": "Models\\tbl_Standard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:55.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "tbl_VideoCourseAllow.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoCourseAllow.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_VideoCourseAllow.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_VideoCourseAllow.cs",
+              "RelativeToolTip": "Models\\tbl_VideoCourseAllow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:03:05.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "tbl_SeminarRecord.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_SeminarRecord.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_SeminarRecord.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_SeminarRecord.cs",
+              "RelativeToolTip": "Models\\tbl_SeminarRecord.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:49.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "tbl_Seminar.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Seminar.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Seminar.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Seminar.cs",
+              "RelativeToolTip": "Models\\tbl_Seminar.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:43.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "tbl_SectionCompleted.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_SectionCompleted.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_SectionCompleted.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_SectionCompleted.cs",
+              "RelativeToolTip": "Models\\tbl_SectionCompleted.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:41.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "tbl_Section.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Section.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Section.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Section.cs",
+              "RelativeToolTip": "Models\\tbl_Section.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:39.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "tbl_QuestionInVideo.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_QuestionInVideo.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_QuestionInVideo.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_QuestionInVideo.cs",
+              "RelativeToolTip": "Models\\tbl_QuestionInVideo.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:36.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "tbl_Permission.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Permission.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Permission.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Permission.cs",
+              "RelativeToolTip": "Models\\tbl_Permission.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAQwCUAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:31.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "tbl_StudyRoute.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_StudyRoute.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_StudyRoute.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_StudyRoute.cs",
+              "RelativeToolTip": "Models\\tbl_StudyRoute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:50:08.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "tbl_StudyRouteDetail.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_StudyRouteDetail.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_StudyRouteDetail.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_StudyRouteDetail.cs",
+              "RelativeToolTip": "Models\\tbl_StudyRouteDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:45:01.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "tbl_NotificationInVideo.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_NotificationInVideo.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_NotificationInVideo.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_NotificationInVideo.cs",
+              "RelativeToolTip": "Models\\tbl_NotificationInVideo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:28.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "tbl_LessonVideo.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_LessonVideo.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_LessonVideo.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_LessonVideo.cs",
+              "RelativeToolTip": "Models\\tbl_LessonVideo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:19.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "tbl_LessonCompleted.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_LessonCompleted.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_LessonCompleted.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_LessonCompleted.cs",
+              "RelativeToolTip": "Models\\tbl_LessonCompleted.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:17.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "tbl_GradingEssay.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_GradingEssay.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_GradingEssay.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_GradingEssay.cs",
+              "RelativeToolTip": "Models\\tbl_GradingEssay.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:14.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "tbl_FileInVideo.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_FileInVideo.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_FileInVideo.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_FileInVideo.cs",
+              "RelativeToolTip": "Models\\tbl_FileInVideo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:09.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "tbl_ExerciseResult.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExerciseResult.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ExerciseResult.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExerciseResult.cs",
+              "RelativeToolTip": "Models\\tbl_ExerciseResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:07.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "tbl_ExerciseGroupResult.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExerciseGroupResult.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ExerciseGroupResult.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExerciseGroupResult.cs",
+              "RelativeToolTip": "Models\\tbl_ExerciseGroupResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:02.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "tbl_Exercise.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Exercise.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Exercise.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Exercise.cs",
+              "RelativeToolTip": "Models\\tbl_Exercise.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:54:00.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "tbl_Notification.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Notification.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Notification.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Notification.cs",
+              "RelativeToolTip": "Models\\tbl_Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:52:50.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "tbl_ExerciseGroup.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExerciseGroup.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ExerciseGroup.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExerciseGroup.cs",
+              "RelativeToolTip": "Models\\tbl_ExerciseGroup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:53:56.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "tbl_ExamSectionResult.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExamSectionResult.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ExamSectionResult.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExamSectionResult.cs",
+              "RelativeToolTip": "Models\\tbl_ExamSectionResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:53:55.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "tbl_ExamSection.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExamSection.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ExamSection.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExamSection.cs",
+              "RelativeToolTip": "Models\\tbl_ExamSection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:53:53.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "tbl_ExamResult.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExamResult.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ExamResult.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ExamResult.cs",
+              "RelativeToolTip": "Models\\tbl_ExamResult.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAAGkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:53:43.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "tbl_Exam.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Exam.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Exam.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Exam.cs",
+              "RelativeToolTip": "Models\\tbl_Exam.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:53:41.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "tbl_Answer.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Answer.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Answer.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Answer.cs",
+              "RelativeToolTip": "Models\\tbl_Answer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:03:35.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "tbl_AnswerInVideo.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_AnswerInVideo.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_AnswerInVideo.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_AnswerInVideo.cs",
+              "RelativeToolTip": "Models\\tbl_AnswerInVideo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:03:44.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "tbl_AnswerResult.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_AnswerResult.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_AnswerResult.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_AnswerResult.cs",
+              "RelativeToolTip": "Models\\tbl_AnswerResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:03:54.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "tbl_AntiDownVideo.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_AntiDownVideo.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_AntiDownVideo.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_AntiDownVideo.cs",
+              "RelativeToolTip": "Models\\tbl_AntiDownVideo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:04:02.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "tbl_Area.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Area.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Area.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Area.cs",
+              "RelativeToolTip": "Models\\tbl_Area.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:04:07.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "tbl_Certificate.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Certificate.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Certificate.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Certificate.cs",
+              "RelativeToolTip": "Models\\tbl_Certificate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:04:16.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "tbl_CertificateConfig.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_CertificateConfig.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_CertificateConfig.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_CertificateConfig.cs",
+              "RelativeToolTip": "Models\\tbl_CertificateConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:05:00.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "tbl_ChangeInfo.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ChangeInfo.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_ChangeInfo.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_ChangeInfo.cs",
+              "RelativeToolTip": "Models\\tbl_ChangeInfo.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAzwAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:05:01.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "tbl_Config.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Config.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Config.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Config.cs",
+              "RelativeToolTip": "Models\\tbl_Config.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:05:08.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "tbl_Department.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Department.cs",
+              "RelativeDocumentMoniker": "Models\\tbl_Department.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\tbl_Department.cs",
+              "RelativeToolTip": "Models\\tbl_Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:49:48.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "VideoCourseAllowDTO.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\DTO\\VideoCourseAllowDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\VideoCourseAllowDTO.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\DTO\\VideoCourseAllowDTO.cs",
+              "RelativeToolTip": "DTO\\VideoCourseAllowDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:52:39.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "ZoomRoomController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ZoomRoomController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\ZoomRoomController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ZoomRoomController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\ZoomRoomController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwBcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:52:22.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "WriteLogController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\WriteLogController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\WriteLogController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\WriteLogController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\WriteLogController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:51:50.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
+              "Title": "WardController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\WardController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\WardController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\WardController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\WardController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:51:37.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 101,
+              "Title": "VideoCourseAllowController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\VideoCourseAllowController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\VideoCourseAllowController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\VideoCourseAllowController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\VideoCourseAllowController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwC4AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:48:58.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 102,
+              "Title": "lmsDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\lmsDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\lmsDbContext.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\lmsDbContext.cs",
+              "RelativeToolTip": "Models\\lmsDbContext.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAswCMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:50:25.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 100,
+              "Title": "VideoCourseController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\VideoCourseController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\VideoCourseController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\VideoCourseController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\VideoCourseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:05:13.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "ZoomConfigController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ZoomConfigController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\ZoomConfigController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ZoomConfigController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\ZoomConfigController.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAzwDAAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:21:53.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 99,
+              "Title": "VideoCourseStudentController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\VideoCourseStudentController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\VideoCourseStudentController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\VideoCourseStudentController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\VideoCourseStudentController.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAIwFUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:07:54.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 103,
+              "Title": "VideoConfigController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\VideoConfigController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\VideoConfigController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\VideoConfigController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\VideoConfigController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAIwD0AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:47:38.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 104,
+              "Title": "TopicController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\TopicController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\TopicController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\TopicController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\TopicController.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAcwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:45:59.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 105,
+              "Title": "TagController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\TagController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\TagController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\TagController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\TagController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:45:36.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 106,
+              "Title": "StudyRouteDetailController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\StudyRouteDetailController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\StudyRouteDetailController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\StudyRouteDetailController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\StudyRouteDetailController.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAmwI0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:44:34.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 107,
+              "Title": "StudyRouteController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\StudyRouteController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\StudyRouteController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\StudyRouteController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\StudyRouteController.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAcwGgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:44:02.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 108,
+              "Title": "StandardController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\StandardController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\StandardController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\StandardController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\StandardController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAIwEAAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:43:22.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 109,
+              "Title": "SeminarRecordController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\SeminarRecordController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\SeminarRecordController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\SeminarRecordController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\SeminarRecordController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAwwDcAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:43:03.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 110,
+              "Title": "SeminarController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\SeminarController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\SeminarController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\SeminarController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\SeminarController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwDcAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:42:43.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 111,
+              "Title": "SectionController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\SectionController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\SectionController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\SectionController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\SectionController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAwwC8AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:41:10.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 112,
+              "Title": "QuestionInVideoController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\QuestionInVideoController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\QuestionInVideoController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\QuestionInVideoController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\QuestionInVideoController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwBwAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:40:55.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 115,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\NotificationController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\NotificationController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\NotificationController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\NotificationController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwBcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:28:05.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 117,
+              "Title": "ExamSectionController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ExamSectionController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\ExamSectionController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ExamSectionController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\ExamSectionController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowFIAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:26:11.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 118,
+              "Title": "ExamResultController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ExamResultController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\ExamResultController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ExamResultController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\ExamResultController.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAuwKkAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:25:44.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 114,
+              "Title": "NotificationInVideoController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\NotificationInVideoController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\NotificationInVideoController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\NotificationInVideoController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\NotificationInVideoController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCQAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:01:12.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 113,
+              "Title": "PermissionController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\PermissionController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\PermissionController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\PermissionController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\PermissionController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAowDMAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:57:22.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 116,
+              "Title": "ExerciseGroupController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ExerciseGroupController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\ExerciseGroupController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ExerciseGroupController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\ExerciseGroupController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAA9wFsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:57:06.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 119,
+              "Title": "ExamController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ExamController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\ExamController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ExamController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\ExamController.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAAwHgAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:25:13.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 120,
+              "Title": "DocumentController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\DocumentController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\DocumentController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\DocumentController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\DocumentController.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAcwGAAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:24:24.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 121,
+              "Title": "DocumentService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\DocumentService.cs",
+              "RelativeDocumentMoniker": "Services\\DocumentService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\DocumentService.cs",
+              "RelativeToolTip": "Services\\DocumentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:24:41.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 122,
+              "Title": "DistrictController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\DistrictController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\DistrictController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\DistrictController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\DistrictController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:24:04.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 123,
+              "Title": "DepartmentController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\DepartmentController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\DepartmentController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\DepartmentController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\DepartmentController.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAAwJkAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:22:36.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 124,
+              "Title": "DomainService.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\DomainService.cs",
+              "RelativeDocumentMoniker": "Services\\DomainService.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Services\\DomainService.cs",
+              "RelativeToolTip": "Services\\DomainService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:23:13.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 125,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\DashboardController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\DashboardController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\DashboardController.cs",
+              "ViewState": "AgIAAHUBAAAAAAAAAADwvw8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:22:04.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 129,
+              "Title": "AreaController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\AreaController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\AreaController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\AreaController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\AreaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:14:04.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 130,
+              "Title": "AnswerInVideoController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\AnswerInVideoController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\AnswerInVideoController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\AnswerInVideoController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\AnswerInVideoController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:12:07.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 126,
+              "Title": "ChangeInfoController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ChangeInfoController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\ChangeInfoController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\ChangeInfoController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\ChangeInfoController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:55:04.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 128,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\BaseController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\BaseController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\BaseController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\BaseController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwBEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:10:19.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 127,
+              "Title": "CertificateConfigController.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\CertificateConfigController.cs",
+              "RelativeDocumentMoniker": "Areas\\ControllerAPIs\\CertificateConfigController.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\ControllerAPIs\\CertificateConfigController.cs",
+              "RelativeToolTip": "Areas\\ControllerAPIs\\CertificateConfigController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAIwDcAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:54:43.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 131,
+              "Title": "DomainEntity.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\DomainEntity.cs",
+              "RelativeDocumentMoniker": "Models\\DomainEntity.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Models\\DomainEntity.cs",
+              "RelativeToolTip": "Models\\DomainEntity.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T15:03:22.181Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 132,
+              "Title": "NotificationCode.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\NotificationConfig\\NotificationCode.cs",
+              "RelativeDocumentMoniker": "NotificationConfig\\NotificationCode.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\NotificationConfig\\NotificationCode.cs",
+              "RelativeToolTip": "NotificationConfig\\NotificationCode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:53:16.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 133,
+              "Title": "BaseParam.cs",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\Request\\BaseParam.cs",
+              "RelativeDocumentMoniker": "Areas\\Request\\BaseParam.cs",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\Areas\\Request\\BaseParam.cs",
+              "RelativeToolTip": "Areas\\Request\\BaseParam.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAA1wAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:52:27.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 134,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\trancongminh2261\\source\\repos\\SkillHub_Core\\SkillHub_Core\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-10T14:34:51.476Z",
+              "EditorCaption": ""
             }
           ]
         }

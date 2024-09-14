@@ -13,10 +13,6 @@ namespace LMSCore.Utilities
             ((int)RoleEnum.admin),
             ((int)RoleEnum.teacher),
             ((int)RoleEnum.manager),
-            ((int)RoleEnum.sale),
-            ((int)RoleEnum.accountant),
-            ((int)RoleEnum.academic),
-            ((int)RoleEnum.tutor),
         };
 
         public static bool IsStaff(int role)
@@ -61,11 +57,6 @@ namespace LMSCore.Utilities
                   : roleId == ((int)RoleEnum.teacher) ? "Giáo viên"
                   : roleId == ((int)RoleEnum.student) ? "Học viên"
                   : roleId == ((int)RoleEnum.manager) ? "Quản lý"
-                  : roleId == ((int)RoleEnum.sale) ? "Tư vấn viên"
-                  : roleId == ((int)RoleEnum.accountant) ? "Kế toán"
-                  : roleId == ((int)RoleEnum.academic) ? "Học vụ"
-                  : roleId == ((int)RoleEnum.parents) ? "Phụ huynh"
-                  : roleId == ((int)RoleEnum.tutor) ? "Trợ giảng"
                   : "";
         }
         public static bool IsValidPhoneNumber(string phoneNumber)

@@ -7,12 +7,15 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;using Microsoft.AspNetCore.Mvc;using LMSCore.Utilities;
+using LMSCore.Users;
+using Microsoft.AspNetCore.Mvc;
+using LMSCore.Utilities;
 using LMSCore.LMS;
 using System.Threading.Tasks;
 using System.Configuration;
 using Microsoft.Extensions.Configuration;
-using LMSCore.Services;
+using LMS_Project.Models;
+using LMS_Project.Services;
 
 namespace LMSCore.Users
 {
@@ -82,11 +85,10 @@ namespace LMSCore.Users
                       new Claim(ClaimTypes.NameIdentifier, Encryptor.Encrypt(user.UserInformationId.ToString())),
                       new Claim(ClaimTypes.Name, user.FullName),
                       new Claim(ClaimTypes.Role, user.RoleName),
-                      new Claim("UserInformationId", user.UserInformationId.ToString()),
+                       new Claim("UserInformationId", user.UserInformationId.ToString()),
                       new Claim("FullName", user.FullName.ToString()),
                       new Claim("UserCode", user.UserCode ?? ""),
                       new Claim("UserName", user.UserName ?? ""),
-                      new Claim("BranchIds", user.BranchIds ?? ""),
                       new Claim("RoleId", user.RoleId?.ToString() ?? ""),
                       new Claim("Gender", user.Gender?.ToString() ?? ""),
                       new Claim("DOB", user.DOB == null ? "" : user.DOB.ToString()),
@@ -94,10 +96,11 @@ namespace LMSCore.Users
                       new Claim("Mobile", user.Mobile ?? ""),
                       new Claim("Address", user.Address ?? ""),
                       new Claim("Avatar", user.Avatar ?? ""),
-                      new Claim("AvatarReSize", user.AvatarReSize ?? ""),
                       new Claim("AreaId", user.AreaId.ToString()),
                       new Claim("DistrictId", user.DistrictId.ToString()),
                       new Claim("WardId", user.WardId.ToString()),
+                      new Claim("NickName", user.NickName ?? ""),
+                      new Claim("CMND", user.CMND ?? ""),
                 }
                 ),
 

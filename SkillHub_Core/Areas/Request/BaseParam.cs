@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using static LMSCore.Models.lmsEnum;
-using static LMSCore.Services.TranscriptService;
 
 namespace LMSCore.Areas.Request
 {

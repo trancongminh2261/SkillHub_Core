@@ -1,20 +1,21 @@
 ﻿using LMSCore.LMS;
 using LMSCore.Models;
-using LMSCore.Services;
-using Microsoft.AspNetCore.Mvc;using LMSCore.Utilities;
+using Microsoft.AspNetCore.Mvc;
+using LMSCore.Utilities;
 using System;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using LMS_Project.Models;
+using LMS_Project.Services;
 
 namespace LMSCore.Areas.ControllerAPIs
 {
     [Writelog]
     public class BaseController : ControllerBase
-    {
-        
+    {      
         [NonAction]
         public string ParseToDate(string value)
         {

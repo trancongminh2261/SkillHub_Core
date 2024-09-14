@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using LMSCore.Users;
 
-namespace LMSCore.Areas.Models
+namespace LMS_Project.Areas.Models
 {
     public class ObjectResult
     {

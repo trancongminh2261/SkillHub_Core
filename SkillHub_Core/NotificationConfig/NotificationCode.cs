@@ -1,6 +1,4 @@
-﻿using LMSCore.Migrations;
-
-namespace LMSCore.NotificationConfig
+﻿namespace LMSCore.NotificationConfig
 {
     public class NotificationCode
     {

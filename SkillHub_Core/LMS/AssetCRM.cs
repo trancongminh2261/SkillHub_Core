@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
+using LMSCore.Users;
 using Microsoft.AspNetCore.Mvc;
 using LMSCore.Utilities;
 using System.Xml;
@@ -164,6 +164,68 @@ namespace LMSCore.LMS
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        public static void OneSignalPushNotiV2(string headings
+            , string contents
+            , List<string> includeSubscriptionIds
+            , string url)
+        {
+            try
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                var request = WebRequest.Create("https://onesignal.com/api/v1/notifications") as HttpWebRequest;
+                contents = contents.Replace("&nbsp;", " ");
+                string onesignalAppId = ConfigurationManager.AppSettings["OnesignalAppId"].ToString();
+                string onesignalRestId = ConfigurationManager.AppSettings["OnesignalRestId"].ToString();
+                request.KeepAlive = true;
+                request.Headers.Add("Authorization", "Basic " + onesignalRestId);
+                request.Method = "POST";
+                request.ContentType = "application/json; charset=utf-8";
+
+                // request.Headers.Add("authorization", "ZmU4ZTEwZTUtOGY3YS00OWM5LTk2YmEtOGZmNDY3MjM3OWI5");
+
+                var serializer = new JavaScriptSerializer();
+                var obj = new
+                {
+                    app_id = onesignalAppId, //nhập key noti app vào đây
+                    headings = new { en = headings },
+                    contents = new { en = contents },
+                    url = url,
+                    include_player_ids = includeSubscriptionIds
+                };
+                var param = serializer.Serialize(obj);
+                byte[] byteArray = Encoding.UTF8.GetBytes(param);
+
+                string responseContent = null;
+
+                try
+                {
+                    using (var writer = request.GetRequestStream())
+                    {
+                        writer.Write(byteArray, 0, byteArray.Length);
+                    }
+
+                    using (var response = request.GetResponse() as HttpWebResponse)
+                    {
+                        using (var reader = new StreamReader(response.GetResponseStream()))
+                        {
+                            responseContent = reader.ReadToEnd();
+                        }
+                    }
+                }
+                catch (WebException ex)
+                {
+                    return;
+                }
+
+                System.Diagnostics.Debug.WriteLine(responseContent);
+
+            }
+            catch (Exception e)
+            {
+                return;
             }
         }
         public static void SendMail(string strTo, string title, string content, string filePath = null)
