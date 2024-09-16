@@ -1,6 +1,8 @@
 ﻿using LMS_Project.Areas.Models;
 
 using LMS_Project.Models;
+using LMSCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 using System.Linq;
@@ -9,8 +11,7 @@ using System.Threading.Tasks;
 namespace LMS_Project.Services
 {
     public class District
-    {
-        
+    {   
         public static async Task<ObjectResult> GetAll(DistrictSearch search)
         {
             using (var db = new lmsDbContext())

@@ -11,7 +11,7 @@ namespace LMS_Project.Services
         /// <summary>
         /// Tự động chạy 1 phút 1 lần
         /// </summary>
-        public static void PushOneMinute()
+        public static void Minutely()
         {
             Task.Run(() => {
                 ///Tự động tắt phòng zoom
@@ -19,13 +19,16 @@ namespace LMS_Project.Services
                 NotificationInVideoService.SeenNotification();
             });
         }
-        public static void PushOneDay()
+        public static void Daily()
         {
             Task.Run(() =>
             {
-                ///Tự động khoá tài khoản
-                //UserInformation.AutoInActive();
-                //Account.PushNotiRemindStudy();
+            });
+        }
+        public static void Monthly()
+        {
+            Task.Run(() =>
+            {
             });
         }
     }

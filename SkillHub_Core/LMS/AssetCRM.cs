@@ -13,13 +13,12 @@ using LMSCore.Utilities;
 using System.Xml;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using System.Configuration;
 using LMSCore;
-using Microsoft.Extensions.Configuration;
 using LMSCore.Utilities;
 using QRCoder;
 using System.Drawing.Imaging;
 using RestSharp;
+using Microsoft.Extensions.Configuration;
 
 namespace LMSCore.LMS
 {
@@ -177,8 +176,10 @@ namespace LMSCore.LMS
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 var request = WebRequest.Create("https://onesignal.com/api/v1/notifications") as HttpWebRequest;
                 contents = contents.Replace("&nbsp;", " ");
-                string onesignalAppId = ConfigurationManager.AppSettings["OnesignalAppId"].ToString();
-                string onesignalRestId = ConfigurationManager.AppSettings["OnesignalRestId"].ToString();
+                /*string onesignalAppId = ConfigurationManager.AppSettings["OnesignalAppId"].ToString();
+                string onesignalRestId = ConfigurationManager.AppSettings["OnesignalRestId"].ToString();*/
+                string onesignalAppId = "";
+                string onesignalRestId = "";
                 request.KeepAlive = true;
                 request.Headers.Add("Authorization", "Basic " + onesignalRestId);
                 request.Method = "POST";
@@ -186,7 +187,7 @@ namespace LMSCore.LMS
 
                 // request.Headers.Add("authorization", "ZmU4ZTEwZTUtOGY3YS00OWM5LTk2YmEtOGZmNDY3MjM3OWI5");
 
-                var serializer = new JavaScriptSerializer();
+                //var serializer = new JavaScriptSerializer();
                 var obj = new
                 {
                     app_id = onesignalAppId, //nhập key noti app vào đây
@@ -195,7 +196,7 @@ namespace LMSCore.LMS
                     url = url,
                     include_player_ids = includeSubscriptionIds
                 };
-                var param = serializer.Serialize(obj);
+                var param = JsonConvert.SerializeObject(obj);
                 byte[] byteArray = Encoding.UTF8.GetBytes(param);
 
                 string responseContent = null;

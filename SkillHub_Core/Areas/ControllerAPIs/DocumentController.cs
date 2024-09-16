@@ -63,34 +63,40 @@ namespace LMS_Project.Areas.ControllerAPIs
                 try
                 {
                     string link = "";
-                    var httpContext = HttpContext.Current;
-                    var file = httpContext.Request.Files.Get("File");
-                    string topicId = httpContext.Request.Form.Get("TopicId");
-                    string currentId = httpContext.Request.Form.Get("Id");
-                    if (file != null && topicId != null && currentId != null)
+                    string baseUrl = $"{Request.Scheme}://{Request.Host}";
+
+                    // Đọc file từ Request
+                    var file = Request.Form.Files.FirstOrDefault();
+                    string topicId = Request.Form["TopicId"];
+                    string currentId = Request.Form["Id"];
+
+                    if (file != null && !string.IsNullOrEmpty(topicId) && !string.IsNullOrEmpty(currentId))
                     {
                         DocumentUpdate request = new DocumentUpdate();
                         string ext = Path.GetExtension(file.FileName).ToLower();
-                        
-                        string fileName = Guid.NewGuid() + ext;
-                        var path = Path.Combine(httpContext.Server.MapPath("~/Upload/Documents/"), fileName);
-                        string strPathAndQuery = httpContext.Request.Url.PathAndQuery;
-                        string strUrl = httpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
-                        link = strUrl + "Upload/Documents/" + fileName;
 
+                        string fileName = Guid.NewGuid() + ext;
+                        var path = Path.Combine($"{baseUrl}/Upload/Documents", fileName); // Đường dẫn lưu file trên server
+                        link = $"{baseUrl}/Upload/Documents/{fileName}";
+
+                        // Tạo thư mục nếu chưa tồn tại
+                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+
+                        // Lưu file
                         using (var fileStream = new FileStream(path, FileMode.Create))
                         {
-                            file.InputStream.CopyTo(fileStream);
+                            await file.CopyToAsync(fileStream);
                         }
-                        //update
-                        request.Id = Int32.Parse(currentId);
-                        request.TopicId = Int32.Parse(topicId);
+
+                        // Update thông tin
+                        request.Id = int.Parse(currentId);
+                        request.TopicId = int.Parse(topicId);
                         request.FileName = file.FileName;
                         request.FileType = ext;
                         request.AbsolutePath = link;
-                        var data = await documentService.Update(request, GetCurrentUser());
-                        return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
 
+                        var data = await documentService.Update(request, GetCurrentUser());
+                        return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công!", data });
                     }
                     else
                     {
@@ -102,9 +108,11 @@ namespace LMS_Project.Areas.ControllerAPIs
                     return StatusCode((int)HttpStatusCode.BadRequest, new { message = e.Message });
                 }
             }
-            var message = ModelState.Values.FirstOrDefault().Errors.FirstOrDefault().ErrorMessage;
+
+            var message = ModelState.Values.FirstOrDefault()?.Errors.FirstOrDefault()?.ErrorMessage;
             return StatusCode((int)HttpStatusCode.BadRequest, new { message = message });
         }
+
 
         [HttpPost]
         [Route("api/Document")]
@@ -115,33 +123,38 @@ namespace LMS_Project.Areas.ControllerAPIs
                 try
                 {
                     string link = "";
-                    var httpContext = HttpContext.Current;
-                    var file = httpContext.Request.Files.Get("File");
-                    string topicId = httpContext.Request.Form.Get("TopicId");
-                    if (file != null && topicId != null)
+                    string baseUrl = $"{Request.Scheme}://{Request.Host}";
+
+                    // Lấy file và các thông tin từ form
+                    var file = Request.Form.Files.FirstOrDefault();
+                    string topicId = Request.Form["TopicId"];
+
+                    if (file != null && !string.IsNullOrEmpty(topicId))
                     {
                         DocumentCreate request = new DocumentCreate();
                         string ext = Path.GetExtension(file.FileName).ToLower();
-                   
-                        string fileName = Guid.NewGuid() + ext;
-                        var path = Path.Combine(httpContext.Server.MapPath("~/Upload/Documents/"), fileName);
-                        string strPathAndQuery = httpContext.Request.Url.PathAndQuery;
-                        string strUrl = httpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
-                        link = strUrl + "Upload/Documents/" + fileName;
 
+                        string fileName = Guid.NewGuid() + ext;
+                        var path = Path.Combine($"{baseUrl}/Upload/Documents", fileName); // Đường dẫn lưu file trên server
+                        link = $"{baseUrl}/Upload/Documents/{fileName}";
+
+                        // Tạo thư mục nếu chưa tồn tại
+                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+
+                        // Lưu file
                         using (var fileStream = new FileStream(path, FileMode.Create))
                         {
-                            file.InputStream.CopyTo(fileStream);
+                            await file.CopyToAsync(fileStream);
                         }
 
-                        //insert document with id and fil e
-                        request.TopicId = Int32.Parse(topicId);
+                        // Insert thông tin
+                        request.TopicId = int.Parse(topicId);
                         request.FileName = file.FileName;
                         request.FileType = ext;
                         request.AbsolutePath = link;
                         var data = await documentService.Insert(request, GetCurrentUser());
-                        return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
-                       
+
+                        return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công!", data });
                     }
                     else
                     {
@@ -153,9 +166,11 @@ namespace LMS_Project.Areas.ControllerAPIs
                     return StatusCode((int)HttpStatusCode.BadRequest, new { message = e.Message });
                 }
             }
-            var message = ModelState.Values.FirstOrDefault().Errors.FirstOrDefault().ErrorMessage;
+
+            var message = ModelState.Values.FirstOrDefault()?.Errors.FirstOrDefault()?.ErrorMessage;
             return StatusCode((int)HttpStatusCode.BadRequest, new { message = message });
         }
+
 
         [HttpDelete]
         [Route("api/Document/{id}")]

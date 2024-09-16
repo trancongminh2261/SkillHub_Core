@@ -5958,7 +5958,7 @@
             <param name="baseSearch"></param>
             <returns></returns>
         </member>
-        <member name="M:LMSCore.Services.LessonVideoService.Completed(System.Int32,LMSCore.Models.tbl_UserInformation,System.Int32,System.Double)">
+        <member name="M:LMSCore.Services.domainService.Completed(System.Int32,LMSCore.Models.tbl_UserInformation,System.Int32,System.Double)">
             <summary>
             Đối với bài kiểm tra sẽ lưu lại điểm
             </summary>
@@ -7514,12 +7514,12 @@
             <param name="loginUId">Id đăng đăng nhập</param>
             <param name="contenterror">Thông báo lỗi</param>
         </member>
-        <member name="P:LMSCore.Models.lmsDbContext.tbl_Template">
+        <member name="P:LMSCore.Models.lmsdb.tbl_Template">
             <summary>
             Các mẫu
             </summary>
         </member>
-        <member name="P:LMSCore.Models.lmsDbContext.tbl_GeneralNotification">
+        <member name="P:LMSCore.Models.lmsdb.tbl_GeneralNotification">
             <summary>
             Thông báo chung
             </summary>

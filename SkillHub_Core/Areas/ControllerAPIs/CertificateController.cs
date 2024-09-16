@@ -16,17 +16,24 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using LMSCore.Users;
 using Microsoft.AspNetCore.Mvc;
-using static LMS_Project.Services.LessonVideoService;
 using LMSCore.Areas.ControllerAPIs;
 using LMSCore.Models;
 using static LMSCore.Models.lmsEnum;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace LMS_Project.Areas.ControllerAPIs
 {
     [ClaimsAuthorize]
     public class CertificateController : BaseController
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public CertificateController(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
         [HttpGet]
         [Route("api/Certificate/{id}")]
         public async Task<IActionResult> GetById(int id)
@@ -84,7 +91,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                     if (hasCertificate)
                         throw new Exception("Học viên đã được cấp chứng chỉ");
 
-                    await CertificateService.CreateCertificate(dbContext,videoCourseId,studentId);
+                    await CertificateService.CreateCertificate(dbContext,videoCourseId, studentId, _httpContextAccessor);
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
                 }
             }
@@ -99,18 +106,25 @@ namespace LMS_Project.Areas.ControllerAPIs
             public string Content { get; set; }
         }
         [Route("api/Certificate/export-pdf")]
-        public async Task<IActionResult> ExportPDF(ExportPdf itemModel)
+        [HttpPost]
+        public async Task<IActionResult> ExportPDF([FromBody] ExportPdf itemModel)
         {
-            using (lmsDbContext dbContext = new lmsDbContext())
+            using (var dbContext = new lmsDbContext())
             {
                 try
                 {
-                    var httpContext = HttpContext.Current;
-                    var path = Path.Combine(httpContext.Server.MapPath("~/Upload"));
-                    string strPathAndQuery = httpContext.Request.Url.PathAndQuery;
-                    string strUrl = httpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
-                    var pathViews = Path.Combine(httpContext.Server.MapPath("~/Views"));
-                    var data = await CertificateService.ExportPDF(dbContext, itemModel.Id, itemModel.Content, path, strUrl);
+                    // Xây dựng URL cơ bản và đường dẫn
+                    string baseUrl = $"{Request.Scheme}://{Request.Host}";
+                    var uploadPath = Path.Combine(baseUrl, "Upload");
+                    var pathViews = Path.Combine(baseUrl, "Views");
+
+                    // Xây dựng đường dẫn URL đầy đủ
+                    string strUrl = $"{baseUrl}/";
+
+                    // Gọi phương thức ExportPDF từ CertificateService
+                    var data = await CertificateService.ExportPDF(dbContext, itemModel.Id, itemModel.Content, uploadPath, strUrl);
+
+                    // Trả về kết quả thành công
                     return StatusCode((int)HttpStatusCode.OK, new
                     {
                         message = "Thành công",
@@ -119,9 +133,11 @@ namespace LMS_Project.Areas.ControllerAPIs
                 }
                 catch (Exception e)
                 {
+                    // Xử lý lỗi và trả về thông báo lỗi
                     return StatusCode((int)HttpStatusCode.BadRequest, new { message = e.Message });
                 }
             }
         }
+
     }
 }

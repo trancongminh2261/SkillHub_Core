@@ -2744,6 +2744,22 @@
             "related": ".xml"
           }
         }
+      },
+      "Xabe.FFmpeg/5.2.6": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -8125,6 +8141,19 @@
         "uaparser.3.1.47.nupkg.sha512",
         "uaparser.nuspec"
       ]
+    },
+    "Xabe.FFmpeg/5.2.6": {
+      "sha512": "AFT06eHAZ4OV3s6H2dZWeRQ6kkdWkY1dGq76iFprlOG6quB7V7Nm8wWhEF63As1txsh/8kwAbybtffrgqfQ0dg==",
+      "type": "package",
+      "path": "xabe.ffmpeg/5.2.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Xabe.FFmpeg.dll",
+        "lib/netstandard2.0/Xabe.FFmpeg.xml",
+        "xabe.ffmpeg.5.2.6.nupkg.sha512",
+        "xabe.ffmpeg.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -8149,7 +8178,8 @@
       "RestSharp >= 106.12.0",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "Swashbuckle.AspNetCore.Annotations >= 6.2.3",
-      "UAParser >= 3.1.47"
+      "UAParser >= 3.1.47",
+      "Xabe.FFmpeg >= 5.2.6"
     ]
   },
   "packageFolders": {
@@ -8282,6 +8312,10 @@
           "UAParser": {
             "target": "Package",
             "version": "[3.1.47, )"
+          },
+          "Xabe.FFmpeg": {
+            "target": "Package",
+            "version": "[5.2.6, )"
           }
         },
         "imports": [

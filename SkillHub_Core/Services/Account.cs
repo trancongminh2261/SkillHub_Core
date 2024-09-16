@@ -24,40 +24,54 @@ namespace LMS_Project.Services
 {
     public class Account
     {
-        public static void PushNotiRemindStudy()
+        public static void PushNotiRemindStudy(IHttpContextAccessor httpContextAccessor)
         {
             using (var db = new lmsDbContext())
             {
-                var httpContext = HttpContext.Current;
-                var pathViews = Path.Combine(httpContext.Server.MapPath("~/Views"));
-                var studentIds = db.tbl_UserInformation.Where(x => x.Enable == true && x.RoleId == (int)RoleEnum.student && (x.LastLoginDate == null || (DateTime.Now - x.LastLoginDate.Value).Days >= 3)
-                    && (db.tbl_VideoCourseAllow.Any(y => y.Enable == true && ((y.ValueId == x.DepartmentId && y.Type == VideoCourseAllowEnum.Type.Department.ToString()) || (y.ValueId == x.UserInformationId && y.Type == VideoCourseAllowEnum.Type.User.ToString()))
-                        && (db.tbl_VideoCourseStudent.Any(z => z.Enable == true && z.VideoCourseId == y.VideoCourseId && x.StatusId == 3) == false)))).Select(x => x.UserInformationId).Distinct().ToList();
+                var httpRequest = httpContextAccessor.HttpContext.Request;
+                string baseUrl = $"{httpRequest.Scheme}://{httpRequest.Host}";
+                var pathViews = Path.Combine($"{baseUrl}/Views");
+
+                // Lấy danh sách studentIds phù hợp với điều kiện
+                var studentIds = db.tbl_UserInformation
+                    .Where(x => x.Enable == true && x.RoleId == (int)RoleEnum.student &&
+                                (x.LastLoginDate == null || (DateTime.Now - x.LastLoginDate.Value).Days >= 3) &&
+                                !db.tbl_VideoCourseAllow.Any(y => y.Enable == true &&
+                                    ((y.ValueId == x.DepartmentId && y.Type == VideoCourseAllowEnum.Type.Department.ToString()) ||
+                                     (y.ValueId == x.UserInformationId && y.Type == VideoCourseAllowEnum.Type.User.ToString())) &&
+                                     !db.tbl_VideoCourseStudent.Any(z => z.Enable == true && z.VideoCourseId == y.VideoCourseId && x.StatusId == 3)))
+                    .Select(x => x.UserInformationId)
+                    .Distinct()
+                    .ToList();
+
                 if (studentIds.Count > 0)
                 {
-                    string domain = ConfigurationManager.AppSettings["DomainFE"].ToString();
-                    string projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
-                    //https://skillhub.mona.software/learning/?course=84&sectionIds=57&currentLessonId=1170
-                    //string href = $"<a href=\"{domain}/course/video-course/detail/?slug={videoCourse.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
+                    string domain = ConfigurationManager.AppSettings["DomainFE"];
+                    string projectName = ConfigurationManager.AppSettings["ProjectName"];
                     string href = $"<a href=\"{domain}/course/video-course\"><b style=\"color: blue;\">Tại đây</b></a>";
                     string title = "Thông báo tham gia khóa học";
-                    string contentEmail = System.IO.File.ReadAllText($"{pathViews}/Template/MailNewLesson.html");
+                    string contentEmailTemplate = System.IO.File.ReadAllText(Path.Combine(pathViews, "Template", "MailNewLesson.html"));
 
-                    contentEmail = contentEmail.Replace("[TenDuAn]", projectName);
-                    contentEmail = contentEmail.Replace("[TaiDay]", href);
                     foreach (var studentId in studentIds)
                     {
                         try
                         {
                             var student = db.tbl_UserInformation.SingleOrDefault(x => x.UserInformationId == studentId);
-                            var totalDate = (DateTime.Now.Date - student.LastLoginDate.Value.Date).Days;
-                            string content = $"Đã {totalDate}, bạn chưa tham gia vào các khóa học trên hệ thống, để đảm bảo bạn nắm bắt được kiến thức cần thiết và hoàn thành khóa học, xin vui lòng đăng nhập và tiếp tục các khóa học còn dang dở";
-                            string onesignalContent = $"Đã {totalDate}, bạn chưa tham gia vào các khóa học trên hệ thống, để đảm bảo bạn nắm bắt được kiến thức cần thiết và hoàn thành khóa học, xin vui lòng đăng nhập và tiếp tục các khóa học còn dang dở";
-                            string mailToStudent = contentEmail;
-                            mailToStudent = mailToStudent.Replace("[HoVaTen]", student.FullName);
-                            mailToStudent = contentEmail.Replace("[Ngay]", totalDate.ToString());
-                            NotificationService.SendNotThread(db,
-                                new NotificationService.SendNotThreadModel
+                            if (student?.LastLoginDate != null)
+                            {
+                                var totalDate = (DateTime.Now.Date - student.LastLoginDate.Value.Date).Days;
+                                string content = $"Đã {totalDate} ngày, bạn chưa tham gia vào các khóa học trên hệ thống. Để đảm bảo bạn nắm bắt được kiến thức cần thiết và hoàn thành khóa học, xin vui lòng đăng nhập và tiếp tục các khóa học còn dang dở.";
+                                string onesignalContent = content;
+
+                                // Tạo nội dung email
+                                string mailToStudent = contentEmailTemplate
+                                    .Replace("[TenDuAn]", projectName)
+                                    .Replace("[TaiDay]", href)
+                                    .Replace("[HoVaTen]", student.FullName)
+                                    .Replace("[Ngay]", totalDate.ToString());
+
+                                // Gửi thông báo
+                                NotificationService.SendNotThread(db, new NotificationService.SendNotThreadModel
                                 {
                                     Content = content,
                                     Email = student.Email,
@@ -67,18 +81,20 @@ namespace LMS_Project.Services
                                     UserId = student.UserInformationId,
                                     OnesignalContent = onesignalContent,
                                     OnesignalUrl = $"{domain}/course/video-course"
-                                }
-                                , new tbl_UserInformation { FullName = "Hệ thống" });
+                                }, new tbl_UserInformation { FullName = "Hệ thống" });
+                            }
                         }
                         catch (Exception ex)
                         {
+                            // Ghi log lỗi nếu cần
                             continue;
                         }
                     }
-
                 }
             }
         }
+
+
         public class TokenResult : AppDomainResult
         {
             public GenerateTokenModel GenerateTokenModel { get; set; }

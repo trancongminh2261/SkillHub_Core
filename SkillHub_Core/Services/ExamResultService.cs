@@ -686,7 +686,10 @@ namespace LMS_Project.Services
         }
         public static async Task<tbl_Standard> GetStandard(lmsDbContext dbContext, int standardId)
         {
-            return await dbContext.tbl_Standard.SingleOrDefaultAsync(x => x.Id == standardId);
+            using (var db = new lmsDbContext())
+            {
+                return await db.tbl_Standard.SingleOrDefaultAsync(x => x.Id == standardId);
+            }              
         }
         public class AddTeacherModel
         {

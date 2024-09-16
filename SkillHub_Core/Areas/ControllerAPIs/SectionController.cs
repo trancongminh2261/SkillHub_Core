@@ -18,12 +18,23 @@ using LMSCore.Users;
 using Microsoft.AspNetCore.Mvc;
 using static LMS_Project.Services.SectionService;
 using LMSCore.Areas.ControllerAPIs;
+using LMSCore.Models;
+using Microsoft.AspNetCore.Hosting;
 
 namespace LMS_Project.Areas.ControllerAPIs
 {
     [ClaimsAuthorize]
     public class SectionController : BaseController
     {
+        private lmsDbContext dbContext;
+        private SectionService domainService;
+
+        public SectionController()
+        {
+            this.dbContext = new lmsDbContext();
+            this.domainService = new SectionService(this.dbContext);
+        }
+
         [HttpPost]
         [Route("api/Section")]
         public async Task<IActionResult> Insert([FromBody] SectionCreate model)
@@ -32,7 +43,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var data = await SectionService.Insert(model, GetCurrentUser());
+                    var data = await domainService.Insert(model, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -51,7 +62,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var data = await SectionService.Update(model, GetCurrentUser());
+                    var data = await domainService.Update(model, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -68,7 +79,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         {
             try
             {
-                await SectionService.Delete(id);
+                await domainService.Delete(id);
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
             }
             catch (Exception e)
@@ -82,7 +93,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         {
             try
             {
-                await SectionService.ChangeIndex(model);
+                await domainService.ChangeIndex(model);
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
             }
             catch (Exception e)
@@ -96,10 +107,10 @@ namespace LMS_Project.Areas.ControllerAPIs
         {
             try
             {
-                var data = await SectionService.GetByVideoCourse(videoCourseId, GetCurrentUser());
+                var data = await domainService.GetByVideoCourse(videoCourseId, GetCurrentUser());
                 if (!data.Any())
                     return StatusCode((int)HttpStatusCode.NoContent);
-                double complete = await SectionService.GetComplete(videoCourseId,GetCurrentUser());
+                double complete = await domainService.GetComplete(videoCourseId,GetCurrentUser());
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data = data, complete = complete });
             }
             catch (Exception e)

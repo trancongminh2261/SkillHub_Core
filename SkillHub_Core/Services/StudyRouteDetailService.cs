@@ -220,7 +220,7 @@ namespace LMS_Project.Services
                     throw new Exception("Không tìm thấy dữ liệu");
                 foreach (var item in request)
                 {
-                    var StudyRouteDetail = await db.tbl_StudyRouteDetail.SingleOrDefaultAsync(x => x.Id == item.Id && x.Enable == true);
+                    var StudyRouteDetail = await dbContext.tbl_StudyRouteDetail.SingleOrDefaultAsync(x => x.Id == item.Id && x.Enable == true);
                     if (StudyRouteDetail != null)
                     {
                         StudyRouteDetail.Index = item.Index ?? StudyRouteDetail.Index;
@@ -228,7 +228,7 @@ namespace LMS_Project.Services
                         StudyRouteDetail.ModifiedOn = DateTime.Now;
                         listStudyRouteDetail.Add(StudyRouteDetail);
                     }
-                    await db.SaveChangesAsync();
+                    await dbContext.SaveChangesAsync();
                 }
                 return listStudyRouteDetail;
             }

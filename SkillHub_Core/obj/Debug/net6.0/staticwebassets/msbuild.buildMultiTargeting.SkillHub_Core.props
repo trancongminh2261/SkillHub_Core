@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SkillHub_Core.props" />
+</Project>

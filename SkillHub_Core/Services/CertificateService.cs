@@ -118,29 +118,29 @@ namespace LMS_Project.Services
         //        }
         //    }
         //}
-        public static async Task CreateCertificate(lmsDbContext dbContext,int videoCourseId, int studentId)
+        public static async Task CreateCertificate(lmsDbContext db, int videoCourseId, int studentId, IHttpContextAccessor httpContextAccessor)
         {
             try
             {
-                var entity = await dbContext.tbl_Certificate.AnyAsync(x => x.UserId == studentId && x.VideoCourseId == videoCourseId && x.Enable == true);
-                if (!entity)
+                var entityExists = await db.tbl_Certificate.AnyAsync(x => x.UserId == studentId && x.VideoCourseId == videoCourseId && x.Enable == true);
+                if (!entityExists)
                 {
-                    var videoCoure = await dbContext.tbl_VideoCourse.FirstOrDefaultAsync(x => x.Enable == true && x.Active == true && x.Id == videoCourseId);
-                    if (videoCoure == null)
+                    var videoCourse = await db.tbl_VideoCourse.FirstOrDefaultAsync(x => x.Enable == true && x.Active == true && x.Id == videoCourseId);
+                    if (videoCourse == null)
                         return;
 
-                    var config = await dbContext.tbl_CertificateConfig
-                        .SingleOrDefaultAsync(x=>x.Id == videoCoure.CertificateConfigId);
+                    var config = await db.tbl_CertificateConfig
+                        .SingleOrDefaultAsync(x => x.Id == videoCourse.CertificateConfigId);
                     if (config == null)
                         return;
 
-                    var student = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == studentId);
-                    var model = await dbContext.tbl_Certificate.FirstOrDefaultAsync(x => x.UserId == studentId && x.VideoCourseId == videoCourseId && x.Enable == true);
+                    var student = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == studentId);
+                    var model = await db.tbl_Certificate.FirstOrDefaultAsync(x => x.UserId == studentId && x.VideoCourseId == videoCourseId && x.Enable == true);
                     if (model == null)
                     {
                         model = new tbl_Certificate
                         {
-                            Content = CertificateConfigService.ReplaceContent(config.Content, videoCoure.Name, student),
+                            Content = CertificateConfigService.ReplaceContent(config.Content, videoCourse.Name, student),
                             CreatedBy = student.FullName,
                             CreatedOn = DateTime.Now,
                             Enable = true,
@@ -148,61 +148,59 @@ namespace LMS_Project.Services
                             ModifiedOn = DateTime.Now,
                             UserId = student.UserInformationId,
                             Background = config.Background,
-                            VideoCourseId = videoCoure.Id,
+                            VideoCourseId = videoCourse.Id,
                             Backside = config.Backside
                         };
-                        dbContext.tbl_Certificate.Add(model);
-                        await dbContext.SaveChangesAsync();
+                        db.tbl_Certificate.Add(model);
+                        await db.SaveChangesAsync();
 
-                        //Gửi mail đến người dùng, cần có FE css cho 1 màn hình thông báo mail
-                        var httpContext = HttpContext.Current;
-                        var path = Path.Combine(httpContext.Server.MapPath("~/Upload"));
-                        string strPathAndQuery = httpContext.Request.Url.PathAndQuery;
-                        string strUrl = httpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
-                        var pathViews = Path.Combine(httpContext.Server.MapPath("~/Views"));
+                        // Gửi mail đến người dùng
+                        var request = httpContextAccessor.HttpContext.Request;
+                        string baseUrl = $"{request.Scheme}://{request.Host}";
+                        var uploadPath = Path.Combine($"{baseUrl}/Upload");
+                        var viewsPath = Path.Combine($"{baseUrl}/Views");
 
-                        string content = System.IO.File.ReadAllText($"{pathViews}/Home/ExportCertificate.cshtml");
+                        string content = System.IO.File.ReadAllText($"{viewsPath}/Home/ExportCertificate.cshtml");
                         content = content.Replace("{background}", model.Background);
                         content = content.Replace("{content}", model.Content);
-                        model = await ExportPDF(dbContext,model.Id, content, path, strUrl);
+                        model = await ExportPDF(db, model.Id, content, uploadPath, baseUrl);
 
                         string projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
 
-                        string contentSendMail = System.IO.File.ReadAllText($"{pathViews}/Home/SendMailCertificate.cshtml");
+                        string contentSendMail = System.IO.File.ReadAllText($"{viewsPath}/Home/SendMailCertificate.cshtml");
                         contentSendMail = contentSendMail.Replace("{TenHocVien}", student.FullName);
-                        contentSendMail = contentSendMail.Replace("{TenChungChi}", videoCoure.Name);
+                        contentSendMail = contentSendMail.Replace("{TenChungChi}", videoCourse.Name);
                         contentSendMail = contentSendMail.Replace("{TenToChuc}", projectName);
                         contentSendMail = contentSendMail.Replace("{PDFUrl}", model.PDFUrl);
-                        contentSendMail = contentSendMail.Replace("{DomainAPI}", strUrl);
+                        contentSendMail = contentSendMail.Replace("{DomainAPI}", baseUrl);
 
                         Thread sendMail = new Thread(() =>
                         {
-                            AssetCRM.SendMail(student.Email, $"Cấp chứng chỉ khóa học {videoCoure.Name}", contentSendMail);
-                            //AssetCRM.SendMailAttachment(student.Email, $"Cấp chứng chỉ khóa học {videoCoure.Name}", contentSendMail, model.PDFUrl);
+                            AssetCRM.SendMail(student.Email, $"Cấp chứng chỉ khóa học {videoCourse.Name}", contentSendMail);
                         });
                         sendMail.Start();
                     }
                     else
                     {
-                        model.Content = CertificateConfigService.ReplaceContent(config.Content, videoCoure.Name, student);
+                        model.Content = CertificateConfigService.ReplaceContent(config.Content, videoCourse.Name, student);
                         model.Background = config.Background;
-                        await dbContext.SaveChangesAsync();
+                        await db.SaveChangesAsync();
                     }
-
                 }
             }
             catch (Exception e)
             {
-                throw e;
+                throw e; // Consider logging the exception instead of throwing it again
             }
         }
 
-        public static async Task<tbl_Certificate> ExportPDF(lmsDbContext dbContext,int id, string content, string path, string domain)
+
+        public static async Task<tbl_Certificate> ExportPDF(lmsDbContext db, int id, string content, string path, string domain)
         {
-            var entity = await dbContext.tbl_Certificate.SingleOrDefaultAsync(x => x.Id == id);
+            var entity = await db.tbl_Certificate.SingleOrDefaultAsync(x => x.Id == id);
             if (entity == null)
                 throw new Exception("Không tìm thấy chứng chỉ");
-            var user = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == entity.UserId);
+            var user = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == entity.UserId);
 
             string savePath = $"{path}/Certificate/Certificate_{user.UserCode}.pdf";
 
@@ -251,7 +249,7 @@ namespace LMS_Project.Services
                 }
             }
             entity.PDFUrl = $"{domain}/Upload/Certificate/Certificate_{user.UserCode}.pdf";
-            await dbContext.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return entity;
         }
 

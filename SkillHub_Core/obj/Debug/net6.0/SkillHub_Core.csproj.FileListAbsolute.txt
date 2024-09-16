@@ -156,3 +156,4 @@ C:\Users\trancongminh2261\source\repos\SkillHub_Core\SkillHub_Core\obj\Debug\net
 C:\Users\trancongminh2261\source\repos\SkillHub_Core\SkillHub_Core\obj\Debug\net6.0\SkillHub_Core.genruntimeconfig.cache
 C:\Users\trancongminh2261\source\repos\SkillHub_Core\SkillHub_Core\obj\Debug\net6.0\ref\SkillHub_Core.dll
 C:\Users\trancongminh2261\source\repos\SkillHub_Core\SkillHub_Core\bin\Debug\net6.0\SkillHub_Core.xml
+C:\Users\trancongminh2261\source\repos\SkillHub_Core\SkillHub_Core\bin\Debug\net6.0\Xabe.FFmpeg.dll

@@ -218,7 +218,7 @@ namespace LMS_Project.Services
                             var sql = string.Join("", sqlBag);
                             if (sql != null && sql != "")
                             {
-                                db.Database.ExecuteSqlCommand(sql);
+                                await db.Database.ExecuteSqlRawAsync(sql);
                             }
                             foreach(var item in listStudyRouteId)
                             {

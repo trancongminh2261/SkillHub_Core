@@ -1,7 +1,8 @@
 ﻿using LMSCore.LMS;
 using LMSCore.Models;
 using LMSCore.Users;
-using Microsoft.AspNetCore.Mvc;using LMSCore.Utilities;
+using Microsoft.AspNetCore.Mvc;
+using LMSCore.Utilities;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Primitives;
 using System;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
+using LMS_Project.Services;
 
 namespace LMSCore.Users
 {

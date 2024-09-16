@@ -16,7 +16,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using LMSCore.Users;
 using Microsoft.AspNetCore.Mvc;
-using static LMS_Project.Services.LessonVideoService;
 using System.Net.Http.Headers;
 using System.Configuration;
 using LMS_Project.DTO.ServerDownload;
@@ -24,6 +23,10 @@ using Newtonsoft.Json;
 using LMSCore.Areas.ControllerAPIs;
 using LMSCore.LMS;
 using LMSCore.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting.Internal;
+using static LMS_Project.Services.LessonVideoService;
 
 namespace LMS_Project.Areas.ControllerAPIs
 {
@@ -32,75 +35,74 @@ namespace LMS_Project.Areas.ControllerAPIs
     {
         public static string serverDownload_Api_Key = ConfigurationManager.AppSettings["ServerDownload_API_Key"].ToString();
         public static string serverDownload_Video_Protection_Id = ConfigurationManager.AppSettings["ServerDownload_Video_Protection_Id"].ToString();
+
         [HttpPost]
         [Route("api/LessonVideo/AntiDownload/upload-video")]
         public async Task<IActionResult> UploadVideo()
         {
             var protectedValue = "true";
             var httpClient = new HttpClient();
-            var httpRequest = HttpContext.Current.Request;
+            var httpRequest = HttpContext.Request;
             var serverDownloadInfor = await LessonVideoService.GetDiskUsage();
+
             using (var content = new MultipartFormDataContent())
             {
-                if (httpRequest.Files.Count > 0)
+                if (httpRequest.Form.Files.Count > 0)
                 {
-                    /*var videoUploadId = httpRequest.Form["videouploadid"];
-                    if(videoUploadId != null)
-                    {
-                        // Xóa video cũ
-                        var deleteRequest = new HttpRequestMessage(HttpMethod.Delete, $"https://app-api.mona.host/v1/videos/{videoUploadId}");
-                        deleteRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        deleteRequest.Headers.Add("X-MONA-KEY", serverDownload_Api_Key);
-
-                        var deleteResponse = await httpClient.SendAsync(deleteRequest);
-                        if (!deleteResponse.IsSuccessStatusCode)
-                        {
-                            var deleteErrorContent = await deleteResponse.Content.ReadAsStringAsync();
-                            return StatusCode((int)deleteResponse.StatusCode, new { message = "Xóa video cũ thất bại!", deleteErrorContent });
-                        }
-                    }*/
-
-                    var file = httpRequest.Files["file"];
+                    // Xử lý file video upload
+                    var file = httpRequest.Form.Files["file"];
                     if (file != null)
                     {
-                        var fileContent = new StreamContent(file.InputStream);
+                        var fileContent = new StreamContent(file.OpenReadStream());
                         fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse(file.ContentType);
                         content.Add(fileContent, "file", file.FileName);
                     }
 
-                    var thumbnail = httpRequest.Files["thumbnail"];
+                    // Xử lý thumbnail upload
+                    var thumbnail = httpRequest.Form.Files["thumbnail"];
                     if (thumbnail != null)
                     {
-                        var thumbnailContent = new StreamContent(thumbnail.InputStream);
+                        var thumbnailContent = new StreamContent(thumbnail.OpenReadStream());
                         thumbnailContent.Headers.ContentType = MediaTypeHeaderValue.Parse(thumbnail.ContentType);
                         content.Add(thumbnailContent, "thumbnail", thumbnail.FileName);
                     }
                 }
                 else
+                {
                     return StatusCode((int)HttpStatusCode.BadRequest, new { message = "Vui lòng chọn video cần tải lên!" });
+                }
 
+                // Xử lý tiêu đề video
                 var title = httpRequest.Form["title"];
-                if(title == null)
+                if (string.IsNullOrEmpty(title))
+                {
                     return StatusCode((int)HttpStatusCode.BadRequest, new { message = "Vui lòng nhập tên bài học trước!" });
+                }
 
+                // Thêm các nội dung vào content
                 content.Add(new StringContent(serverDownload_Video_Protection_Id ?? ""), "video_protection_id");
                 content.Add(new StringContent(protectedValue ?? ""), "protected");
-                content.Add(new StringContent(title ?? ""), "title");
+                content.Add(new StringContent(title), "title");
 
+                // Thêm header cho HTTP client
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 httpClient.DefaultRequestHeaders.Add("X-MONA-KEY", serverDownload_Api_Key);
 
+                // Gửi yêu cầu POST tới API
                 var response = await httpClient.PostAsync("https://app-api.mona.host/v1/videos", content);
 
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
                     var responseContentParse = JsonConvert.DeserializeObject<ResponseUploadVideoDTO>(responseContent);
-                    var data = new ConvertUploadVideoDTO();
-                    data.VideoUploadId = responseContentParse._id;
-                    data.Minute = (int)Math.Ceiling((responseContentParse.duration ?? 0) / 60.0);
-                    data.Thumbnail = responseContentParse.thumbnail;
-                    data.VideoUrl = $"https://video.mona-cloud.com/api/video/?user={serverDownloadInfor.folder}&video={responseContentParse.filename}&protected=True&version=v2";
+                    var data = new ConvertUploadVideoDTO
+                    {
+                        VideoUploadId = responseContentParse._id,
+                        Minute = (int)Math.Ceiling((responseContentParse.duration ?? 0) / 60.0),
+                        Thumbnail = responseContentParse.thumbnail,
+                        VideoUrl = $"https://video.mona-cloud.com/api/video/?user={serverDownloadInfor.folder}&video={responseContentParse.filename}&protected=True&version=v2"
+                    };
+
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công!", data });
                 }
                 else
@@ -111,37 +113,36 @@ namespace LMS_Project.Areas.ControllerAPIs
             }
         }
 
-        [HttpPost]
+
+        [HttpPut]
         [Route("api/LessonVideo/AntiDownload/edit-video")]
         public async Task<IActionResult> EditVideo()
         {
-            //var protectedValue = "true";
             var httpClient = new HttpClient();
-            var httpRequest = HttpContext.Current.Request;
-            //var serverDownloadInfor = await LessonVideoService.GetDiskUsage();
+            var httpRequest = HttpContext.Request;
+
             using (var content = new MultipartFormDataContent())
             {
-                if (httpRequest.Files.Count > 0)
+                if (httpRequest.Form.Files.Count > 0)
                 {
-                    var thumbnail = httpRequest.Files["thumbnail"];
-                    if (thumbnail != null && thumbnail.ContentLength > 0)
+                    var thumbnail = httpRequest.Form.Files["thumbnail"];
+                    if (thumbnail != null && thumbnail.Length > 0)
                     {
-                        var thumbnailContent = new StreamContent(thumbnail.InputStream);
+                        var thumbnailContent = new StreamContent(thumbnail.OpenReadStream());
                         thumbnailContent.Headers.ContentType = MediaTypeHeaderValue.Parse(thumbnail.ContentType);
                         content.Add(thumbnailContent, "thumbnail", thumbnail.FileName);
                     }
                 }
 
                 var title = httpRequest.Form["title"];
-                if (title == null)
+                if (string.IsNullOrEmpty(title))
                     title = "";
 
                 var videoUploadId = httpRequest.Form["videouploadid"];
-                if (videoUploadId == null)
+                if (string.IsNullOrEmpty(videoUploadId))
                     return StatusCode((int)HttpStatusCode.BadRequest, new { message = "Vui lòng truyền thông tin video cần cập nhật" });
 
-                //content.Add(new StringContent(serverDownload_Video_Protection_Id ?? ""), "video_protection_id");
-                content.Add(new StringContent(title ?? ""), "title");
+                content.Add(new StringContent(title), "title");
 
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 httpClient.DefaultRequestHeaders.Add("X-MONA-KEY", serverDownload_Api_Key);
@@ -150,25 +151,16 @@ namespace LMS_Project.Areas.ControllerAPIs
 
                 if (response.IsSuccessStatusCode || response.StatusCode == HttpStatusCode.NotModified)
                 {
-                    /*var responseContent = await response.Content.ReadAsStringAsync();
-                    var responseContentParse = JsonConvert.DeserializeObject<ResponseUploadVideoDTO>(responseContent);
-                    var data = new ConvertUploadVideoDTO();
-                    data.VideoUploadId = responseContentParse._id;
-                    data.Minute = (int)Math.Ceiling((responseContentParse.duration ?? 0) / 60.0);
-                    data.Thumbnail = responseContentParse.thumbnail;
-                    data.VideoUrl = $"https://video.mona-cloud.com/api/video/?user={serverDownloadInfor.folder}&video={responseContentParse.filename}&protected=True&version=v2";
-                    return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công!", data });*/
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công!" });
                 }
                 else
                 {
-                    /*var errorContent = await response.Content.ReadAsStringAsync();
-                    return StatusCode((int)response.StatusCode, new { message = "Thất bại!", errorContent });*/
                     var errorContent = await response.Content.ReadAsStringAsync();
                     return StatusCode((int)response.StatusCode, new { message = "Thất bại!", errorContent });
                 }
             }
         }
+
 
 
         [HttpPost]
@@ -179,12 +171,12 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var httpContext = HttpContext.Current;
-                    var pathViews = Path.Combine(httpContext.Server.MapPath("~/Views"));
+                    string baseUrl = Request.Scheme + "://" + Request.Host;
+                    var pathViews = Path.Combine($"{baseUrl}/Views");
                     var data = await LessonVideoService.Insert(
                         model,
                         GetCurrentUser(),
-                        httpContext.Server.MapPath("~/Upload/FileInVideo/"),
+                        $"{baseUrl}/Upload/FileInVideo/",
                         pathViews);
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
@@ -205,12 +197,12 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var httpContext = HttpContext.Current;
-                    var pathViews = Path.Combine(httpContext.Server.MapPath("~/Views"));
+                    string baseUrl = Request.Scheme + "://" + Request.Host;
+                    var pathViews = Path.Combine($"{baseUrl}/Views");
                     var data = await LessonVideoService.InsertV2(
                         model,
                         GetCurrentUser(),
-                        httpContext.Server.MapPath("~/Upload/FileInVideo/"),
+                        $"{baseUrl}/Upload/FileInVideo/",
                         pathViews);
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
@@ -231,11 +223,11 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var httpContext = HttpContext.Current;
+                    string baseUrl = Request.Scheme + "://" + Request.Host;
                     var data = await LessonVideoService.Update(
                         model,
                         GetCurrentUser(),
-                        httpContext.Server.MapPath("~/Upload/FileInVideo/"));
+                        $"{baseUrl}/Upload/FileInVideo/");
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -255,11 +247,11 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var httpContext = HttpContext.Current;
+                    string baseUrl = Request.Scheme + "://" + Request.Host;
                     var data = await LessonVideoService.UpdateV2(
                         model,
                         GetCurrentUser(),
-                        httpContext.Server.MapPath("~/Upload/FileInVideo/"));
+                        $"{baseUrl}/Upload/FileInVideo/");
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -358,24 +350,25 @@ namespace LMS_Project.Areas.ControllerAPIs
             try
             {
                 string link = "";
-                var httpContext = HttpContext.Current;
-                var file = httpContext.Request.Files.Get("File");
+                string baseUrl = $"{Request.Scheme}://{Request.Host}";
+                var file = Request.Form.Files.GetFile("File");
                 if (file != null)
                 {
                     string ext = Path.GetExtension(file.FileName).ToLower();
-                    string fileName = Guid.NewGuid() + ext; // getting File Name
-                    string fileExtension = Path.GetExtension(fileName).ToLower();
+                    string fileName = Guid.NewGuid() + ext; // Getting File Name
                     var result = AssetCRM.IsValidDocument(ext); // Validate Header
                     if (result)
                     {
-                        fileName = Guid.NewGuid() + ext;
-                        var path = Path.Combine(httpContext.Server.MapPath("~/Upload/FileInVideo/"), fileName);
-                        string strPathAndQuery = httpContext.Request.Url.PathAndQuery;
-                        string strUrl = httpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
-                        link = strUrl + "Upload/FileInVideo/" + fileName;
-                        file.SaveAs(path);
-                        //if (!link.Contains("https"))
-                        //    link = link.Replace("http", "https");
+                        var filePath = Path.Combine($"{baseUrl}/Upload/FileInVideo", fileName);
+                        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            file.CopyTo(stream);
+                        }
+
+                        link = $"{baseUrl}/Upload/FileInVideo/{fileName}";
+
                         return StatusCode((int)HttpStatusCode.OK, new { data = link, message = ApiMessage.SAVE_SUCCESS });
                     }
                     else
@@ -393,6 +386,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 return StatusCode((int)HttpStatusCode.BadRequest, new { message = ex.Message });
             }
         }
+
         [HttpGet]
         [Route("api/FileInVideo/UploadFile/File")]
         public IActionResult GetFileInVideoUpload()
@@ -444,10 +438,10 @@ namespace LMS_Project.Areas.ControllerAPIs
         //{
         //    try
         //    {
-        //        var httpContext = HttpContext.Current;
+        //        string baseUrl = Request.Scheme + "://" + Request.Host;
         //        double time = 0;
         //        var player = new WindowsMediaPlayer();
-        //        var clip = player.newMedia($"{httpContext.Server.MapPath("~/Upload/Mau/")}/test.wav");
+        //        var clip = player.newMedia($"{$"{baseUrl}/Upload/Mau/")}/test.wav");
         //        time = clip.duration;
         //        return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", time });
         //    }

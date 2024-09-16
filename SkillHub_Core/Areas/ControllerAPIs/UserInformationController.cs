@@ -18,6 +18,7 @@ using LMSCore.Users;
 using Microsoft.AspNetCore.Mvc;
 using LMSCore.Areas.ControllerAPIs;
 using static LMSCore.Models.lmsEnum;
+using LMSCore.LMS;
 
 namespace LMS_Project.Areas.ControllerAPIs
 {
@@ -37,8 +38,8 @@ namespace LMS_Project.Areas.ControllerAPIs
         //    try
         //    {
         //        string link = "";
-        //        var httpContext = HttpContext.Current;
-        //        var file = httpContext.Request.Files.Get("File");
+        //        string baseUrl = Request.Scheme + "://" + Request.Host;
+        //        var file = HttpContext.Request.Files.Get("File");
         //        if (file != null)
         //        {
         //            WebImage img = new WebImage(file.InputStream);
@@ -52,9 +53,9 @@ namespace LMS_Project.Areas.ControllerAPIs
         //            if (result)
         //            {
         //                fileName = Guid.NewGuid() + ext;
-        //                var path = Path.Combine(httpContext.Server.MapPath("~/Upload/Images/"), fileName);
-        //                string strPathAndQuery = httpContext.Request.Url.PathAndQuery;
-        //                string strUrl = httpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
+        //                var path = Path.Combine($"{baseUrl}/Upload/Images/"), fileName);
+        //                string strPathAndQuery = HttpContext.Request.Url.PathAndQuery;
+        //                string strUrl = HttpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
         //                link = strUrl + "Upload/Images/" + fileName;
         //                img.Save(path);
         //                return StatusCode((int)HttpStatusCode.OK, new { data = link, message = ApiMessage.SAVE_SUCCESS });
@@ -168,63 +169,76 @@ namespace LMS_Project.Areas.ControllerAPIs
         {
             try
             {
-                var httpRequest = HttpContext.Current.Request;
+                // Lấy HttpRequest từ HttpContext
+                var httpRequest = HttpContext.Request;
+
+                // Kiểm tra xem request có chứa file hay không
+                if (httpRequest.Form.Files.Count == 0)
+                {
+                    return BadRequest(new { message = "Không có file nào được tải lên." });
+                }
+
+                // Lấy file từ request
+                var file = httpRequest.Form.Files[0];
+                if (file == null || file.Length == 0)
+                {
+                    return BadRequest(new { message = "File không hợp lệ." });
+                }
+
                 DataSet dsexcelRecords = new DataSet();
                 IExcelDataReader reader = null;
-                HttpPostedFile Inputfile = null;
-                Stream FileStream = null;
-                using (var db = new lmsDbContext())
+
+                // Đọc file stream
+                using (var stream = file.OpenReadStream())
                 {
-                    var model = new List<RegisterModel>();
-                    if (httpRequest.Files.Count > 0)
-                    {
-                        Inputfile = httpRequest.Files.Get("File");
-                        FileStream = Inputfile.InputStream;
-                        if (Inputfile != null && FileStream != null)
-                        {
-                            if (Inputfile.FileName.EndsWith(".xls"))
-                                reader = ExcelReaderFactory.CreateBinaryReader(FileStream);
-                            else if (Inputfile.FileName.EndsWith(".xlsx"))
-                                reader = ExcelReaderFactory.CreateOpenXmlReader(FileStream);
-                            else
-                                return StatusCode((int)HttpStatusCode.BadRequest, new { message = "Không đúng định dạng." });
-                            dsexcelRecords = reader.AsDataSet();
-                            reader.Close();
-                            if (dsexcelRecords != null && dsexcelRecords.Tables.Count > 0)
-                            {
-                                DataTable dtStudentRecords = dsexcelRecords.Tables[0];
-                                for (int i = 2; i < dtStudentRecords.Rows.Count; i++)
-                                {
-                                    var item = new RegisterModel
-                                    {
-                                        FullName = dtStudentRecords.Rows[i][0].ToString(),
-                                        UserName = dtStudentRecords.Rows[i][1].ToString(),
-                                        Email = dtStudentRecords.Rows[i][2].ToString(),
-                                        Mobile = dtStudentRecords.Rows[i][3].ToString(),
-                                        Password = Encryptor.Encrypt(dtStudentRecords.Rows[i][4].ToString())
-                                    };
-                                    if (string.IsNullOrEmpty(item.FullName) ||  string.IsNullOrEmpty(item.UserName))
-                                    {
-                                        return StatusCode((int)HttpStatusCode.BadRequest, new { message = "Vui lòng điền đầy đủ họ tên và tài khoản đăng nhập" });
-                                    }
-                                    model.Add(item);
-                                }
-                            }
-                            else
-                                return StatusCode((int)HttpStatusCode.BadRequest, new { message = "Không có dữ liệu." });
-                        }
-                        else
-                            return StatusCode((int)HttpStatusCode.BadRequest, new { message = "File lỗi." });
-                    }
-                    await UserInformation.ImportData(model, GetCurrentUser());
-                    return StatusCode((int)HttpStatusCode.OK, new { message = "Thêm thành công" });
+                    if (file.FileName.EndsWith(".xls"))
+                        reader = ExcelReaderFactory.CreateBinaryReader(stream);
+                    else if (file.FileName.EndsWith(".xlsx"))
+                        reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+                    else
+                        return BadRequest(new { message = "Không đúng định dạng." });
+
+                    dsexcelRecords = reader.AsDataSet();
+                    reader.Close();
                 }
+
+                if (dsexcelRecords == null || dsexcelRecords.Tables.Count == 0)
+                {
+                    return BadRequest(new { message = "Không có dữ liệu." });
+                }
+
+                var model = new List<RegisterModel>();
+                DataTable dtStudentRecords = dsexcelRecords.Tables[0];
+
+                for (int i = 2; i < dtStudentRecords.Rows.Count; i++)
+                {
+                    var item = new RegisterModel
+                    {
+                        FullName = dtStudentRecords.Rows[i][0].ToString(),
+                        UserName = dtStudentRecords.Rows[i][1].ToString(),
+                        Email = dtStudentRecords.Rows[i][2].ToString(),
+                        Mobile = dtStudentRecords.Rows[i][3].ToString(),
+                        Password = Encryptor.Encrypt(dtStudentRecords.Rows[i][4].ToString())
+                    };
+
+                    if (string.IsNullOrEmpty(item.FullName) || string.IsNullOrEmpty(item.UserName))
+                    {
+                        return BadRequest(new { message = "Vui lòng điền đầy đủ họ tên và tài khoản đăng nhập." });
+                    }
+
+                    model.Add(item);
+                }
+
+                await UserInformation.ImportData(model, GetCurrentUser());
+                return Ok(new { message = "Thêm thành công" });
             }
             catch (Exception ex)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, new { message = ex.Message });
+                // Ghi log lỗi nếu cần
+                return BadRequest(new { message = ex.Message });
             }
         }
+
         [HttpGet]
         [Route("api/UserInformation/learning-progress/{userId}")]
         public async Task<IActionResult> LearningProgress(int userId)

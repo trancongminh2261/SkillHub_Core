@@ -84,28 +84,36 @@ namespace LMS_Project.Areas.ControllerAPIs
             try
             {
                 string link = "";
-                var httpContext = HttpContext.Current;
-                var file = httpContext.Request.Files.Get("File");
+                string baseUrl = $"{Request.Scheme}://{Request.Host}";
+
+                // Lấy file từ Request
+                var file = Request.Form.Files.FirstOrDefault();
+
                 if (file != null)
                 {
                     string ext = Path.GetExtension(file.FileName).ToLower();
-                    string fileName = Guid.NewGuid() + ext; // getting File Name
-                    string fileExtension = Path.GetExtension(fileName).ToLower();
-                    var result = AssetCRM.isValIdImageAndVIdeo(ext); // Validate Header                 
+                    string fileName = Guid.NewGuid() + ext; // Tạo tên file mới
+                    var result = AssetCRM.isValIdImageAndVIdeo(ext); // Validate file loại video hoặc ảnh
+
                     if (result)
                     {
                         fileName = Guid.NewGuid() + ext;
-                        var path = Path.Combine(httpContext.Server.MapPath("~/Upload/ExamResult/"), fileName);
-                        string strPathAndQuery = httpContext.Request.Url.PathAndQuery;
-                        string strUrl = httpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
-                        link = strUrl + "Upload/ExamResult/" + fileName;
+                        var path = Path.Combine($"{baseUrl}/Upload/ExamResult", fileName); // Đường dẫn lưu file trên server
+                        link = $"{baseUrl}/Upload/ExamResult/{fileName}";
 
+                        // Tạo thư mục nếu chưa tồn tại
+                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+
+                        // Lưu file
                         using (var stream = new FileStream(path, FileMode.Create))
                         {
-                            file.InputStream.CopyTo(stream);
+                            file.CopyTo(stream);
                         }
+
+                        // Thay thế http bằng https nếu cần
                         if (!link.Contains("https"))
                             link = link.Replace("http", "https");
+
                         return StatusCode((int)HttpStatusCode.OK, new { data = link, message = ApiMessage.SAVE_SUCCESS });
                     }
                     else
@@ -123,6 +131,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 return StatusCode((int)HttpStatusCode.BadRequest, new { message = ex.Message });
             }
         }
+
         /// <summary>
         /// Chấm bài tự luận
         /// </summary>
