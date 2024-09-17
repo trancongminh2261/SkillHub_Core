@@ -21,6 +21,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using RestSharp;
 using System.Text.Json.Serialization;
 using LMS_Project.Services;
+using Microsoft.OpenApi.Models;
 
 namespace LMSCore
 {
@@ -69,7 +70,10 @@ namespace LMSCore
             //});
             
             services.AddControllers();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.CustomSchemaIds(type => type.FullName);
+            });
             services.AddRazorPages();
 
             //var appSettingsSection = Configuration.GetSection("AppSettings");

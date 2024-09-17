@@ -172,7 +172,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 try
                 {
                     string baseUrl = Request.Scheme + "://" + Request.Host;
-                    var pathViews = Path.Combine($"{baseUrl}/Views");
+                    var pathViews = $"{baseUrl}/Views";
                     var data = await LessonVideoService.Insert(
                         model,
                         GetCurrentUser(),
@@ -198,7 +198,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 try
                 {
                     string baseUrl = Request.Scheme + "://" + Request.Host;
-                    var pathViews = Path.Combine($"{baseUrl}/Views");
+                    var pathViews = $"{baseUrl}/Views";
                     var data = await LessonVideoService.InsertV2(
                         model,
                         GetCurrentUser(),
@@ -359,8 +359,10 @@ namespace LMS_Project.Areas.ControllerAPIs
                     var result = AssetCRM.IsValidDocument(ext); // Validate Header
                     if (result)
                     {
-                        var filePath = Path.Combine($"{baseUrl}/Upload/FileInVideo", fileName);
-                        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                        // Lưu file vào đường dẫn vật lý trên máy chủ
+                        string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Upload", "FileInVideo");
+                        Directory.CreateDirectory(uploadPath); // Tạo thư mục nếu chưa tồn tại
+                        var filePath = Path.Combine(uploadPath, fileName);
 
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {

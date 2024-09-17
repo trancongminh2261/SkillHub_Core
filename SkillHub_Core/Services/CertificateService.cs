@@ -157,8 +157,8 @@ namespace LMS_Project.Services
                         // Gửi mail đến người dùng
                         var request = httpContextAccessor.HttpContext.Request;
                         string baseUrl = $"{request.Scheme}://{request.Host}";
-                        var uploadPath = Path.Combine($"{baseUrl}/Upload");
-                        var viewsPath = Path.Combine($"{baseUrl}/Views");
+                        var uploadPath = $"{baseUrl}/Upload";
+                        var viewsPath = $"{baseUrl}/Views";
 
                         string content = System.IO.File.ReadAllText($"{viewsPath}/Home/ExportCertificate.cshtml");
                         content = content.Replace("{background}", model.Background);

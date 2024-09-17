@@ -115,8 +115,8 @@ namespace LMS_Project.Areas.ControllerAPIs
                 {
                     // Xây dựng URL cơ bản và đường dẫn
                     string baseUrl = $"{Request.Scheme}://{Request.Host}";
-                    var uploadPath = Path.Combine(baseUrl, "Upload");
-                    var pathViews = Path.Combine(baseUrl, "Views");
+                    var uploadPath = $"{baseUrl}/Upload";
+                    var pathViews = $"{baseUrl}/Views";
 
                     // Xây dựng đường dẫn URL đầy đủ
                     string strUrl = $"{baseUrl}/";

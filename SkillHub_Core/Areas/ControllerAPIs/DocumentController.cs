@@ -76,14 +76,14 @@ namespace LMS_Project.Areas.ControllerAPIs
                         string ext = Path.GetExtension(file.FileName).ToLower();
 
                         string fileName = Guid.NewGuid() + ext;
-                        var path = Path.Combine($"{baseUrl}/Upload/Documents", fileName); // Đường dẫn lưu file trên server
                         link = $"{baseUrl}/Upload/Documents/{fileName}";
-
-                        // Tạo thư mục nếu chưa tồn tại
-                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+                        // Lưu file vào đường dẫn vật lý trên máy chủ
+                        string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Upload", "Documents");
+                        Directory.CreateDirectory(uploadPath); // Tạo thư mục nếu chưa tồn tại
+                        var filePath = Path.Combine(uploadPath, fileName);
 
                         // Lưu file
-                        using (var fileStream = new FileStream(path, FileMode.Create))
+                        using (var fileStream = new FileStream(lfilePathink, FileMode.Create))
                         {
                             await file.CopyToAsync(fileStream);
                         }
@@ -135,14 +135,15 @@ namespace LMS_Project.Areas.ControllerAPIs
                         string ext = Path.GetExtension(file.FileName).ToLower();
 
                         string fileName = Guid.NewGuid() + ext;
-                        var path = Path.Combine($"{baseUrl}/Upload/Documents", fileName); // Đường dẫn lưu file trên server
                         link = $"{baseUrl}/Upload/Documents/{fileName}";
 
-                        // Tạo thư mục nếu chưa tồn tại
-                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+                        // Lưu file vào đường dẫn vật lý trên máy chủ
+                        string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Upload", "Documents");
+                        Directory.CreateDirectory(uploadPath); // Tạo thư mục nếu chưa tồn tại
+                        var filePath = Path.Combine(uploadPath, fileName);
 
                         // Lưu file
-                        using (var fileStream = new FileStream(path, FileMode.Create))
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
                         {
                             await file.CopyToAsync(fileStream);
                         }

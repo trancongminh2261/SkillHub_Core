@@ -98,14 +98,15 @@ namespace LMS_Project.Areas.ControllerAPIs
                     if (result)
                     {
                         fileName = Guid.NewGuid() + ext;
-                        var path = Path.Combine($"{baseUrl}/Upload/ExamResult", fileName); // Đường dẫn lưu file trên server
                         link = $"{baseUrl}/Upload/ExamResult/{fileName}";
 
-                        // Tạo thư mục nếu chưa tồn tại
-                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+                        // Lưu file vào đường dẫn vật lý trên máy chủ
+                        string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Upload", "ExamResult");
+                        Directory.CreateDirectory(uploadPath); // Tạo thư mục nếu chưa tồn tại
+                        var filePath = Path.Combine(uploadPath, fileName);
 
                         // Lưu file
-                        using (var stream = new FileStream(path, FileMode.Create))
+                        using (var stream = new FileStream(filePath, FileMode.Create))
                         {
                             file.CopyTo(stream);
                         }

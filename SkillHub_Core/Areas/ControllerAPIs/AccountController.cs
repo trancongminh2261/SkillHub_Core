@@ -26,6 +26,7 @@ namespace LMS_Project.ControllerAPIs
     public class AccountController : BaseController
     {
         [HttpPost]
+        [Route("api/Account/Login")]
         public async Task<IActionResult> Login()
         {
             string username = Request.Form["username"];
@@ -46,6 +47,7 @@ namespace LMS_Project.ControllerAPIs
         }
 
         [HttpPost]
+        [Route("api/Account/LoginTest")]
         public async Task<IActionResult> LoginTest(string username, string password)
         {
             TokenResult appDomainResult = await Account.Login(username, password);

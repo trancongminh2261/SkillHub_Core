@@ -30,7 +30,7 @@ namespace LMS_Project.Services
             {
                 var httpRequest = httpContextAccessor.HttpContext.Request;
                 string baseUrl = $"{httpRequest.Scheme}://{httpRequest.Host}";
-                var pathViews = Path.Combine($"{baseUrl}/Views");
+                var pathViews = $"{baseUrl}/Views";
 
                 // Lấy danh sách studentIds phù hợp với điều kiện
                 var studentIds = db.tbl_UserInformation
