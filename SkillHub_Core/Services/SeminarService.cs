@@ -37,7 +37,7 @@ namespace LMS_Project.Services
 
                 ///Gửi thông báo
                 string sTime = seminarCreate.StartTime.Value.ToString("HH:MM dd/MM/yyyy");
-                string projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
+                string projectName = ConfigurationManager.AppSettings["MySettings:MySettings:ProjectName"].ToString();
                 string title = "Workshop";
                 string content = $"Bạn có buổi workshop mới vào lúc {sTime}, thông báo từ {projectName}";
                 await NotificationService.Send(

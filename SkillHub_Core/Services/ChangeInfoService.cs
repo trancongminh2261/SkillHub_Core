@@ -69,7 +69,7 @@ namespace LMS_Project.Services
                     }
                     await db.SaveChangesAsync();
                     ///Gửi thông báo
-                    string projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
+                    string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
                     string title = "Thay đổi thông tin";
                     string content = $"Thông tin cá nhân của bạn đã được thay đổi vui lòng kiểm tra lại, thông báo từ {projectName}";
                     if(status == ChangeInfoStatus.Cancel)

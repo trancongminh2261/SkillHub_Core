@@ -176,8 +176,8 @@ namespace LMSCore.LMS
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 var request = WebRequest.Create("https://onesignal.com/api/v1/notifications") as HttpWebRequest;
                 contents = contents.Replace("&nbsp;", " ");
-                /*string onesignalAppId = ConfigurationManager.AppSettings["OnesignalAppId"].ToString();
-                string onesignalRestId = ConfigurationManager.AppSettings["OnesignalRestId"].ToString();*/
+                /*string onesignalAppId = ConfigurationManager.AppSettings["MySettings:OnesignalAppId"].ToString();
+                string onesignalRestId = ConfigurationManager.AppSettings["MySettings:OnesignalRestId"].ToString();*/
                 string onesignalAppId = "";
                 string onesignalRestId = "";
                 request.KeepAlive = true;
@@ -840,8 +840,8 @@ namespace LMSCore.LMS
                 if (!string.IsNullOrEmpty(oneSignalRequest.PlayerId))
                 {
                     oneSignalRequest.Content = oneSignalRequest.Content.Replace("&nbsp;", " ");
-                    //string onesignalAppId = ConfigurationManager.AppSettings["OnesignalAppId"].ToString();
-                    //string onesignalRestId = ConfigurationManager.AppSettings["OnesignalRestId"].ToString();
+                    //string onesignalAppId = ConfigurationManager.AppSettings["MySettings:OnesignalAppId"].ToString();
+                    //string onesignalRestId = ConfigurationManager.AppSettings["MySettings:OnesignalRestId"].ToString();
                     string onesignalAppId = "";
                     string onesignalRestId = "";
 

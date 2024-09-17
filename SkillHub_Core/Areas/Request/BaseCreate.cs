@@ -1,16 +1,13 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 using LMSCore.Users;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-
-
 using LMS_Project.Enum;
 using static LMSCore.Models.lmsEnum;
 using LMSCore.LMS;
+using System.Text.Json.Serialization;
 
 namespace LMS_Project.Areas.Request
 {

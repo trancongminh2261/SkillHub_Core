@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using LMSCore.Users;
 using LMS_Project.Enum;
-using Newtonsoft.Json;
 using static LMSCore.Models.lmsEnum;
+using System.Text.Json.Serialization;
 
 
 namespace LMS_Project.Areas.Request

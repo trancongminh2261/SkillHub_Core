@@ -46,8 +46,8 @@ namespace LMS_Project.Services
 
                 if (studentIds.Count > 0)
                 {
-                    string domain = ConfigurationManager.AppSettings["DomainFE"];
-                    string projectName = ConfigurationManager.AppSettings["ProjectName"];
+                    string domain = ConfigurationManager.AppSettings["MySettings:DomainFE"];
+                    string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"];
                     string href = $"<a href=\"{domain}/course/video-course\"><b style=\"color: blue;\">Tại đây</b></a>";
                     string title = "Thông báo tham gia khóa học";
                     string contentEmailTemplate = System.IO.File.ReadAllText(Path.Combine(pathViews, "Template", "MailNewLesson.html"));
@@ -188,7 +188,7 @@ namespace LMS_Project.Services
                 Thread sendMail = new Thread(() =>
                 {
                     string title = "Đăng ký thành công tài khoản";
-                    string projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
+                    string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
                     StringBuilder content = new StringBuilder();
                     content.Append($"<div>");
                     content.Append($"<p>Đăng ký thành công tài khoản</p>");
@@ -271,8 +271,8 @@ namespace LMS_Project.Services
             {
                 try
                 {
-                    var url = ConfigurationManager.AppSettings["DomainFE"].ToString() + "reset-password?key=";
-                    var projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
+                    var url = ConfigurationManager.AppSettings["MySettings:DomainFE"].ToString() + "reset-password?key=";
+                    var projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
                     var user = await db.tbl_UserInformation
                         .Where(x => x.UserName.ToUpper() == model.UserName.ToUpper() && x.Enable == true).FirstOrDefaultAsync();
                     if (user == null)

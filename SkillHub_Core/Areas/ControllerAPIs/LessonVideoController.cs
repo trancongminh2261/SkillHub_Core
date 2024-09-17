@@ -33,8 +33,8 @@ namespace LMS_Project.Areas.ControllerAPIs
     [ClaimsAuthorize]
     public class LessonVideoController : BaseController
     {
-        public static string serverDownload_Api_Key = ConfigurationManager.AppSettings["ServerDownload_API_Key"].ToString();
-        public static string serverDownload_Video_Protection_Id = ConfigurationManager.AppSettings["ServerDownload_Video_Protection_Id"].ToString();
+        public static string serverDownload_Api_Key = ConfigurationManager.AppSettings["MySettings:ServerDownload_API_Key"].ToString();
+        public static string serverDownload_Video_Protection_Id = ConfigurationManager.AppSettings["MySettings:ServerDownload_Video_Protection_Id"].ToString();
 
         [HttpPost]
         [Route("api/LessonVideo/AntiDownload/upload-video")]
@@ -172,6 +172,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 try
                 {
                     string baseUrl = Request.Scheme + "://" + Request.Host;
+
                     var pathViews = $"{baseUrl}/Views";
                     var data = await LessonVideoService.Insert(
                         model,
@@ -370,6 +371,9 @@ namespace LMS_Project.Areas.ControllerAPIs
                         }
 
                         link = $"{baseUrl}/Upload/FileInVideo/{fileName}";
+                        // Thay thế http bằng https nếu cần
+                        if (!link.Contains("https"))
+                            link = link.Replace("http", "https");
 
                         return StatusCode((int)HttpStatusCode.OK, new { data = link, message = ApiMessage.SAVE_SUCCESS });
                     }

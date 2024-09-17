@@ -25,8 +25,8 @@ namespace LMS_Project.Services
 {
     public class LessonVideoService
     {
-        public static string serverDownload_Api_Key = ConfigurationManager.AppSettings["ServerDownload_API_Key"].ToString();
-        public static string serverDownload_Video_Protection_Id = ConfigurationManager.AppSettings["ServerDownload_Video_Protection_Id"].ToString();
+        public static string serverDownload_Api_Key = ConfigurationManager.AppSettings["MySettings:ServerDownload_API_Key"].ToString();
+        public static string serverDownload_Video_Protection_Id = ConfigurationManager.AppSettings["MySettings:ServerDownload_Video_Protection_Id"].ToString();
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public static async Task<tbl_LessonVideo> GetById(int id)
@@ -278,8 +278,8 @@ namespace LMS_Project.Services
                         .Select(x => x.UserId).Distinct().ToList();
                     if (studentIds.Any())
                     {
-                        string domain = ConfigurationManager.AppSettings["DomainFE"].ToString();
-                        string projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
+                        string domain = ConfigurationManager.AppSettings["MySettings:DomainFE"].ToString();
+                        string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
                         //https://skillhub.mona.software/learning/?course=84&sectionIds=57&currentLessonId=1170
                         //string href = $"<a href=\"{domain}/course/video-course/detail/?slug={videoCourse.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
                         string href = $"<a href=\"{domain}/learning/?course={videoCourse.Id}&sectionIds={section.Id}&currentLessonId={newLesson.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
@@ -343,8 +343,8 @@ namespace LMS_Project.Services
                         .Select(x => x.UserId).Distinct().ToList();
                     if (studentIds.Any())
                     {
-                        string domain = ConfigurationManager.AppSettings["DomainFE"].ToString();
-                        string projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
+                        string domain = ConfigurationManager.AppSettings["MySettings:DomainFE"].ToString();
+                        string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
                         //https://skillhub.mona.software/learning/?course=84&sectionIds=57&currentLessonId=1170
                         //string href = $"<a href=\"{domain}/course/video-course/detail/?slug={videoCourse.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
                         string href = $"<a href=\"{domain}/learning/?course={videoCourse.Id}&sectionIds={section.Id}&currentLessonId={lesson.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";

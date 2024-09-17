@@ -120,6 +120,9 @@ namespace LMS_Project.Areas.ControllerAPIs
 
                     // Xây dựng đường dẫn URL đầy đủ
                     string strUrl = $"{baseUrl}/";
+                    // Thay thế http bằng https nếu cần
+                    if (!strUrl.Contains("https"))
+                        strUrl = strUrl.Replace("http", "https");
 
                     // Gọi phương thức ExportPDF từ CertificateService
                     var data = await CertificateService.ExportPDF(dbContext, itemModel.Id, itemModel.Content, uploadPath, strUrl);

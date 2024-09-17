@@ -77,13 +77,16 @@ namespace LMS_Project.Areas.ControllerAPIs
 
                         string fileName = Guid.NewGuid() + ext;
                         link = $"{baseUrl}/Upload/Documents/{fileName}";
+                        // Thay thế http bằng https nếu cần
+                        if (!link.Contains("https"))
+                            link = link.Replace("http", "https");
                         // Lưu file vào đường dẫn vật lý trên máy chủ
                         string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Upload", "Documents");
                         Directory.CreateDirectory(uploadPath); // Tạo thư mục nếu chưa tồn tại
                         var filePath = Path.Combine(uploadPath, fileName);
 
                         // Lưu file
-                        using (var fileStream = new FileStream(lfilePathink, FileMode.Create))
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
                         {
                             await file.CopyToAsync(fileStream);
                         }
@@ -136,7 +139,9 @@ namespace LMS_Project.Areas.ControllerAPIs
 
                         string fileName = Guid.NewGuid() + ext;
                         link = $"{baseUrl}/Upload/Documents/{fileName}";
-
+                        // Thay thế http bằng https nếu cần
+                        if (!link.Contains("https"))
+                            link = link.Replace("http", "https");
                         // Lưu file vào đường dẫn vật lý trên máy chủ
                         string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Upload", "Documents");
                         Directory.CreateDirectory(uploadPath); // Tạo thư mục nếu chưa tồn tại

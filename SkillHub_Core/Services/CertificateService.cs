@@ -165,7 +165,7 @@ namespace LMS_Project.Services
                         content = content.Replace("{content}", model.Content);
                         model = await ExportPDF(db, model.Id, content, uploadPath, baseUrl);
 
-                        string projectName = ConfigurationManager.AppSettings["ProjectName"].ToString();
+                        string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
 
                         string contentSendMail = System.IO.File.ReadAllText($"{viewsPath}/Home/SendMailCertificate.cshtml");
                         contentSendMail = contentSendMail.Replace("{TenHocVien}", student.FullName);
