@@ -1475,7 +1475,7 @@
             <param name="examId"></param>
             <returns></returns>
         </member>
-        <member name="M:LMS_Project.Services.LessonVideoService.Completed(LMSCore.Models.lmsDbContext,System.Int32,LMS_Project.Models.tbl_UserInformation,System.Int32,System.Double)">
+        <member name="M:LMS_Project.Services.LessonVideoService.Completed(System.Int32,LMS_Project.Models.tbl_UserInformation,System.Int32,System.Double)">
             <summary>
             Đối với bài kiểm tra sẽ lưu lại điểm - hoàn thành không theo thứ tự
             </summary>

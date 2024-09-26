@@ -20,6 +20,8 @@ using static LMS_Project.Services.SectionService;
 using LMSCore.Areas.ControllerAPIs;
 using LMSCore.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace LMS_Project.Areas.ControllerAPIs
 {
@@ -28,11 +30,15 @@ namespace LMS_Project.Areas.ControllerAPIs
     {
         private lmsDbContext dbContext;
         private SectionService domainService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
 
-        public SectionController()
+        public SectionController(IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
             this.dbContext = new lmsDbContext();
-            this.domainService = new SectionService(this.dbContext);
+            _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
+            this.domainService = new SectionService(this.dbContext, _httpContextAccessor, _configuration);
         }
 
         [HttpPost]

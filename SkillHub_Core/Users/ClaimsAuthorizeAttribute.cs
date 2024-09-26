@@ -11,6 +11,8 @@ using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
 using LMS_Project.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace LMSCore.Users
 {
@@ -25,9 +27,14 @@ namespace LMSCore.Users
     public class ClaimsAuthorizeFilter : IAsyncAuthorizationFilter
     {
         private readonly lmsEnum.RoleEnum[] _allowRoles;
+        private lmsDbContext dbContext = new lmsDbContext();
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public ClaimsAuthorizeFilter(params lmsEnum.RoleEnum[] allowRoles)
         {
+            /*this.dbContext = new lmsDbContext();
+            this._httpContextAccessor = _httpContextAccessor;
+            this._configuration = _configuration;*/
             _allowRoles = allowRoles;
         }
 
@@ -61,7 +68,8 @@ namespace LMSCore.Users
                     return;
                 }
                 int roleId = int.Parse(principal.FindFirst("RoleId").Value);
-                var allow = await Account.HasPermission(roleId, controllerName, actionName);
+                var account = new Account(dbContext, _httpContextAccessor);
+                var allow = await account.HasPermission(roleId, controllerName, actionName);
                 if (!allow)
                 {
                     context.Result = new ContentResult

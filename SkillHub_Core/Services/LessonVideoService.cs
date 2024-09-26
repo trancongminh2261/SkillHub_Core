@@ -20,21 +20,36 @@ using Microsoft.EntityFrameworkCore;
 using static LMSCore.Models.lmsEnum;
 using Xabe.FFmpeg;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using SixLabors.ImageSharp;
 
 namespace LMS_Project.Services
 {
-    public class LessonVideoService
-    {
-        public static string serverDownload_Api_Key = ConfigurationManager.AppSettings["MySettings:ServerDownload_API_Key"].ToString();
-        public static string serverDownload_Video_Protection_Id = ConfigurationManager.AppSettings["MySettings:ServerDownload_Video_Protection_Id"].ToString();
+    public class LessonVideoService : DomainService
+    {       
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
 
-        public static async Task<tbl_LessonVideo> GetById(int id)
+        public string serverDownload_Api_Key { get; private set; }
+        public string serverDownload_Video_Protection_Id { get; private set; }
+        public string domain { get; private set; }
+        public string projectName { get; private set; }
+
+        public LessonVideoService(lmsDbContext context, IHttpContextAccessor httpContextAccessor, IConfiguration configuration) : base(context)
         {
-            using(var dbContext = new lmsDbContext())
-            {
-                return await dbContext.tbl_LessonVideo.SingleOrDefaultAsync(x => x.Id == id);
-            }        
+            _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
+
+            // Gán giá trị cho các biến từ configuration trong constructor
+            serverDownload_Api_Key = _configuration["MySettings:ServerDownload_API_Key"];
+            serverDownload_Video_Protection_Id = _configuration["MySettings:ServerDownload_Video_Protection_Id"];
+            domain = _configuration["MySettings:DomainFE"];
+            projectName = _configuration["MySettings:ProjectName"];
+        }
+
+        public async Task<tbl_LessonVideo> GetById(int id)
+        {
+                return await dbContext.tbl_LessonVideo.SingleOrDefaultAsync(x => x.Id == id);     
         }
 
         /*public async Task<ResponseGetIframeDTO> GetIframe (string videoUploadId)
@@ -61,7 +76,7 @@ namespace LMS_Project.Services
             }
         }*/
 
-        public static async Task<ResponseInformationDTO> GetDiskUsage()
+        public async Task<ResponseInformationDTO> GetDiskUsage()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -85,10 +100,8 @@ namespace LMS_Project.Services
                 return result;
             }
         }
-        public static async Task<tbl_LessonVideo> Insert(LessonVideoCreate lessonVideoCreate, tbl_UserInformation user, string mapPath, string pathViews)
+        public async Task<tbl_LessonVideo> Insert(LessonVideoCreate lessonVideoCreate, tbl_UserInformation user, string mapPath, string pathViews)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 using (var tran = dbContext.Database.BeginTransaction())
                 {
                     try
@@ -144,7 +157,7 @@ namespace LMS_Project.Services
                             foreach (var item in userCompleteds)
                             {
                                 var userCompleted = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == item);
-                                await CompletedSection(dbContext, lessonVideoCreate.SectionId.Value, userCompleted);
+                                await CompletedSection(lessonVideoCreate.SectionId.Value, userCompleted);
                             }
                         }
 
@@ -161,15 +174,12 @@ namespace LMS_Project.Services
                         tran.Rollback();
                         throw e;
                     }
-                }
-            }          
+                }       
         }
 
 
-        public static async Task<tbl_LessonVideo> InsertV2(LessonVideoCreateV2 request, tbl_UserInformation user, string mapPath, string pathViews)
+        public async Task<tbl_LessonVideo> InsertV2(LessonVideoCreateV2 request, tbl_UserInformation user, string mapPath, string pathViews)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 using (var tran = dbContext.Database.BeginTransaction())
                 {
                     try
@@ -234,7 +244,7 @@ namespace LMS_Project.Services
                             foreach (var item in userCompleteds)
                             {
                                 var userCompleted = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == item);
-                                await CompletedSection(dbContext, request.SectionId.Value, userCompleted);
+                                await CompletedSection(request.SectionId.Value, userCompleted);
                             }
                         }
                         tran.Commit();
@@ -252,14 +262,11 @@ namespace LMS_Project.Services
                         throw e;
                     }
                 }
-            }
             
         }
 
-        public static void PushNotiNewLesson(int newLessonId, string pathViews, tbl_UserInformation userLog)
+        public void PushNotiNewLesson(int newLessonId, string pathViews, tbl_UserInformation userLog)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 try
                 {
                     var newLesson = dbContext.tbl_LessonVideo.SingleOrDefault(x => x.Id == newLessonId);
@@ -277,9 +284,7 @@ namespace LMS_Project.Services
                     var studentIds = dbContext.tbl_VideoCourseStudent.Where(x => x.VideoCourseId == videoCourse.Id && x.Enable == true)
                         .Select(x => x.UserId).Distinct().ToList();
                     if (studentIds.Any())
-                    {
-                        string domain = ConfigurationManager.AppSettings["MySettings:DomainFE"].ToString();
-                        string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
+                    {                        
                         //https://skillhub.mona.software/learning/?course=84&sectionIds=57&currentLessonId=1170
                         //string href = $"<a href=\"{domain}/course/video-course/detail/?slug={videoCourse.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
                         string href = $"<a href=\"{domain}/learning/?course={videoCourse.Id}&sectionIds={section.Id}&currentLessonId={newLesson.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
@@ -317,14 +322,11 @@ namespace LMS_Project.Services
                 catch
                 {
                     return;
-                }
-            }           
+                }         
         }
 
-        public static void PushNotiUpdateVideo(int lessonId, tbl_UserInformation userLog)
+        public void PushNotiUpdateVideo(int lessonId, tbl_UserInformation userLog)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 try
                 {
                     var lesson = dbContext.tbl_LessonVideo.SingleOrDefault(x => x.Id == lessonId);
@@ -343,8 +345,6 @@ namespace LMS_Project.Services
                         .Select(x => x.UserId).Distinct().ToList();
                     if (studentIds.Any())
                     {
-                        string domain = ConfigurationManager.AppSettings["MySettings:DomainFE"].ToString();
-                        string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
                         //https://skillhub.mona.software/learning/?course=84&sectionIds=57&currentLessonId=1170
                         //string href = $"<a href=\"{domain}/course/video-course/detail/?slug={videoCourse.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
                         string href = $"<a href=\"{domain}/learning/?course={videoCourse.Id}&sectionIds={section.Id}&currentLessonId={lesson.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
@@ -375,13 +375,10 @@ namespace LMS_Project.Services
                 {
                     return;
                 }
-            }
            
         }
-        public static async Task<tbl_LessonVideo> Update(LessonVideoUpdate model, tbl_UserInformation user, string mapPath)
+        public async Task<tbl_LessonVideo> Update(LessonVideoUpdate model, tbl_UserInformation user, string mapPath)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 try
                 {
                     var entity = await dbContext.tbl_LessonVideo.SingleOrDefaultAsync(x => x.Id == model.Id);
@@ -423,14 +420,11 @@ namespace LMS_Project.Services
                 {
                     throw e;
                 }
-            }
             
         }
 
-        public static async Task<tbl_LessonVideo> UpdateV2(LessonVideoUpdateV2 model, tbl_UserInformation user, string mapPath)
+        public async Task<tbl_LessonVideo> UpdateV2(LessonVideoUpdateV2 model, tbl_UserInformation user, string mapPath)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 try
                 {
                     var entity = await dbContext.tbl_LessonVideo.SingleOrDefaultAsync(x => x.Id == model.Id);
@@ -516,13 +510,10 @@ namespace LMS_Project.Services
                 {
                     throw e;
                 }
-            }
             
         }
-        public static async Task Delete(int id)
+        public async Task Delete(int id)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 using (var tran = dbContext.Database.BeginTransaction())
                 {
                     try
@@ -555,7 +546,7 @@ namespace LMS_Project.Services
                                 lessonCompleted.Enable = false;
                                 await dbContext.SaveChangesAsync();
                                 var user = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == lessonCompleted.UserId);
-                                await CompletedSection(dbContext, entity.SectionId.Value, user);
+                                await CompletedSection(entity.SectionId.Value, user);
                             }
                         }
                         if (entity.FileType == LessonFileType.AntiDownload)
@@ -585,8 +576,7 @@ namespace LMS_Project.Services
                         tran.Rollback();
                         throw e;
                     }
-                }
-            }         
+                }      
         }
         public class ChangeLessonIndexModel
         {
@@ -598,10 +588,8 @@ namespace LMS_Project.Services
             public int Index { get; set; }
             public int SectionId { get; set; }
         }
-        public static async Task ChangeIndex(ChangeLessonIndexModel model)
+        public async Task ChangeIndex(ChangeLessonIndexModel model)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 using (var tran = dbContext.Database.BeginTransaction())
                 {
                     try
@@ -639,13 +627,10 @@ namespace LMS_Project.Services
                         tran.Rollback();
                         throw e;
                     }
-                }
-            }            
+                }         
         }
-        public static async Task<List<LessonVideoModel>> GetBySection(int sectionId, tbl_UserInformation user)
+        public async Task<List<LessonVideoModel>> GetBySection(int sectionId, tbl_UserInformation user)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 var completeds = await dbContext.tbl_LessonCompleted
                     .Where(x => x.SectionId == sectionId && x.UserId == user.UserInformationId)
                     .Select(x => x.LessonVideoId).Distinct().ToListAsync();
@@ -679,17 +664,12 @@ namespace LMS_Project.Services
                                   VideoUploadId = antiDownVideo == null ? "" : antiDownVideo.VideoUploadId,
                                   HasFile = Task.Run(() => GetHasFile(i.Id)).Result
                               }).ToList();
-                return result;
-            }           
+                return result;         
         }
-        public static async Task<bool> GetHasFile(int id)
+        public async Task<bool> GetHasFile(int id)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 var result = await dbContext.tbl_FileInVideo.AnyAsync(x => x.LessonVideoId == id && x.Enable == true);
-                return result;
-            }
-            
+                return result;           
         }
         /// <summary>
         /// Đối với bài kiểm tra sẽ lưu lại điểm - hoàn thành theo thứ tự
@@ -791,7 +771,7 @@ namespace LMS_Project.Services
         /// <param name="examResultId"></param>
         /// <param name="totalPoint"></param>
         /// <returns></returns>
-        public static async Task Completed(lmsDbContext dbContext, int lessonVideoId, tbl_UserInformation user, int examResultId = 0, double totalPoint = 0)
+        public async Task Completed(int lessonVideoId, tbl_UserInformation user, int examResultId = 0, double totalPoint = 0)
         {
             try
             {
@@ -822,17 +802,17 @@ namespace LMS_Project.Services
                 var videoCourseStudent = await dbContext.tbl_VideoCourseStudent
                     .FirstOrDefaultAsync(x => x.VideoCourseId == section.VideoCourseId && x.UserId == user.UserInformationId && x.Enable == true);
                 if (videoCourseStudent != null)
-                    videoCourseStudent.CompletedPercent = await GetComplete(dbContext, section.VideoCourseId.Value, user);
+                    videoCourseStudent.CompletedPercent = await GetComplete(section.VideoCourseId.Value, user);
 
                 await dbContext.SaveChangesAsync();
-                await CompletedSection(dbContext, lessonVideo.SectionId.Value, user);
+                await CompletedSection(lessonVideo.SectionId.Value, user);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public static async Task CompletedSection(lmsDbContext dbContext, int sectionId, tbl_UserInformation user)
+        public async Task CompletedSection(int sectionId, tbl_UserInformation user)
         {
             var section = await dbContext.tbl_Section.SingleOrDefaultAsync(x => x.Id == sectionId);
             if (section != null)
@@ -876,14 +856,13 @@ namespace LMS_Project.Services
                 var videoCourseStudent = await dbContext.tbl_VideoCourseStudent
                     .FirstOrDefaultAsync(x => x.VideoCourseId == section.VideoCourseId && x.UserId == user.UserInformationId && x.Enable == true);
                 if (videoCourseStudent != null)
-                    videoCourseStudent.CompletedPercent = await GetComplete(dbContext, section.VideoCourseId.Value, user);
+                    videoCourseStudent.CompletedPercent = await GetComplete(section.VideoCourseId.Value, user);
                 await dbContext.SaveChangesAsync();
-                await CompletedVideoCourse(dbContext, section.VideoCourseId.Value, user);
+                await CompletedVideoCourse(section.VideoCourseId.Value, user);
             }
         }
-        public static async Task CompletedVideoCourse(lmsDbContext dbContext, int videoCourseId, tbl_UserInformation user)
+        public async Task CompletedVideoCourse(int videoCourseId, tbl_UserInformation user)
         {
-            HttpContextAccessor _httpContextAccessor = new HttpContextAccessor();
             var videoCourseStudent = await dbContext.tbl_VideoCourseStudent
                 .FirstOrDefaultAsync(x => x.VideoCourseId == videoCourseId && x.UserId == user.UserInformationId && x.Enable == true);
             if (videoCourseStudent != null)
@@ -901,14 +880,15 @@ namespace LMS_Project.Services
                             completed = false;
                     }
                 }
-                videoCourseStudent.CompletedPercent = await GetComplete(dbContext, videoCourseId, user);
+                videoCourseStudent.CompletedPercent = await GetComplete(videoCourseId, user);
                 if (completed)
                 {
                     videoCourseStudent.Status = 3;
                     videoCourseStudent.StatusName = "Hoàn thành";
 
                     //Cấp chứng chỉ
-                    await CertificateService.CreateCertificate(dbContext, videoCourseId, user.UserInformationId, _httpContextAccessor);
+                    var certificateService = new CertificateService(dbContext, _httpContextAccessor, _configuration);
+                    await certificateService.CreateCertificate(videoCourseId, user.UserInformationId);
                 }
                 else
                 {
@@ -918,7 +898,7 @@ namespace LMS_Project.Services
                 await dbContext.SaveChangesAsync();
             }
         }
-        public static async Task<double> GetComplete(lmsDbContext dbContext, int videoCourseId, tbl_UserInformation user)
+        public async Task<double> GetComplete(int videoCourseId, tbl_UserInformation user)
         {
             double result = 0;
             double completed = 0;
@@ -965,10 +945,8 @@ namespace LMS_Project.Services
             /// </summary>
             public double TotalSecond { get; set; }
         }
-        public static async Task SaveTimeWatchingVideo(SaveTimeWatchingVideoModel itemModel, tbl_UserInformation userLog)
+        public async Task SaveTimeWatchingVideo(SaveTimeWatchingVideoModel itemModel, tbl_UserInformation userLog)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 var data = await dbContext.tbl_TimeWatchingVideo
                                     .FirstOrDefaultAsync(x => x.LessonVideoId == itemModel.LessonVideoId && x.UserId == userLog.UserInformationId && x.Enable == true);
                 if (data == null)
@@ -990,17 +968,13 @@ namespace LMS_Project.Services
                 {
                     data.TotalSecond = itemModel.TotalSecond;
                 }
-                await dbContext.SaveChangesAsync();
-            }           
+                await dbContext.SaveChangesAsync();         
         }
-        public static async Task<tbl_TimeWatchingVideo> GetTimeWatchingVideo(int lessonVideoId, tbl_UserInformation userLog)
+        public async Task<tbl_TimeWatchingVideo> GetTimeWatchingVideo(int lessonVideoId, tbl_UserInformation userLog)
         {
-            using (var dbContext = new lmsDbContext())
-            {
                 var data = await dbContext.tbl_TimeWatchingVideo
                     .FirstOrDefaultAsync(x => x.LessonVideoId == lessonVideoId && x.UserId == userLog.UserInformationId && x.Enable == true);
-                return data;
-            }          
+                return data;       
         }
     }
 }

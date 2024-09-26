@@ -27,14 +27,32 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting.Internal;
 using static LMS_Project.Services.LessonVideoService;
+using Microsoft.Extensions.Configuration;
 
 namespace LMS_Project.Areas.ControllerAPIs
 {
     [ClaimsAuthorize]
     public class LessonVideoController : BaseController
     {
-        public static string serverDownload_Api_Key = ConfigurationManager.AppSettings["MySettings:ServerDownload_API_Key"].ToString();
-        public static string serverDownload_Video_Protection_Id = ConfigurationManager.AppSettings["MySettings:ServerDownload_Video_Protection_Id"].ToString();
+        private lmsDbContext dbContext;
+        private LessonVideoService domainService;
+        private FileInVideoService fileInVideoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
+        public string serverDownload_Api_Key { get; private set; }
+        public string serverDownload_Video_Protection_Id { get; private set; }
+        public LessonVideoController(IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
+        {
+            this.dbContext = new lmsDbContext();
+            _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
+            this.domainService = new LessonVideoService(this.dbContext, _httpContextAccessor, _configuration);
+            this.fileInVideoService = new FileInVideoService(this.dbContext, _httpContextAccessor, _configuration);
+            serverDownload_Api_Key = _configuration["MySettings:ServerDownload_API_Key"];
+            serverDownload_Video_Protection_Id = _configuration["MySettings:ServerDownload_Video_Protection_Id"];
+        }
+        /*public static string serverDownload_Api_Key = ConfigurationManager.AppSettings["MySettings:ServerDownload_API_Key"].ToString();
+        public static string serverDownload_Video_Protection_Id = ConfigurationManager.AppSettings["MySettings:ServerDownload_Video_Protection_Id"].ToString();*/
 
         [HttpPost]
         [Route("api/LessonVideo/AntiDownload/upload-video")]
@@ -43,7 +61,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             var protectedValue = "true";
             var httpClient = new HttpClient();
             var httpRequest = HttpContext.Request;
-            var serverDownloadInfor = await LessonVideoService.GetDiskUsage();
+            var serverDownloadInfor = await domainService.GetDiskUsage();
 
             using (var content = new MultipartFormDataContent())
             {
@@ -174,7 +192,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                     string baseUrl = Request.Scheme + "://" + Request.Host;
 
                     var pathViews = $"{baseUrl}/Views";
-                    var data = await LessonVideoService.Insert(
+                    var data = await domainService.Insert(
                         model,
                         GetCurrentUser(),
                         $"{baseUrl}/Upload/FileInVideo/",
@@ -200,7 +218,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 {
                     string baseUrl = Request.Scheme + "://" + Request.Host;
                     var pathViews = $"{baseUrl}/Views";
-                    var data = await LessonVideoService.InsertV2(
+                    var data = await domainService.InsertV2(
                         model,
                         GetCurrentUser(),
                         $"{baseUrl}/Upload/FileInVideo/",
@@ -225,7 +243,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 try
                 {
                     string baseUrl = Request.Scheme + "://" + Request.Host;
-                    var data = await LessonVideoService.Update(
+                    var data = await domainService.Update(
                         model,
                         GetCurrentUser(),
                         $"{baseUrl}/Upload/FileInVideo/");
@@ -249,7 +267,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 try
                 {
                     string baseUrl = Request.Scheme + "://" + Request.Host;
-                    var data = await LessonVideoService.UpdateV2(
+                    var data = await domainService.UpdateV2(
                         model,
                         GetCurrentUser(),
                         $"{baseUrl}/Upload/FileInVideo/");
@@ -270,7 +288,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         {
             try
             {
-                await LessonVideoService.Delete(id);
+                await domainService.Delete(id);
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
             }
             catch (Exception e)
@@ -284,7 +302,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         {
             try
             {
-                await LessonVideoService.ChangeIndex(model);
+                await domainService.ChangeIndex(model);
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
             }
             catch (Exception e)
@@ -297,7 +315,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         [Route("api/LessonVideo/GetBySection/{sectionId}")]
         public async Task<IActionResult> GetBySection(int sectionId)
         {
-            var data = await LessonVideoService.GetBySection(sectionId, GetCurrentUser());
+            var data = await domainService.GetBySection(sectionId, GetCurrentUser());
             if (!data.Any())
                 return StatusCode((int)HttpStatusCode.NoContent);
             return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data = data });
@@ -310,7 +328,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var data = await FileInVideoService.Insert(fileInVideoCreate, GetCurrentUser());
+                    var data = await fileInVideoService.Insert(fileInVideoCreate, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -327,7 +345,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         {
             try
             {
-                await FileInVideoService.Delete(id);
+                await fileInVideoService.Delete(id);
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
             }
             catch (Exception e)
@@ -339,7 +357,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         [Route("api/FileInVideo/GetByLesson/{lessonVideoId}")]
         public async Task<IActionResult> GetByLesson(int lessonVideoId)
         {
-            var data = await FileInVideoService.GetByLesson(lessonVideoId);
+            var data = await fileInVideoService.GetByLesson(lessonVideoId);
             if (!data.Any())
                 return StatusCode((int)HttpStatusCode.NoContent);
             return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data = data });
@@ -426,7 +444,7 @@ namespace LMS_Project.Areas.ControllerAPIs
                 {
                     try
                     {
-                        await LessonVideoService.Completed(dbContext,lessonVideoId, GetCurrentUser());
+                        await domainService.Completed(lessonVideoId, GetCurrentUser());
                         tran.Commit();
                         return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
                     }
@@ -480,7 +498,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    await LessonVideoService.SaveTimeWatchingVideo(
+                    await domainService.SaveTimeWatchingVideo(
                         itemModel,
                         GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
@@ -498,7 +516,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         [Route("api/LessonVideo/time-watching-video/{lessonVideoId}")]
         public async Task<IActionResult> GetTimeWatchingVideo(int lessonVideoId)
         {
-            var  data = await LessonVideoService.GetTimeWatchingVideo(lessonVideoId,GetCurrentUser());
+            var  data = await domainService.GetTimeWatchingVideo(lessonVideoId,GetCurrentUser());
             if (data != null)
             {
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
@@ -510,7 +528,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         [Route("api/LessonVideo/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var data = await LessonVideoService.GetById(id);
+            var data = await domainService.GetById(id);
             if (data != null)
             {
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });

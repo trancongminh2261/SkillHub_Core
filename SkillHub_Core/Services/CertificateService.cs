@@ -23,53 +23,52 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using static LMSCore.Models.lmsEnum;
 using LMSCore.LMS;
+using Microsoft.Extensions.Configuration;
 
 
 namespace LMS_Project.Services
 {
-    public class CertificateService
+    public class CertificateService : DomainService
     {
-        public static async Task<tbl_Certificate> GetById(int id)
-        {
-            using (var db = new lmsDbContext())
-            {
-                return await db.tbl_Certificate.SingleOrDefaultAsync(x => x.Id == id);
-            }
-        }
-        public static async Task<AppDomainResult> GetAll(CertificateSearch search, tbl_UserInformation user)
-        {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
 
-            using (var db = new lmsDbContext())
-            {
-                if (search == null) return new AppDomainResult { TotalRow = 0, Data = null };
-                if (user.RoleId == ((int)RoleEnum.student))
-                    search.UserId = user.UserInformationId;
-                string sql = $"Get_Certificate @PageIndex = {search.PageIndex}," +
-                    $"@PageSize = {search.PageSize}," +
-                    $"@VideoCourseId = {search.VideoCourseId}," +
-                    $"@UserId = {search.UserId}";
-                var data = await db.SqlQuery<Get_Certificate>(sql);
-                var myCourses = await db.tbl_VideoCourseStudent
-                    .Where(x => x.UserId == user.UserInformationId && x.Enable == true).Select(x => x.VideoCourseId).ToListAsync();
-                if (!data.Any()) return new AppDomainResult { TotalRow = 0, Data = null };
-                var totalRow = data[0].TotalRow;
-                var result = data.Select(i => new tbl_Certificate(i)).ToList();
-                return new AppDomainResult { TotalRow = totalRow, Data = result };
-            }
-        }
-        public static async Task<tbl_Certificate> Update(CertificateUpdate model, tbl_UserInformation user)
+        public CertificateService(lmsDbContext dbContext, IHttpContextAccessor httpContextAccessor, IConfiguration configuration) : base(dbContext)
         {
-            using (var db = new lmsDbContext())
-            {
-                var entity = await db.tbl_Certificate.SingleOrDefaultAsync(x => x.Id == model.Id);
+            _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
+        }
+        public async Task<tbl_Certificate> GetById(int id)
+        {
+            return await dbContext.tbl_Certificate.SingleOrDefaultAsync(x => x.Id == id);
+        }
+        public async Task<AppDomainResult> GetAll(CertificateSearch search, tbl_UserInformation user)
+        {
+            if (search == null) return new AppDomainResult { TotalRow = 0, Data = null };
+            if (user.RoleId == ((int)RoleEnum.student))
+                search.UserId = user.UserInformationId;
+            string sql = $"Get_Certificate @PageIndex = {search.PageIndex}," +
+                $"@PageSize = {search.PageSize}," +
+                $"@VideoCourseId = {search.VideoCourseId}," +
+                $"@UserId = {search.UserId}";
+            var data = await dbContext.SqlQuery<Get_Certificate>(sql);
+            var myCourses = await dbContext.tbl_VideoCourseStudent
+                .Where(x => x.UserId == user.UserInformationId && x.Enable == true).Select(x => x.VideoCourseId).ToListAsync();
+            if (!data.Any()) return new AppDomainResult { TotalRow = 0, Data = null };
+            var totalRow = data[0].TotalRow;
+            var result = data.Select(i => new tbl_Certificate(i)).ToList();
+            return new AppDomainResult { TotalRow = totalRow, Data = result };
+        }
+        public  async Task<tbl_Certificate> Update(CertificateUpdate model, tbl_UserInformation user)
+        {
+            var entity = await dbContext.tbl_Certificate.SingleOrDefaultAsync(x => x.Id == model.Id);
                 if (entity == null)
                     throw new Exception("Không tìm thấy chứng chỉ");
                 entity.Content = model.Content ?? entity.Content;
                 entity.ModifiedBy = user.FullName;
                 entity.ModifiedOn = DateTime.Now;
-                await db.SaveChangesAsync();
+                await dbContext.SaveChangesAsync();
                 return entity;
-            }
         }
         //public static async Task CreateCertificate(tbl_UserInformation user)
         //{
@@ -77,24 +76,24 @@ namespace LMS_Project.Services
         //    {
         //        try
         //        {
-        //            var entity = await db.tbl_Certificate.AnyAsync(x => x.UserId == user.UserInformationId);
+        //            var entity = await dbContext.tbl_Certificate.AnyAsync(x => x.UserId == user.UserInformationId);
         //            if (entity)
         //                throw new Exception("Bạn đã được cấp chứng chỉ");
-        //            var config = await db.tbl_CertificateConfig.FirstOrDefaultAsync();
+        //            var config = await dbContext.tbl_CertificateConfig.FirstOrDefaultAsync();
         //            if (config == null)
         //                throw new Exception("Chưa tạo mẫu chứng chỉ, vui lòng liên hệ người quản trị");
 
-        //            var videoCoures = await db.tbl_VideoCourse.Where(x => x.Enable == true && x.Active == true)
+        //            var videoCoures = await dbContext.tbl_VideoCourse.Where(x => x.Enable == true && x.Active == true)
         //                .Select(x => new { x.Id, x.Name }).ToListAsync();
         //            if (!videoCoures.Any())
         //                throw new Exception("Không tìm thấy khoá học");
         //            foreach (var item in videoCoures)
         //            {
-        //                var lastSection = await db.tbl_Section.Where(x => x.VideoCourseId == item.Id && x.Enable == true)
+        //                var lastSection = await dbContext.tbl_Section.Where(x => x.VideoCourseId == item.Id && x.Enable == true)
         //                    .OrderByDescending(x => x.Index).Select(x => x.Id).FirstOrDefaultAsync();
         //                if (lastSection != 0)
         //                {
-        //                    var completed = await db.tbl_SectionCompleted.AnyAsync(x => x.SectionId == lastSection && x.Enable == true && x.UserId == user.UserInformationId);
+        //                    var completed = await dbContext.tbl_SectionCompleted.AnyAsync(x => x.SectionId == lastSection && x.Enable == true && x.UserId == user.UserInformationId);
         //                    if (!completed)
         //                        throw new Exception($"bạn chưa hoàn thành khoá học {item.Name}");
         //                }
@@ -109,8 +108,8 @@ namespace LMS_Project.Services
         //                ModifiedOn = DateTime.Now,
         //                UserId = user.UserInformationId
         //            };
-        //            db.tbl_Certificate.Add(model);
-        //            await db.SaveChangesAsync();
+        //            dbContext.tbl_Certificate.Add(model);
+        //            await dbContext.SaveChangesAsync();
         //        }
         //        catch (Exception e)
         //        {
@@ -118,24 +117,24 @@ namespace LMS_Project.Services
         //        }
         //    }
         //}
-        public static async Task CreateCertificate(lmsDbContext db, int videoCourseId, int studentId, IHttpContextAccessor httpContextAccessor)
+        public async Task CreateCertificate(int videoCourseId, int studentId)
         {
             try
             {
-                var entityExists = await db.tbl_Certificate.AnyAsync(x => x.UserId == studentId && x.VideoCourseId == videoCourseId && x.Enable == true);
+                var entityExists = await dbContext.tbl_Certificate.AnyAsync(x => x.UserId == studentId && x.VideoCourseId == videoCourseId && x.Enable == true);
                 if (!entityExists)
                 {
-                    var videoCourse = await db.tbl_VideoCourse.FirstOrDefaultAsync(x => x.Enable == true && x.Active == true && x.Id == videoCourseId);
+                    var videoCourse = await dbContext.tbl_VideoCourse.FirstOrDefaultAsync(x => x.Enable == true && x.Active == true && x.Id == videoCourseId);
                     if (videoCourse == null)
                         return;
 
-                    var config = await db.tbl_CertificateConfig
+                    var config = await dbContext.tbl_CertificateConfig
                         .SingleOrDefaultAsync(x => x.Id == videoCourse.CertificateConfigId);
                     if (config == null)
                         return;
 
-                    var student = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == studentId);
-                    var model = await db.tbl_Certificate.FirstOrDefaultAsync(x => x.UserId == studentId && x.VideoCourseId == videoCourseId && x.Enable == true);
+                    var student = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == studentId);
+                    var model = await dbContext.tbl_Certificate.FirstOrDefaultAsync(x => x.UserId == studentId && x.VideoCourseId == videoCourseId && x.Enable == true);
                     if (model == null)
                     {
                         model = new tbl_Certificate
@@ -151,11 +150,11 @@ namespace LMS_Project.Services
                             VideoCourseId = videoCourse.Id,
                             Backside = config.Backside
                         };
-                        db.tbl_Certificate.Add(model);
-                        await db.SaveChangesAsync();
+                        dbContext.tbl_Certificate.Add(model);
+                        await dbContext.SaveChangesAsync();
 
                         // Gửi mail đến người dùng
-                        var request = httpContextAccessor.HttpContext.Request;
+                        var request = _httpContextAccessor.HttpContext.Request;
                         string baseUrl = $"{request.Scheme}://{request.Host}";
                         var uploadPath = $"{baseUrl}/Upload";
                         var viewsPath = $"{baseUrl}/Views";
@@ -163,9 +162,9 @@ namespace LMS_Project.Services
                         string content = System.IO.File.ReadAllText($"{viewsPath}/Home/ExportCertificate.cshtml");
                         content = content.Replace("{background}", model.Background);
                         content = content.Replace("{content}", model.Content);
-                        model = await ExportPDF(db, model.Id, content, uploadPath, baseUrl);
+                        model = await ExportPDF(model.Id, content, uploadPath, baseUrl);
 
-                        string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
+                        string projectName = _configuration["MySettings:ProjectName"];
 
                         string contentSendMail = System.IO.File.ReadAllText($"{viewsPath}/Home/SendMailCertificate.cshtml");
                         contentSendMail = contentSendMail.Replace("{TenHocVien}", student.FullName);
@@ -184,7 +183,7 @@ namespace LMS_Project.Services
                     {
                         model.Content = CertificateConfigService.ReplaceContent(config.Content, videoCourse.Name, student);
                         model.Background = config.Background;
-                        await db.SaveChangesAsync();
+                        await dbContext.SaveChangesAsync();
                     }
                 }
             }
@@ -195,14 +194,14 @@ namespace LMS_Project.Services
         }
 
 
-        public static async Task<tbl_Certificate> ExportPDF(lmsDbContext db, int id, string content, string path, string domain)
+        public async Task<tbl_Certificate> ExportPDF(int id, string content, string path, string domain)
         {
-            var entity = await db.tbl_Certificate.SingleOrDefaultAsync(x => x.Id == id);
+            var entity = await dbContext.tbl_Certificate.SingleOrDefaultAsync(x => x.Id == id);
             if (entity == null)
                 throw new Exception("Không tìm thấy chứng chỉ");
-            var user = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == entity.UserId);
+            var user = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == entity.UserId);
 
-            string savePath = $"{path}/Certificate/Certificate_{user.UserCode}.pdf";
+            string savePath = $"{path}/Certificate_{user.UserCode}.pdf";
 
             if (!string.IsNullOrEmpty(entity.PDFUrl))
                 try
@@ -249,7 +248,7 @@ namespace LMS_Project.Services
                 }
             }
             entity.PDFUrl = $"{domain}/Upload/Certificate/Certificate_{user.UserCode}.pdf";
-            await db.SaveChangesAsync();
+            await dbContext.SaveChangesAsync();
             return entity;
         }
 

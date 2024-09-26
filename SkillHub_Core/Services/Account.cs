@@ -19,35 +19,46 @@ using static LMSCore.Models.lmsEnum;
 using Microsoft.EntityFrameworkCore;
 using LMSCore.LMS;
 using static LMSCore.Users.JWTManager;
+using Microsoft.Extensions.Configuration;
 
 namespace LMS_Project.Services
 {
-    public class Account
+    public class Account : DomainService
     {
-        public static void PushNotiRemindStudy(IHttpContextAccessor httpContextAccessor)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private static IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.json")
+                            .Build();
+
+        public string serverDownload_Api_Key = Convert.ToBase64String(System.Text.ASCIIEncoding.UTF32.GetBytes(configuration.GetSection("MySettings:ServerDownload_API_Key").Value.ToString()));
+        public string serverDownload_Video_Protection_Id = Convert.ToBase64String(System.Text.ASCIIEncoding.UTF32.GetBytes(configuration.GetSection("MySettings:ServerDownload_Video_Protection_Id").Value.ToString()));
+        public string domain = Convert.ToBase64String(System.Text.ASCIIEncoding.UTF32.GetBytes(configuration.GetSection("MySettings:DomainFE").Value.ToString()));
+        public string projectName = Convert.ToBase64String(System.Text.ASCIIEncoding.UTF32.GetBytes(configuration.GetSection("MySettings:ProjectName").Value.ToString()));
+
+        public Account(lmsDbContext dbContext, IHttpContextAccessor httpContextAccessor) : base(dbContext)
         {
-            using (var db = new lmsDbContext())
-            {
-                var httpRequest = httpContextAccessor.HttpContext.Request;
+            _httpContextAccessor = httpContextAccessor;
+        }
+        public void PushNotiRemindStudy()
+        {
+                var httpRequest = _httpContextAccessor.HttpContext.Request;
                 string baseUrl = $"{httpRequest.Scheme}://{httpRequest.Host}";
                 var pathViews = $"{baseUrl}/Views";
 
                 // Lấy danh sách studentIds phù hợp với điều kiện
-                var studentIds = db.tbl_UserInformation
+                var studentIds = dbContext.tbl_UserInformation
                     .Where(x => x.Enable == true && x.RoleId == (int)RoleEnum.student &&
                                 (x.LastLoginDate == null || (DateTime.Now - x.LastLoginDate.Value).Days >= 3) &&
-                                !db.tbl_VideoCourseAllow.Any(y => y.Enable == true &&
+                                !dbContext.tbl_VideoCourseAllow.Any(y => y.Enable == true &&
                                     ((y.ValueId == x.DepartmentId && y.Type == VideoCourseAllowEnum.Type.Department.ToString()) ||
                                      (y.ValueId == x.UserInformationId && y.Type == VideoCourseAllowEnum.Type.User.ToString())) &&
-                                     !db.tbl_VideoCourseStudent.Any(z => z.Enable == true && z.VideoCourseId == y.VideoCourseId && x.StatusId == 3)))
+                                     !dbContext.tbl_VideoCourseStudent.Any(z => z.Enable == true && z.VideoCourseId == y.VideoCourseId && x.StatusId == 3)))
                     .Select(x => x.UserInformationId)
                     .Distinct()
                     .ToList();
 
                 if (studentIds.Count > 0)
                 {
-                    string domain = ConfigurationManager.AppSettings["MySettings:DomainFE"];
-                    string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"];
                     string href = $"<a href=\"{domain}/course/video-course\"><b style=\"color: blue;\">Tại đây</b></a>";
                     string title = "Thông báo tham gia khóa học";
                     string contentEmailTemplate = System.IO.File.ReadAllText(Path.Combine(pathViews, "Template", "MailNewLesson.html"));
@@ -56,7 +67,7 @@ namespace LMS_Project.Services
                     {
                         try
                         {
-                            var student = db.tbl_UserInformation.SingleOrDefault(x => x.UserInformationId == studentId);
+                            var student = dbContext.tbl_UserInformation.SingleOrDefault(x => x.UserInformationId == studentId);
                             if (student?.LastLoginDate != null)
                             {
                                 var totalDate = (DateTime.Now.Date - student.LastLoginDate.Value.Date).Days;
@@ -71,7 +82,7 @@ namespace LMS_Project.Services
                                     .Replace("[Ngay]", totalDate.ToString());
 
                                 // Gửi thông báo
-                                NotificationService.SendNotThread(db, new NotificationService.SendNotThreadModel
+                                NotificationService.SendNotThread(dbContext, new NotificationService.SendNotThreadModel
                                 {
                                     Content = content,
                                     Email = student.Email,
@@ -91,7 +102,6 @@ namespace LMS_Project.Services
                         }
                     }
                 }
-            }
         }
 
 
@@ -99,14 +109,12 @@ namespace LMS_Project.Services
         {
             public GenerateTokenModel GenerateTokenModel { get; set; }
         }
-        public static async Task<TokenResult> Login(string username, string password)
+        public async Task<TokenResult> Login(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 return new TokenResult() { ResultCode = (int)HttpStatusCode.BadRequest, ResultMessage = "Tên đăng nhập hoặc mật khẩu không được để trống!" };
-            using (lmsDbContext _db = new lmsDbContext())
-            {
                 string pass = Encryptor.Encrypt(password);
-                var account = await _db.tbl_UserInformation.SingleOrDefaultAsync(
+                var account = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(
                     c => c.UserName.ToUpper() == username.ToUpper() && c.Password == pass && c.Enable == true);
                 if (account == null)
                     return new TokenResult() { ResultCode = (int)HttpStatusCode.BadRequest, ResultMessage = "Tên đăng nhập hoặc mật khẩu không chính xác!" };
@@ -123,9 +131,8 @@ namespace LMS_Project.Services
                 }
                 var token = await JWTManager.GenerateToken(account.UserInformationId);
                 account.LastLoginDate = DateTime.Now;
-                await _db.SaveChangesAsync();
+                await dbContext.SaveChangesAsync();
                 return new TokenResult() { ResultCode = (int)HttpStatusCode.OK, ResultMessage = ApiMessage.LOGIN_SUCCESS, GenerateTokenModel = token };
-            }
         }
         //public static async Task<AppDomainResult> LoginByDev(LoginDevModel logindev)
         //{
@@ -137,7 +144,7 @@ namespace LMS_Project.Services
         //        };
         //    using (lmsDbContext db = new lmsDbContext())
         //    {
-        //        var accountByDev = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == logindev.Id && logindev.PassDev == "m0n4medi4" && x.Enable == true);
+        //        var accountByDev = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == logindev.Id && logindev.PassDev == "m0n4medi4" && x.Enable == true);
         //        if (accountByDev == null)
         //            return new AppDomainResult() { ResultCode = (int)HttpStatusCode.BadRequest, ResultMessage = "Sai mã" };
         //        if (accountByDev.StatusId != (int)AccountStatus.active)
@@ -148,7 +155,7 @@ namespace LMS_Project.Services
 
         //}
 
-        public static async Task<TokenResult> LoginByDev(LoginDevModel logindev)
+        public async Task<TokenResult> LoginByDev(LoginDevModel logindev)
         {
             if (string.IsNullOrEmpty(logindev.Id.ToString()) || string.IsNullOrEmpty(logindev.PassDev))
                 return new TokenResult()
@@ -156,27 +163,20 @@ namespace LMS_Project.Services
                     ResultCode = (int)HttpStatusCode.BadRequest,
                     ResultMessage = "Tài khoản và mật khẩu không được để trống"
                 };
-            using (lmsDbContext db = new lmsDbContext())
-            {
-                var accountByDev = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == logindev.Id && logindev.PassDev == "m0n4medi4" && x.Enable == true);
-                if (accountByDev == null)
-                    return new TokenResult() { ResultCode = (int)HttpStatusCode.BadRequest, ResultMessage = "Sai mã" };
-                if (accountByDev.StatusId != (int)AccountStatus.active)
-                    return new TokenResult() { ResultCode = (int)HttpStatusCode.BadRequest, ResultMessage = "Tài khoản của bạn đã bị khóa hoặc chưa được kích hoạt!" };
-                var token = await JWTManager.GenerateToken(accountByDev.UserInformationId);
-                return new TokenResult() { ResultCode = (int)HttpStatusCode.OK, ResultMessage = ApiMessage.LOGIN_SUCCESS, GenerateTokenModel = token };
-            }
-
+            var accountByDev = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == logindev.Id && logindev.PassDev == "m0n4medi4" && x.Enable == true);
+            if (accountByDev == null)
+                return new TokenResult() { ResultCode = (int)HttpStatusCode.BadRequest, ResultMessage = "Sai mã" };
+            if (accountByDev.StatusId != (int)AccountStatus.active)
+                return new TokenResult() { ResultCode = (int)HttpStatusCode.BadRequest, ResultMessage = "Tài khoản của bạn đã bị khóa hoặc chưa được kích hoạt!" };
+            var token = await JWTManager.GenerateToken(accountByDev.UserInformationId);
+            return new TokenResult() { ResultCode = (int)HttpStatusCode.OK, ResultMessage = ApiMessage.LOGIN_SUCCESS, GenerateTokenModel = token };
         }
-        public static async Task<TokenResult> NewToken(tbl_UserInformation user)
+        public async Task<TokenResult> NewToken(tbl_UserInformation user)
         {
-            using (var db = new lmsDbContext())
-            {
                 var token = await JWTManager.GenerateToken(user.UserInformationId);
                 return new TokenResult() { ResultCode = (int)HttpStatusCode.OK, ResultMessage = ApiMessage.LOGIN_SUCCESS, GenerateTokenModel = token };
-            }
         }
-        public static async Task<tbl_UserInformation> Register(RegisterModel model)
+        public async Task<tbl_UserInformation> Register(RegisterModel model)
         {
             try
             {
@@ -188,7 +188,6 @@ namespace LMS_Project.Services
                 Thread sendMail = new Thread(() =>
                 {
                     string title = "Đăng ký thành công tài khoản";
-                    string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
                     StringBuilder content = new StringBuilder();
                     content.Append($"<div>");
                     content.Append($"<p>Đăng ký thành công tài khoản</p>");
@@ -220,60 +219,48 @@ namespace LMS_Project.Services
                 throw e;
             }
         }
-        public static async Task ChangeRegister(AllowRegister value)
+        public async Task ChangeRegister(AllowRegister value)
         {
-            using (var db = new lmsDbContext())
-            {
-                var config = await db.tbl_Config
+                var config = await dbContext.tbl_Config
                     .Where(x => x.Code == "Register").FirstOrDefaultAsync();
                 if (config == null)
                     throw new Exception("Chưa cấu hình hệ thống");
                 config.Value = value.ToString();
-                await db.SaveChangesAsync();
-            }
+                await dbContext.SaveChangesAsync();
         }
-        public static async Task<AllowRegister> GetAllowRegister()
+        public async Task<AllowRegister> GetAllowRegister()
         {
-            using (var db = new lmsDbContext())
-            {
-                var config = await db.tbl_Config
+                var config = await dbContext.tbl_Config
                     .Where(x => x.Value == "UnAllow" && x.Code == "Register").AnyAsync();
                 if (config)
                     return AllowRegister.UnAllow;
                 return AllowRegister.Allow;
-            }
         }
-        public static async Task ChangePassword(ChangePasswordModel model, tbl_UserInformation user)
+        public async Task ChangePassword(ChangePasswordModel model, tbl_UserInformation user)
         {
-            using (var db = new lmsDbContext())
-            {
                 try
                 {
                     if (Encryptor.Encrypt(model.OldPassword) != user.Password)
                         throw new Exception("Mật khẩu không chính xác");
-                    var entity = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == user.UserInformationId);
+                    var entity = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == user.UserInformationId);
                     entity.Password = Encryptor.Encrypt(model.NewPassword);
-                    await db.SaveChangesAsync();
+                    await dbContext.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
                     throw e;
                 }
-            }
         }
         public class KeyForgotPasswordModel
         {
             public string UserName { get; set; }
         }
-        public static async Task KeyForgotPassword(KeyForgotPasswordModel model)
+        public async Task KeyForgotPassword(KeyForgotPasswordModel model)
         {
-            using (var db = new lmsDbContext())
-            {
                 try
                 {
-                    var url = ConfigurationManager.AppSettings["MySettings:DomainFE"].ToString() + "reset-password?key=";
-                    var projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
-                    var user = await db.tbl_UserInformation
+                    var url = domain + "reset-password?key=";
+                    var user = await dbContext.tbl_UserInformation
                         .Where(x => x.UserName.ToUpper() == model.UserName.ToUpper() && x.Enable == true).FirstOrDefaultAsync();
                     if (user == null)
                         throw new Exception("Tài khoản không tồn tại");
@@ -289,34 +276,30 @@ namespace LMS_Project.Services
                     content.Append($"<p>Thông báo từ {projectName} </p>");
                     content.Append($"</div>");
                     AssetCRM.SendMail(user.Email, title, content.ToString());
-                    await db.SaveChangesAsync();
+                    await dbContext.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
                     throw e;
                 }
-            }
         }
-        public static async Task ResetPassword(ResetPasswordModel model)
+        public async Task ResetPassword(ResetPasswordModel model)
         {
-            using (var db = new lmsDbContext())
-            {
                 try
                 {
-                    var user = await db.tbl_UserInformation.Where(x => x.KeyForgotPassword == model.Key && !string.IsNullOrEmpty(x.KeyForgotPassword)).FirstOrDefaultAsync();
+                    var user = await dbContext.tbl_UserInformation.Where(x => x.KeyForgotPassword == model.Key && !string.IsNullOrEmpty(x.KeyForgotPassword)).FirstOrDefaultAsync();
                     if (user == null)
                         throw new Exception("Xác thực không thành công");
                     if (user.CreatedDateKeyForgot < DateTime.Now)
                         throw new Exception("Yêu cầu đã hết hạn");
                     user.Password = Encryptor.Encrypt(model.NewPassword);
                     user.KeyForgotPassword = "";
-                    await db.SaveChangesAsync();
+                    await dbContext.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
                     throw e;
                 }
-            }
         }
         public class AccountModel
         { 
@@ -324,11 +307,9 @@ namespace LMS_Project.Services
             public string FullName { get; set; }
             public string RoleName { get; set; }
         }
-        public static async Task<List<AccountModel>> GetAccount()
+        public async Task<List<AccountModel>> GetAccount()
         {
-            using (var db = new lmsDbContext())
-            {
-                var users = await db.tbl_UserInformation.Where(x => x.Enable == true && x.StatusId == ((int)AccountStatus.active)).ToListAsync();
+                var users = await dbContext.tbl_UserInformation.Where(x => x.Enable == true && x.StatusId == ((int)AccountStatus.active)).ToListAsync();
                 if (!users.Any())
                     return new List<AccountModel>();
                 return (from i in users
@@ -338,7 +319,6 @@ namespace LMS_Project.Services
                             Id = i.UserInformationId,
                             RoleName = i.RoleName
                         }).ToList();
-            }
         }
 
         public class AddRefreshTokenRequest
@@ -350,17 +330,14 @@ namespace LMS_Project.Services
             /// </summary>
             public DateTime? RefreshTokenExpires { get; set; }
         }
-        public static async Task AddRefreshToken(AddRefreshTokenRequest itemModel)
+        public async Task AddRefreshToken(AddRefreshTokenRequest itemModel)
         {
-            using (var db = new lmsDbContext())
+            var user = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == itemModel.UserId);
+            if (user != null)
             {
-                var user = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == itemModel.UserId);
-                if (user != null)
-                {
-                    user.RefreshToken = itemModel.RefreshToken;
-                    user.RefreshTokenExpires = itemModel.RefreshTokenExpires;
-                    await db.SaveChangesAsync();
-                }
+                user.RefreshToken = itemModel.RefreshToken;
+                user.RefreshTokenExpires = itemModel.RefreshTokenExpires;
+                await dbContext.SaveChangesAsync();
             }
         }
 
@@ -368,31 +345,26 @@ namespace LMS_Project.Services
         {
             public string RefreshToken { get; set; }
         }
-        public static async Task<TokenResult> RefreshToken(RefreshTokenRequest itemModel)
+        public async Task<TokenResult> RefreshToken(RefreshTokenRequest itemModel)
         {
-            using (var db = new lmsDbContext())
-            {
                 if (itemModel == null)
                     return new TokenResult() { ResultCode = (int)HttpStatusCode.Unauthorized, ResultMessage = "Phiên đăng nhập hết hạn" };
                 if (string.IsNullOrEmpty(itemModel.RefreshToken))
                     return new TokenResult() { ResultCode = (int)HttpStatusCode.Unauthorized, ResultMessage = "Phiên đăng nhập hết hạn" };
 
-                var user = await db.tbl_UserInformation.FirstOrDefaultAsync(x => x.RefreshToken == itemModel.RefreshToken);
+                var user = await dbContext.tbl_UserInformation.FirstOrDefaultAsync(x => x.RefreshToken == itemModel.RefreshToken);
                 if (user == null)
                     return new TokenResult() { ResultCode = (int)HttpStatusCode.Unauthorized, ResultMessage = "Phiên đăng nhập hết hạn" };
                 if (DateTime.Now > user.RefreshTokenExpires)
                     return new TokenResult() { ResultCode = (int)HttpStatusCode.Unauthorized, ResultMessage = "Phiên đăng nhập hết hạn" };
                 var token = await JWTManager.GenerateToken(user.UserInformationId);
                 return new TokenResult() { ResultCode = (int)HttpStatusCode.OK, ResultMessage = ApiMessage.LOGIN_SUCCESS, GenerateTokenModel = token };
-            }
         }
-        public static async Task<bool> HasPermission(int roleId, string controller, string action)
+        public async Task<bool> HasPermission(int roleId, string controller, string action)
         {
-            using (var db = new lmsDbContext())
-            {
                 if (controller == "Permission" && roleId == ((int)RoleEnum.admin))
                     return true;
-                var permissions = await db.tbl_Permission.Where(x => x.Controller.ToUpper() == controller.ToUpper()
+                var permissions = await dbContext.tbl_Permission.Where(x => x.Controller.ToUpper() == controller.ToUpper()
                    && x.Action.ToUpper() == action.ToUpper()).ToListAsync();
                 if (!permissions.Any())
                     return false;
@@ -402,7 +374,6 @@ namespace LMS_Project.Services
                 if (permission)
                     return true;
                 return false;
-            }
         }
     }
 }

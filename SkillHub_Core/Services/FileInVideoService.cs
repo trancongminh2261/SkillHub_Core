@@ -2,7 +2,9 @@
 using LMS_Project.Areas.Request;
 using LMS_Project.Models;
 using LMSCore.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,32 +19,42 @@ using System.Threading.Tasks;
 
 namespace LMS_Project.Services
 {
-    public class FileInVideoService
+    public class FileInVideoService : DomainService
     {
-        public static void PushNotiNewFile(int lessonId, tbl_UserInformation userLog)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
+        public string domain { get; private set; }
+        public string projectName { get; private set; }
+
+        public FileInVideoService(lmsDbContext context, IHttpContextAccessor httpContextAccessor, IConfiguration configuration) : base(context)
         {
-            using (var db = new lmsDbContext())
-            {
+            _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
+
+            // Gán giá trị cho các biến từ configuration trong constructor
+            domain = _configuration["MySettings:DomainFE"];
+            projectName = _configuration["MySettings:ProjectName"];
+        }
+        public void PushNotiNewFile(int lessonId, tbl_UserInformation userLog)
+        {
                 try
                 {
-                    var lesson = db.tbl_LessonVideo.SingleOrDefault(x => x.Id == lessonId);
+                    var lesson = dbContext.tbl_LessonVideo.SingleOrDefault(x => x.Id == lessonId);
                     if (lesson == null)
                         return;
 
-                    var section = db.tbl_Section.SingleOrDefault(x => x.Id == lesson.SectionId);
+                    var section = dbContext.tbl_Section.SingleOrDefault(x => x.Id == lesson.SectionId);
                     if (section == null)
                         return;
 
-                    var videoCourse = db.tbl_VideoCourse.SingleOrDefault(x => x.Id == section.VideoCourseId);
+                    var videoCourse = dbContext.tbl_VideoCourse.SingleOrDefault(x => x.Id == section.VideoCourseId);
                     if (videoCourse == null)
                         return;
 
-                    var studentIds = db.tbl_VideoCourseStudent.Where(x => x.VideoCourseId == videoCourse.Id && x.Enable == true)
+                    var studentIds = dbContext.tbl_VideoCourseStudent.Where(x => x.VideoCourseId == videoCourse.Id && x.Enable == true)
                         .Select(x => x.UserId).Distinct().ToList();
                     if (studentIds.Any())
                     {
-                        string domain = ConfigurationManager.AppSettings["MySettings:DomainFE"].ToString();
-                        string projectName = ConfigurationManager.AppSettings["MySettings:ProjectName"].ToString();
                         //https://skillhub.mona.software/learning/?course=84&sectionIds=57&currentLessonId=1170
                         //string href = $"<a href=\"{domain}/course/video-course/detail/?slug={videoCourse.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
                         string href = $"<a href=\"{domain}/learning/?course={videoCourse.Id}&sectionIds={section.Id}&currentLessonId={lesson.Id}\"><b style=\"color: blue;\">Tại đây</b></a>";
@@ -52,8 +64,8 @@ namespace LMS_Project.Services
 
                         foreach (var studentId in studentIds)
                         {
-                            var student = db.tbl_UserInformation.SingleOrDefault(x => x.UserInformationId == studentId);
-                            NotificationService.SendNotThread(db,
+                            var student = dbContext.tbl_UserInformation.SingleOrDefault(x => x.UserInformationId == studentId);
+                            NotificationService.SendNotThread(dbContext,
                                 new NotificationService.SendNotThreadModel
                                 {
                                     Content = content,
@@ -73,22 +85,19 @@ namespace LMS_Project.Services
                 {
                     return;
                 }
-            }
 
         }
-        public static async Task<tbl_FileInVideo> Insert(FileInVideoCreate fileInVideoCreate, tbl_UserInformation user)
+        public async Task<tbl_FileInVideo> Insert(FileInVideoCreate fileInVideoCreate, tbl_UserInformation user)
         {
-            using (var db = new lmsDbContext())
-            {
                 try
                 {
-                    var lessonVideo = await db.tbl_LessonVideo.SingleOrDefaultAsync(x => x.Id == fileInVideoCreate.LessonVideoId);
+                    var lessonVideo = await dbContext.tbl_LessonVideo.SingleOrDefaultAsync(x => x.Id == fileInVideoCreate.LessonVideoId);
                     if (lessonVideo == null)
                         throw new Exception("Không tìm thấy bài học");
                     var model = new tbl_FileInVideo(fileInVideoCreate);
                     model.CreatedBy = model.ModifiedBy = user.FullName;
-                    db.tbl_FileInVideo.Add(model);
-                    await db.SaveChangesAsync();
+                    dbContext.tbl_FileInVideo.Add(model);
+                    await dbContext.SaveChangesAsync();
                     Thread pushnoti = new Thread(() =>
                         PushNotiNewFile(lessonVideo.Id, user));
                     pushnoti.Start();
@@ -98,33 +107,26 @@ namespace LMS_Project.Services
                 {
                     throw e;
                 }
-            }
         }
-        public static async Task Delete(int id)
+        public async Task Delete(int id)
         {
-            using (var db = new lmsDbContext())
-            {
                 try
                 {
-                    var fileInVideo = await db.tbl_FileInVideo.SingleOrDefaultAsync(x => x.Id == id);
+                    var fileInVideo = await dbContext.tbl_FileInVideo.SingleOrDefaultAsync(x => x.Id == id);
                     if (fileInVideo == null)
                         throw new Exception("Không tìm thấy dữ liệu");
                     fileInVideo.Enable = false;
-                    await db.SaveChangesAsync();
+                    await dbContext.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
                     throw e;
                 }
-            }
         }
-        public static async Task<List<tbl_FileInVideo>> GetByLesson(int lessonVideoId)
+        public async Task<List<tbl_FileInVideo>> GetByLesson(int lessonVideoId)
         {
-            using (var db = new lmsDbContext())
-            {
-                var data = await db.tbl_FileInVideo.Where(x => x.LessonVideoId == lessonVideoId && x.Enable == true).OrderBy(x => x.Id).ToListAsync();
+                var data = await dbContext.tbl_FileInVideo.Where(x => x.LessonVideoId == lessonVideoId && x.Enable == true).OrderBy(x => x.Id).ToListAsync();
                 return data;
-            }
         }
     }
 }

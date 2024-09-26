@@ -16,6 +16,7 @@ using System.Configuration;
 using Microsoft.Extensions.Configuration;
 using LMS_Project.Models;
 using LMS_Project.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace LMSCore.Users
 {
@@ -24,6 +25,8 @@ namespace LMSCore.Users
         private static IConfiguration configuration = new ConfigurationBuilder()
                             .AddJsonFile("appsettings.json")
                             .Build();
+        private static lmsDbContext dbContext = new lmsDbContext();
+        private static IHttpContextAccessor _httpContextAccessor;
         private static string Secret = Convert.ToBase64String(System.Text.ASCIIEncoding.UTF32.GetBytes(configuration.GetSection("AppSettings:Secret").Value.ToString()));
         public static async Task<string> GenerateToken(tbl_UserInformation user)
         {
@@ -85,7 +88,7 @@ namespace LMSCore.Users
                       new Claim(ClaimTypes.NameIdentifier, Encryptor.Encrypt(user.UserInformationId.ToString())),
                       new Claim(ClaimTypes.Name, user.FullName),
                       new Claim(ClaimTypes.Role, user.RoleName),
-                       new Claim("UserInformationId", user.UserInformationId.ToString()),
+                      new Claim("UserInformationId", user.UserInformationId.ToString()),
                       new Claim("FullName", user.FullName.ToString()),
                       new Claim("UserCode", user.UserCode ?? ""),
                       new Claim("UserName", user.UserName ?? ""),
@@ -113,7 +116,8 @@ namespace LMSCore.Users
 
             if (DateTime.Now < user.RefreshTokenExpires)
                 refreshToken = user.RefreshToken;
-            await Account.AddRefreshToken(new Account.AddRefreshTokenRequest
+            var account = new Account(dbContext, _httpContextAccessor);
+            await account.AddRefreshToken(new Account.AddRefreshTokenRequest
             {
                 RefreshToken = refreshToken,
                 RefreshTokenExpires = refreshTokenExpires,

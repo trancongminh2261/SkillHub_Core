@@ -4,6 +4,7 @@ using LMS_Project.Models;
 using LMSCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,13 @@ namespace LMS_Project.Services
 {
     public class SectionService : DomainService
     {
-        public SectionService(lmsDbContext dbContext) : base(dbContext) { }
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
+        public SectionService(lmsDbContext dbContext, IHttpContextAccessor httpContextAccessor, IConfiguration configuration) : base(dbContext) 
+        {
+            _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
+        }
 
         public async Task<tbl_Section> Insert(SectionCreate sectionCreate, tbl_UserInformation user)
         {
@@ -28,7 +35,6 @@ namespace LMS_Project.Services
             {
                 try
                 {
-                    IHttpContextAccessor _httpContextAccessor;
                     var videoCourse = await dbContext.tbl_VideoCourse.SingleOrDefaultAsync(x => x.Id == sectionCreate.VideoCourseId);
                     if (videoCourse == null)
                         throw new Exception("Không tìm thấy khoá học");
@@ -47,7 +53,8 @@ namespace LMS_Project.Services
                         foreach (var item in userCompleteds)
                         {
                             var userCompleted = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == item);
-                            await LessonVideoService.CompletedVideoCourse(dbContext, videoCourse.Id, userCompleted);
+                            var lessonVideoService = new LessonVideoService(dbContext, _httpContextAccessor, _configuration);
+                            await lessonVideoService.CompletedVideoCourse(videoCourse.Id, userCompleted);
                         }
                     }
                     tran.Commit();
@@ -135,7 +142,8 @@ namespace LMS_Project.Services
                             await dbContext.SaveChangesAsync();
 
                             var userCompleted = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == sectionCompleted.UserId);
-                            await LessonVideoService.CompletedVideoCourse(dbContext, sectionCompleted.VideoCourseId.Value, userCompleted);
+                            var lessonVideoService = new LessonVideoService(dbContext, _httpContextAccessor, _configuration);
+                            await lessonVideoService.CompletedVideoCourse(sectionCompleted.VideoCourseId.Value, userCompleted);
                         }
                     }
                     tran.Commit();

@@ -19,12 +19,28 @@ using Microsoft.AspNetCore.Mvc;
 using static LMS_Project.Services.ExamResultService;
 using LMSCore.Areas.ControllerAPIs;
 using LMSCore.LMS;
+using LMSCore.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace LMS_Project.Areas.ControllerAPIs
 {
     [ClaimsAuthorize]
     public class ExamResultController : BaseController
     {
+        private lmsDbContext dbContext;
+        private ExamResultService domainService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
+
+        public ExamResultController(IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
+        {
+            this.dbContext = new lmsDbContext();
+            _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
+            this.domainService = new ExamResultService(this.dbContext, _httpContextAccessor, _configuration);
+        }
+
         [HttpPost]
         [Route("api/ExamResult/Submit")]
         public async Task<IActionResult> Submit(ExamSubmit model)
@@ -33,7 +49,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var data = await ExamResultService.Submit(model, GetCurrentUser());
+                    var data = await domainService.Submit(model, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -48,7 +64,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         [Route("api/ExamResult")]
         public async Task<IActionResult> GetAll([FromQuery] ExamResultSearch search)
         {
-            var data = await ExamResultService.GetAll(search,GetCurrentUser());
+            var data = await domainService.GetAll(search,GetCurrentUser());
             if (data.TotalRow == 0)
                 return StatusCode((int)HttpStatusCode.NoContent);
             return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", totalRow = data.TotalRow, data = data.Data });
@@ -57,7 +73,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         [Route("api/ExamResult/Detail/{examResultId}")]
         public async Task<IActionResult> GetDetail(int examResultId)
         {
-            var data = await ExamResultService.GetDetail(examResultId);
+            var data = await domainService.GetDetail(examResultId);
             if (data.Data == null)
                 return StatusCode((int)HttpStatusCode.NoContent);
             return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", 
@@ -146,7 +162,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var data = await ExamResultService.CreateGradingEssay(itemModel, GetCurrentUser());
+                    var data = await domainService.CreateGradingEssay(itemModel, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -166,7 +182,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         [Route("api/ExamResult/grading-essay/{examResultId}")]
         public async Task<IActionResult> GetGradingEssay(int examResultId)
         {
-            var data = await ExamResultService.GetGradingEssay(examResultId);
+            var data = await domainService.GetGradingEssay(examResultId);
             if (!data.Any())
                 return StatusCode((int)HttpStatusCode.NoContent);
             return StatusCode((int)HttpStatusCode.OK, new
@@ -183,7 +199,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    await ExamResultService.AddTeachers(itemModel, GetCurrentUser());
+                    await domainService.AddTeachers(itemModel, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
                 }
                 catch (Exception e)
@@ -202,7 +218,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var data = await ExamResultService.KnowledgeExamCompleted(videoCourseId, GetCurrentUser());
+                    var data = await domainService.KnowledgeExamCompleted(videoCourseId, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)

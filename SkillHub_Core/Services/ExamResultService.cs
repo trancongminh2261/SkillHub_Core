@@ -13,11 +13,20 @@ using Newtonsoft.Json;
 using LMSCore.Models;
 using Microsoft.EntityFrameworkCore;
 using static LMSCore.Models.lmsEnum;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace LMS_Project.Services
 {
-    public class ExamResultService
+    public class ExamResultService : DomainService
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
+        public ExamResultService(lmsDbContext dbContext, IHttpContextAccessor httpContextAccessor, IConfiguration configuration) : base(dbContext) 
+        {
+            _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
+        }  
         public class ExamSubmit
         {
             [Required(ErrorMessage = "Vui lòng nhập đề thi")]
@@ -51,20 +60,18 @@ namespace LMS_Project.Services
         /// <param name="model"></param>
         /// <param name="user"></param>
         /// <returns></returns>
-        public static async Task<tbl_ExamResult> Submit(ExamSubmit model, tbl_UserInformation user)
+        public async Task<tbl_ExamResult> Submit(ExamSubmit model, tbl_UserInformation user)
         {
-            using (var db = new lmsDbContext())
-            {
-                using (var tran = db.Database.BeginTransaction())
+                using (var tran = dbContext.Database.BeginTransaction())
                 {
                     try
                     {
-                        var exam = await db.tbl_Exam.SingleOrDefaultAsync(x => x.Id == model.ExamId);
+                        var exam = await dbContext.tbl_Exam.SingleOrDefaultAsync(x => x.Id == model.ExamId);
                         if (exam == null)
                             throw new Exception("Không tìm thấy đề");
-                        var lessonVideo = await db.tbl_LessonVideo.SingleOrDefaultAsync(x => x.Id == model.LessonVideoId);
+                        var lessonVideo = await dbContext.tbl_LessonVideo.SingleOrDefaultAsync(x => x.Id == model.LessonVideoId);
                         int sectionId = lessonVideo?.SectionId ?? 0;
-                        var section = await db.tbl_Section.SingleOrDefaultAsync(x => x.Id == sectionId);
+                        var section = await dbContext.tbl_Section.SingleOrDefaultAsync(x => x.Id == sectionId);
                         int videoCourseId = section?.VideoCourseId ?? 0;
                         int status = exam.Type == 1 ? 2 : 1;
                         var examResult = new tbl_ExamResult
@@ -88,9 +95,9 @@ namespace LMS_Project.Services
                         };
                         double totalPoint = 0;
                         double mypoint = 0;
-                        db.tbl_ExamResult.Add(examResult);
-                        await db.SaveChangesAsync();
-                        var examSections = await db.tbl_ExamSection.Where(x => x.ExamId == exam.Id && x.Enable == true).ToListAsync();
+                        dbContext.tbl_ExamResult.Add(examResult);
+                        await dbContext.SaveChangesAsync();
+                        var examSections = await dbContext.tbl_ExamSection.Where(x => x.ExamId == exam.Id && x.Enable == true).ToListAsync();
                         if (examSections.Any())
                         {
                             foreach (var examSection in examSections)
@@ -107,9 +114,9 @@ namespace LMS_Project.Services
                                     ModifiedBy = user.FullName,
                                     ModifiedOn = DateTime.Now,
                                 };
-                                db.tbl_ExamSectionResult.Add(examSectionResult);
-                                await db.SaveChangesAsync();
-                                var exerciseGroups = await db.tbl_ExerciseGroup.Where(x => x.ExamSectionId == examSection.Id && x.Enable == true).ToListAsync();
+                                dbContext.tbl_ExamSectionResult.Add(examSectionResult);
+                                await dbContext.SaveChangesAsync();
+                                var exerciseGroups = await dbContext.tbl_ExerciseGroup.Where(x => x.ExamSectionId == examSection.Id && x.Enable == true).ToListAsync();
                                 if (exerciseGroups.Any())
                                 {
                                     foreach (var exerciseGroup in exerciseGroups)
@@ -133,9 +140,9 @@ namespace LMS_Project.Services
                                             ModifiedBy = user.FullName,
                                             ModifiedOn = DateTime.Now,
                                         };
-                                        db.tbl_ExerciseGroupResult.Add(exerciseGroupResult);
-                                        await db.SaveChangesAsync();
-                                        var exercises = await db.tbl_Exercise.Where(x => x.ExerciseGroupId == exerciseGroup.Id && x.Enable == true).ToListAsync();
+                                        dbContext.tbl_ExerciseGroupResult.Add(exerciseGroupResult);
+                                        await dbContext.SaveChangesAsync();
+                                        var exercises = await dbContext.tbl_Exercise.Where(x => x.ExerciseGroupId == exerciseGroup.Id && x.Enable == true).ToListAsync();
                                         if (exercises.Any())
                                         {
                                             foreach (var exercise in exercises)
@@ -158,11 +165,11 @@ namespace LMS_Project.Services
                                                     ModifiedBy = user.FullName,
                                                     ModifiedOn = DateTime.Now,
                                                 };
-                                                db.tbl_ExerciseResult.Add(exerciseResult);
-                                                await db.SaveChangesAsync();
+                                                dbContext.tbl_ExerciseResult.Add(exerciseResult);
+                                                await dbContext.SaveChangesAsync();
                                                 bool isResult = false;
                                                 var exerciseSubmit = model.Items.Where(x => x.ExerciseId == exercise.Id).FirstOrDefault();
-                                                var answers = await db.tbl_Answer.Where(x => x.ExerciseId == exercise.Id && x.Enable == true).ToListAsync();
+                                                var answers = await dbContext.tbl_Answer.Where(x => x.ExerciseId == exercise.Id && x.Enable == true).ToListAsync();
                                                 switch (exerciseGroup.Type)
                                                 {
                                                     ///Chấm bài trắc nghiệm
@@ -188,7 +195,7 @@ namespace LMS_Project.Services
                                                                         ModifiedBy = user.FullName,
                                                                         ModifiedOn = DateTime.Now,
                                                                     };
-                                                                    db.tbl_AnswerResult.Add(answerResult);
+                                                                    dbContext.tbl_AnswerResult.Add(answerResult);
                                                                 }
                                                                 else
                                                                 {
@@ -208,11 +215,11 @@ namespace LMS_Project.Services
                                                                         ModifiedBy = user.FullName,
                                                                         ModifiedOn = DateTime.Now,
                                                                     };
-                                                                    db.tbl_AnswerResult.Add(answerResult);
+                                                                    dbContext.tbl_AnswerResult.Add(answerResult);
                                                                 }
-                                                                await db.SaveChangesAsync();
+                                                                await dbContext.SaveChangesAsync();
                                                             }
-                                                            var checkResult = await db.tbl_AnswerResult.AnyAsync(x => x.ExerciseResultId == exerciseResult.Id && x.Enable == true
+                                                            var checkResult = await dbContext.tbl_AnswerResult.AnyAsync(x => x.ExerciseResultId == exerciseResult.Id && x.Enable == true
                                                             && x.IsTrue != x.MyResult);
                                                             if (!checkResult)
                                                                 isResult = true;
@@ -240,7 +247,7 @@ namespace LMS_Project.Services
                                                                     ModifiedBy = user.FullName,
                                                                     ModifiedOn = DateTime.Now,
                                                                 };
-                                                                db.tbl_AnswerResult.Add(answerResult);
+                                                                dbContext.tbl_AnswerResult.Add(answerResult);
                                                             }
                                                             else
                                                             {
@@ -263,7 +270,7 @@ namespace LMS_Project.Services
                                                                         ModifiedBy = user.FullName,
                                                                         ModifiedOn = DateTime.Now,
                                                                     };
-                                                                    db.tbl_AnswerResult.Add(answerResult);
+                                                                    dbContext.tbl_AnswerResult.Add(answerResult);
                                                                     isResult = true;
                                                                 }
                                                                 else
@@ -283,10 +290,10 @@ namespace LMS_Project.Services
                                                                         ModifiedBy = user.FullName,
                                                                         ModifiedOn = DateTime.Now,
                                                                     };
-                                                                    db.tbl_AnswerResult.Add(answerResult);
+                                                                    dbContext.tbl_AnswerResult.Add(answerResult);
                                                                 }
                                                             }
-                                                            await db.SaveChangesAsync();
+                                                            await dbContext.SaveChangesAsync();
                                                         }
                                                         break;
                                                     ///Chấm bài điền vào ô trống
@@ -312,7 +319,7 @@ namespace LMS_Project.Services
                                                                     ModifiedBy = user.FullName,
                                                                     ModifiedOn = DateTime.Now,
                                                                 };
-                                                                db.tbl_AnswerResult.Add(answerResult);
+                                                                dbContext.tbl_AnswerResult.Add(answerResult);
                                                             }
                                                             else
                                                             {
@@ -336,7 +343,7 @@ namespace LMS_Project.Services
                                                                         ModifiedBy = user.FullName,
                                                                         ModifiedOn = DateTime.Now,
                                                                     };
-                                                                    db.tbl_AnswerResult.Add(answerResult);
+                                                                    dbContext.tbl_AnswerResult.Add(answerResult);
                                                                     isResult = true;
                                                                 }
                                                                 else
@@ -356,10 +363,10 @@ namespace LMS_Project.Services
                                                                         ModifiedBy = user.FullName,
                                                                         ModifiedOn = DateTime.Now,
                                                                     };
-                                                                    db.tbl_AnswerResult.Add(answerResult);
+                                                                    dbContext.tbl_AnswerResult.Add(answerResult);
                                                                 }
                                                             }
-                                                            await db.SaveChangesAsync();
+                                                            await dbContext.SaveChangesAsync();
                                                         }
                                                         break;
                                                     ///Nộp bài điền từ
@@ -382,8 +389,8 @@ namespace LMS_Project.Services
                                                                 ModifiedBy = user.FullName,
                                                                 ModifiedOn = DateTime.Now,
                                                             };
-                                                            db.tbl_AnswerResult.Add(answerResult);
-                                                            await db.SaveChangesAsync();
+                                                            dbContext.tbl_AnswerResult.Add(answerResult);
+                                                            await dbContext.SaveChangesAsync();
                                                         }
                                                         break;
                                                 }
@@ -394,7 +401,7 @@ namespace LMS_Project.Services
                                                     exerciseResult.Point = exercise.Point ?? 0;
                                                     mypoint += exercise.Point ?? 0;
                                                 }
-                                                await db.SaveChangesAsync();
+                                                await dbContext.SaveChangesAsync();
                                             }
                                         }
                                     }
@@ -406,9 +413,10 @@ namespace LMS_Project.Services
                         if (examResult.MyPoint >= exam.PassPoint)
                         {
                             examResult.IsPass = true;
-                            await LessonVideoService.Completed(db, examResult.LessonVideoId, user, examResult.Id, examResult.TotalPoint);
+                            var lessonVideoService = new LessonVideoService(dbContext, _httpContextAccessor, _configuration);
+                            await lessonVideoService.Completed(examResult.LessonVideoId, user, examResult.Id, examResult.TotalPoint);
                         }
-                        await db.SaveChangesAsync();
+                        await dbContext.SaveChangesAsync();
                         tran.Commit();
                         return examResult;
                     }
@@ -418,12 +426,9 @@ namespace LMS_Project.Services
                         throw e;
                     }
                 }
-            }
         }
-        public static async Task<AppDomainResult> GetAll(ExamResultSearch search, tbl_UserInformation userLog)
+        public async Task<AppDomainResult> GetAll(ExamResultSearch search, tbl_UserInformation userLog)
         {
-            using (var db = new lmsDbContext())
-            {
                 if (search == null) return new AppDomainResult { TotalRow = 0, Data = null };
                 string sql = $"Get_ExamResult @PageIndex = {search.PageIndex}," +
                     $"@PageSize = {search.PageSize}," +
@@ -432,12 +437,11 @@ namespace LMS_Project.Services
                     $"@Status = {search.Status}," +
                     $"@TeacherId = {(userLog.RoleId == ((int)RoleEnum.teacher) ? userLog.UserInformationId : search.TeacherId)}," +
                     $"@StudentId ={(userLog.RoleId == ((int)RoleEnum.student) ? userLog.UserInformationId : search.StudentId)}";
-                var data = await db.SqlQuery<Get_ExamResult>(sql);
+                var data = await dbContext.SqlQuery<Get_ExamResult>(sql);
                 if (!data.Any()) return new AppDomainResult { TotalRow = 0, Data = null };
                 var totalRow = data[0].TotalRow;
                 var result = data.Select(i => new tbl_ExamResult(i)).ToList();
                 return new AppDomainResult { TotalRow = totalRow, Data = result };
-            }
         }
         public class ExamResultDetailResult : AppDomainResult
         {
@@ -461,18 +465,16 @@ namespace LMS_Project.Services
             /// </summary>
             public double MyPoint { get; set; }
         }
-        public static async Task<ExamResultDetailResult> GetDetail(int examResultId)
+        public async Task<ExamResultDetailResult> GetDetail(int examResultId)
         {
-            using (var db = new lmsDbContext())
-            {
                 string sql = $"Get_ExamResultDetail @PageIndex = 1," +
                     $"@PageSize = 9999," +
                     $"@ExamResultId = {examResultId}";
-                var examResult = await db.tbl_ExamResult.SingleOrDefaultAsync(x => x.Id == examResultId);
+                var examResult = await dbContext.tbl_ExamResult.SingleOrDefaultAsync(x => x.Id == examResultId);
                 if (examResult == null)
                     return new ExamResultDetailResult { TotalRow = 0, Data = null };
-                var exam = await db.tbl_Exam.SingleOrDefaultAsync(x => x.Id == examResult.ExamId);
-                var data = await db.SqlQuery<Get_ExamResultDetail>(sql);
+                var exam = await dbContext.tbl_Exam.SingleOrDefaultAsync(x => x.Id == examResult.ExamId);
+                var data = await dbContext.SqlQuery<Get_ExamResultDetail>(sql);
                 if (!data.Any()) return new ExamResultDetailResult { TotalRow = 0, Data = null };
                 int indexInExam = 0;
                 var result = data.GroupBy(es => new { es.ExamSectionResultId, es.ExamSectionName, es.Explanations, es.ExamSectionIndex }).OrderBy(x => x.Key.ExamSectionIndex)
@@ -564,7 +566,6 @@ namespace LMS_Project.Services
                     CreatedBy = examResult.CreatedBy,
                     VideoCourseId = examResult.VideoCourseId ?? 0,
                 };
-            }
         }
         public class GradingEssayModel
         {
@@ -585,15 +586,13 @@ namespace LMS_Project.Services
                 Enable = true;
             }
         }
-        public static async Task<tbl_ExamResult> CreateGradingEssay(GradingEssayModel itemModel, tbl_UserInformation userLog)
+        public async Task<tbl_ExamResult> CreateGradingEssay(GradingEssayModel itemModel, tbl_UserInformation userLog)
         {
-            using (var db = new lmsDbContext())
-            {
-                using (var tran = db.Database.BeginTransaction())
+                using (var tran = dbContext.Database.BeginTransaction())
                 {
                     try
                     {
-                        var examResult = await db.tbl_ExamResult.SingleOrDefaultAsync(x => x.Id == itemModel.ExamResultId);
+                        var examResult = await dbContext.tbl_ExamResult.SingleOrDefaultAsync(x => x.Id == itemModel.ExamResultId);
                         if (examResult == null)
                             throw new Exception("Không tìm thấy kết quả làm bài");
                         if (examResult.Type == 1)
@@ -601,7 +600,7 @@ namespace LMS_Project.Services
 
                         double myPoint = 0;
                         //Xóa những câu trước đó đã chọn
-                        var gradingEssays = await db.tbl_GradingEssay.Where(x => x.Enable == true && x.ExamResultId == examResult.Id).ToListAsync();
+                        var gradingEssays = await dbContext.tbl_GradingEssay.Where(x => x.Enable == true && x.ExamResultId == examResult.Id).ToListAsync();
                         if (gradingEssays.Any())
                         {
                             foreach (var item in gradingEssays)
@@ -613,7 +612,7 @@ namespace LMS_Project.Services
 
                         foreach (var item in itemModel.Items)
                         {
-                            var gradingEssay = await db.tbl_GradingEssay
+                            var gradingEssay = await dbContext.tbl_GradingEssay
                                 .FirstOrDefaultAsync(x => x.StandardId == item.StandardId && x.ExamResultId == examResult.Id && x.Enable == true);
                             if (gradingEssay == null)
                             {
@@ -627,15 +626,15 @@ namespace LMS_Project.Services
                                     ModifiedOn = DateTime.Now,
                                     StandardId = item.StandardId
                                 };
-                                db.tbl_GradingEssay.Add(gradingEssay);
+                                dbContext.tbl_GradingEssay.Add(gradingEssay);
                             }
                             else
                             {
                                 gradingEssay.Enable = item.Enable;
                             }
-                            await db.SaveChangesAsync();
+                            await dbContext.SaveChangesAsync();
 
-                            var standard = await db.tbl_Standard.SingleOrDefaultAsync(x => x.Id == item.StandardId);
+                            var standard = await dbContext.tbl_Standard.SingleOrDefaultAsync(x => x.Id == item.StandardId);
                             if (gradingEssay.Enable == true && standard != null)
                                 myPoint += standard.Point;
                         }
@@ -643,14 +642,15 @@ namespace LMS_Project.Services
                         examResult.MyPoint = myPoint;
                         examResult.Status = 2;
                         examResult.StatusName = "Đã chấm bài";
-                        await db.SaveChangesAsync();
+                        await dbContext.SaveChangesAsync();
                         if (myPoint >= examResult.PassPoint)
                         {
                             examResult.IsPass = true;
-                            var student = await db.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == examResult.StudentId);
-                            await LessonVideoService.Completed(db, examResult.LessonVideoId, student, examResult.Id, examResult.MyPoint);
+                            var student = await dbContext.tbl_UserInformation.SingleOrDefaultAsync(x => x.UserInformationId == examResult.StudentId);
+                            var lessonVideoService = new LessonVideoService(dbContext, _httpContextAccessor, _configuration);
+                            await lessonVideoService.Completed(examResult.LessonVideoId, student, examResult.Id, examResult.MyPoint);
                         }
-                        await db.SaveChangesAsync();
+                        await dbContext.SaveChangesAsync();
                         tran.Commit();
                         return examResult;
                     }
@@ -660,13 +660,10 @@ namespace LMS_Project.Services
                         throw e;
                     }
                 }
-            }
         }
-        public static async Task<List<tbl_GradingEssay>> GetGradingEssay(int examResultId)
+        public async Task<List<tbl_GradingEssay>> GetGradingEssay(int examResultId)
         {
-            using (var db = new lmsDbContext())
-            {
-                var data = await db.tbl_GradingEssay.Where(x => x.ExamResultId == examResultId && x.Enable == true).ToListAsync();
+                var data = await dbContext.tbl_GradingEssay.Where(x => x.ExamResultId == examResultId && x.Enable == true).ToListAsync();
                 data = (from i in data
                         select new tbl_GradingEssay
                         {
@@ -678,29 +675,23 @@ namespace LMS_Project.Services
                             ModifiedBy = i.ModifiedBy,
                             ModifiedOn = i.ModifiedOn,
                             StandardId = i.StandardId,
-                            StandardName = Task.Run(()=> GetStandard(db,i.StandardId)).Result?.Name,
-                            StandardPoint = Task.Run(() => GetStandard(db, i.StandardId)).Result?.Point ?? 0,
+                            StandardName = Task.Run(()=> GetStandard(i.StandardId)).Result?.Name,
+                            StandardPoint = Task.Run(() => GetStandard(i.StandardId)).Result?.Point ?? 0,
                         }).ToList();
                 return data;
-            }
         }
-        public static async Task<tbl_Standard> GetStandard(lmsDbContext dbContext, int standardId)
+        public async Task<tbl_Standard> GetStandard(int standardId)
         {
-            using (var db = new lmsDbContext())
-            {
-                return await db.tbl_Standard.SingleOrDefaultAsync(x => x.Id == standardId);
-            }              
+                return await dbContext.tbl_Standard.SingleOrDefaultAsync(x => x.Id == standardId);              
         }
         public class AddTeacherModel
         {
             public int TeacherId { get; set; }
             public List<int> ExamResultIds { get; set; }
         }
-        public static async Task AddTeachers(AddTeacherModel itemModel, tbl_UserInformation userLog)
+        public async Task AddTeachers(AddTeacherModel itemModel, tbl_UserInformation userLog)
         {
-            using (var db = new lmsDbContext())
-            {
-                var teacher = await db.tbl_UserInformation
+                var teacher = await dbContext.tbl_UserInformation
                     .SingleOrDefaultAsync(x => x.RoleId == ((int)RoleEnum.teacher) && x.UserInformationId == itemModel.TeacherId && x.Enable == true);
                 if (teacher == null)
                     throw new Exception("Không tìm thấy giáo viên");
@@ -708,12 +699,12 @@ namespace LMS_Project.Services
                     throw new Exception("Vui lòng chọn bài làm");
                 foreach (var item in itemModel.ExamResultIds)
                 {
-                    var examResult = await db.tbl_ExamResult.SingleOrDefaultAsync(x => x.Id == item);
+                    var examResult = await dbContext.tbl_ExamResult.SingleOrDefaultAsync(x => x.Id == item);
                     if (examResult == null)
                         continue;
                     examResult.TeacherId = teacher.UserInformationId;
                     examResult.ModifiedBy = userLog.FullName;
-                    await db.SaveChangesAsync();
+                    await dbContext.SaveChangesAsync();
                 }
 
                 await NotificationService.Send(
@@ -723,7 +714,6 @@ namespace LMS_Project.Services
                                         Title = "Bài tập cần chấm",
                                         Content = "Bạn có bài tập mới cần chấm, vui lòng kiểm tra"
                                     }, new tbl_UserInformation { FullName = "Tự động" });
-            }
         }
         /// <summary>
         /// false - chưa hoàn thành bài kiểm tra kiến thức
@@ -731,25 +721,23 @@ namespace LMS_Project.Services
         /// <param name="videoCourseId"></param>
         /// <param name="userLog"></param>
         /// <returns></returns>
-        public static async Task<bool> KnowledgeExamCompleted(int videoCourseId, tbl_UserInformation userLog)
+        public async Task<bool> KnowledgeExamCompleted(int videoCourseId, tbl_UserInformation userLog)
         {
-            using (var db = new lmsDbContext())
-            {
-                var sections = await db.tbl_Section.Where(x => x.VideoCourseId == videoCourseId && x.Enable == true).Select(x => x.Id).ToListAsync();
+                var sections = await dbContext.tbl_Section.Where(x => x.VideoCourseId == videoCourseId && x.Enable == true).Select(x => x.Id).ToListAsync();
                 if (sections.Any())
                 {
                     foreach (var item in sections)
                     {
-                        var lessons = await db.tbl_LessonVideo.Where(x => x.SectionId == item && x.Enable == true && x.Type == 2)
+                        var lessons = await dbContext.tbl_LessonVideo.Where(x => x.SectionId == item && x.Enable == true && x.Type == 2)
                             .Select(x => new { x.Id, x.ExamId }).ToListAsync();
                         if (lessons.Any())
                         {
                             foreach (var jteam in lessons)
                             {
-                                var exam = await db.tbl_Exam.SingleOrDefaultAsync(x => x.Id == jteam.ExamId);
+                                var exam = await dbContext.tbl_Exam.SingleOrDefaultAsync(x => x.Id == jteam.ExamId);
                                 if (exam.Type == 1)
                                 {
-                                    var hasResult = await db.tbl_ExamResult
+                                    var hasResult = await dbContext.tbl_ExamResult
                                         .AnyAsync(x => x.LessonVideoId == jteam.Id && x.StudentId == userLog.UserInformationId && x.Enable == true && x.IsPass == true);
                                     if (!hasResult)
                                         return false;
@@ -760,8 +748,6 @@ namespace LMS_Project.Services
                 }
                 else return false;
                 return true;
-
-            }
         }
     }
 }

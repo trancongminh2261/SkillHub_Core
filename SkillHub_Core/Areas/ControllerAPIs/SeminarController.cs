@@ -17,17 +17,32 @@ using System.Threading.Tasks;
 using LMSCore.Users;
 using Microsoft.AspNetCore.Mvc;
 using LMSCore.Areas.ControllerAPIs;
+using LMSCore.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace LMS_Project.Areas.ControllerAPIs
 {
     [ClaimsAuthorize]
     public class SeminarController : BaseController
     {
+        private lmsDbContext dbContext;
+        private SeminarService domainService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
+
+        public SeminarController(IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
+        {
+            this.dbContext = new lmsDbContext();
+            _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
+            this.domainService = new SeminarService(this.dbContext, _httpContextAccessor, _configuration);
+        }
         [HttpGet]
         [Route("api/Seminar/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var data = await SeminarService.GetById(id);
+            var data = await domainService.GetById(id);
             if (data == null)
                 return StatusCode((int)HttpStatusCode.NoContent);
             return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data = data });
@@ -40,7 +55,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var data = await SeminarService.Insert(model, GetCurrentUser());
+                    var data = await domainService.Insert(model, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -59,7 +74,7 @@ namespace LMS_Project.Areas.ControllerAPIs
             {
                 try
                 {
-                    var data = await SeminarService.Update(model, GetCurrentUser());
+                    var data = await domainService.Update(model, GetCurrentUser());
                     return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", data });
                 }
                 catch (Exception e)
@@ -76,7 +91,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         {
             try
             {
-                await SeminarService.Delete(id);
+                await domainService.Delete(id);
                 return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !" });
             }
             catch (Exception e)
@@ -88,7 +103,7 @@ namespace LMS_Project.Areas.ControllerAPIs
         [Route("api/Seminar")]
         public async Task<IActionResult> GetAll([FromQuery] SeminarSearch search)
         {
-            var data = await SeminarService.GetAll(search,GetCurrentUser());
+            var data = await domainService.GetAll(search,GetCurrentUser());
             if (data.TotalRow == 0)
                 return StatusCode((int)HttpStatusCode.NoContent);
             return StatusCode((int)HttpStatusCode.OK, new { message = "Thành công !", totalRow = data.TotalRow, data = data.Data });
