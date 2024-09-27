@@ -36,7 +36,7 @@ namespace LMS_Project.Services
         public CertificateService(lmsDbContext dbContext, IHttpContextAccessor httpContextAccessor, IConfiguration configuration) : base(dbContext)
         {
             _configuration = configuration;
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor; 
         }
         public async Task<tbl_Certificate> GetById(int id)
         {
